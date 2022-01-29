@@ -9,6 +9,8 @@ import UIKit
 
 class TestVC: UIViewController {
 
+    @IBOutlet weak var testTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .purple
