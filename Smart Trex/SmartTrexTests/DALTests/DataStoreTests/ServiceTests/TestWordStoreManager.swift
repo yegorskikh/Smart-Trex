@@ -31,31 +31,31 @@ class TestWordStoreManager: XCTestCase {
         wordService = nil
     }
     
-    func test_fetch_data() {
+    func test_fetch_from_storage() {
         // given
         let countDataArray = 1
         let expectation = expectation(description: "")
         
         // when
-        let _ = wordService.saveData(word: "Foo", translation: "Baz")
-        wordService.fetchArrayData { data in
+        let _ = wordService.saveToStorage(original: "Foo", translation: "Baz")
+        wordService.getDataFromStorage { data in
             XCTAssertEqual(data.count, countDataArray)
             expectation.fulfill()
         }
         waitForExpectations(timeout: 2)
     }
     
-    func test_delete_data() {
+    func test_removed_from_storage() {
         // given
         let expectation = expectation(description: "")
         let countDataArray = 1
         
         // when
-        let _ = wordService.saveData(word: "Bar", translation: "Foo")
-        let secondWord = wordService.saveData(word: "Foo", translation: "Baz")
-        wordService.delete(word: secondWord!)
+        let _ = wordService.saveToStorage(original: "Bar", translation: "Foo")
+        let secondWord = wordService.saveToStorage(original: "Foo", translation: "Baz")
+        wordService.removeFromStorage(secondWord!)
         
-        wordService.fetchArrayData { data in
+        wordService.getDataFromStorage { data in
             // then
             XCTAssertEqual(data.count, countDataArray)
             expectation.fulfill()
@@ -64,9 +64,9 @@ class TestWordStoreManager: XCTestCase {
         waitForExpectations(timeout: 2)
     }
     
-    func test_save_to_store() {
+    func test_save_to_storage() {
         // when
-        let word = wordService.saveData(word: "Foo", translation: "Baz")
+        let word = wordService.saveToStorage(original: "Foo", translation: "Baz")
         
         // then
         XCTAssertNotNil(word)
@@ -86,7 +86,7 @@ class TestWordStoreManager: XCTestCase {
         }
         
         derivedContext.perform {
-            let camper = self.wordService.saveData(word: "Foo", translation: "Baz")
+            let camper = self.wordService.saveToStorage(original: "Foo", translation: "Baz")
             // then
             XCTAssertNotNil(camper)
         }
@@ -95,7 +95,5 @@ class TestWordStoreManager: XCTestCase {
             XCTAssertNil(error, "Save did not occur")
         }
     }
-    
-
     
 }

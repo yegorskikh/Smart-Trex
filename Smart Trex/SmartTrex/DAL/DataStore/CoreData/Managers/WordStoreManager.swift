@@ -15,20 +15,20 @@ class WordStoreManager {
     let managedObjectContext: NSManagedObjectContext
     let coreDataStack: CoreDataStack
     
-    public init(managedObjectContext: NSManagedObjectContext, coreDataStack: CoreDataStack) {
+    init(managedObjectContext: NSManagedObjectContext, coreDataStack: CoreDataStack) {
       self.managedObjectContext = managedObjectContext
       self.coreDataStack = coreDataStack
     }
     
-    func saveData(word: String, translation: String) -> TranslationWord? {
+    func saveToStorage(original: String, translation: String) -> TranslationWord? {
         let translationWord = TranslationWord(context: managedObjectContext)
-        translationWord.original = word
+        translationWord.original = original
         translationWord.translation = translation
         coreDataStack.saveContext(managedObjectContext)
         return translationWord
     }
     
-    func fetchArrayData(completion: @escaping ([TranslationWord]) -> ()) {
+    func getDataFromStorage(completion: @escaping ([TranslationWord]) -> ()) {
         let fetchRequest = NSFetchRequest<TranslationWord>(entityName: WordStoreManager.modelName)
         
         do {
@@ -39,9 +39,9 @@ class WordStoreManager {
         }
     }
     
-    func delete(word: TranslationWord) {
+    func removeFromStorage(_ word: TranslationWord) {
         coreDataStack.mainContext.delete(word)
-        coreDataStack.saveContext()
+        coreDataStack.saveContext(managedObjectContext)
     }
     
 }

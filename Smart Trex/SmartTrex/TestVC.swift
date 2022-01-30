@@ -24,18 +24,18 @@ class TestVC: UIViewController {
     
     
     @IBAction func buttonTapped(_ sender: Any) {
-        var _ = coreDataStack.saveData(word: originalLabel.text!, translation: translationLabel.text!)
+        var _ = coreDataStack.saveToStorage(original: originalLabel.text!, translation: translationLabel.text!)
         printSaveData()
     }
     
     @IBAction func delButtonTapped(_ sender: Any) {
         let first = data[0]
-        coreDataStack.delete(word: first)
+        coreDataStack.removeFromStorage(first)
         printSaveData()
     }
     
     private func printSaveData() {
-        coreDataStack.fetchArrayData { data in
+        coreDataStack.getDataFromStorage { data in
             self.data = data
             print(data.count)
         }

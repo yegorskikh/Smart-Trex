@@ -36,50 +36,40 @@ class CoreDataStack {
     
     // MARK: Life cycle
     
- //   init(modelName: String) { CoreDataStack.modelName = modelName }
+    //   init(modelName: String) { CoreDataStack.modelName = modelName }
     
     // MARK: - Internal
     
-    func saveContext() {
-        if mainContext.hasChanges {
+    func saveContext(_ context: NSManagedObjectContext) {
+        if context != mainContext {
+            saveDerivedContext(context)
+            return
+        }
+        
+        context.perform {
             do {
-                try mainContext.save()
+                try context.save()
             } catch let error as NSError {
-                print("Unresolved error \(error), \(error.userInfo)")
+                fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         }
     }
     
-    public func saveContext(_ context: NSManagedObjectContext) {
-      if context != mainContext {
-        saveDerivedContext(context)
-        return
-      }
-
-      context.perform {
-        do {
-          try context.save()
-        } catch let error as NSError {
-          fatalError("Unresolved error \(error), \(error.userInfo)")
+    func saveDerivedContext(_ context: NSManagedObjectContext) {
+        context.perform {
+            do {
+                try context.save()
+            } catch let error as NSError {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+            
+            self.saveContext(self.mainContext)
         }
-      }
-    }
-    
-    public func saveDerivedContext(_ context: NSManagedObjectContext) {
-      context.perform {
-        do {
-          try context.save()
-        } catch let error as NSError {
-          fatalError("Unresolved error \(error), \(error.userInfo)")
-        }
-
-        self.saveContext(self.mainContext)
-      }
     }
     
     func newDerivedContext() -> NSManagedObjectContext {
-      let context = storeContainer.newBackgroundContext()
-      return context
+        let context = storeContainer.newBackgroundContext()
+        return context
     }
     
 }
