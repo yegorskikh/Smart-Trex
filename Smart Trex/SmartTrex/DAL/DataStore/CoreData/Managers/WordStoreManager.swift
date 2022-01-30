@@ -10,15 +10,17 @@ import CoreData
 
 class WordStoreManager {
     
-    static let modelName: String = "TranslationWord"
-    
     let managedObjectContext: NSManagedObjectContext
     let coreDataStack: CoreDataStack
+    
+    // MARK: - Lifecycle
     
     init(managedObjectContext: NSManagedObjectContext, coreDataStack: CoreDataStack) {
       self.managedObjectContext = managedObjectContext
       self.coreDataStack = coreDataStack
     }
+    
+    // MARK: - Internal
     
     func saveToStorage(original: String, translation: String) -> TranslationWord? {
         let translationWord = TranslationWord(context: managedObjectContext)
@@ -29,7 +31,7 @@ class WordStoreManager {
     }
     
     func getDataFromStorage(completion: @escaping ([TranslationWord]) -> ()) {
-        let fetchRequest = NSFetchRequest<TranslationWord>(entityName: WordStoreManager.modelName)
+        let fetchRequest = NSFetchRequest<TranslationWord>(entityName: CoreDataStack.modelName)
         
         do {
             let words = try coreDataStack.storeContainer.viewContext.fetch(fetchRequest)

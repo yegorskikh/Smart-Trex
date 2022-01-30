@@ -19,22 +19,20 @@ class TestWordStoreManager: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
         coreDataStack = MockCoreDataTests()
         wordService = WordStoreManager(managedObjectContext: coreDataStack.mainContext, coreDataStack: coreDataStack)
     }
     
     override func tearDown() {
-        super.tearDown()
-        
         coreDataStack = nil
         wordService = nil
+        super.tearDown()
     }
     
     func test_fetch_from_storage() {
         // given
         let countDataArray = 1
-        let expectation = expectation(description: "")
+        let expectation = expectation(description: "Fetch")
         
         // when
         let _ = wordService.saveToStorage(original: "Foo", translation: "Baz")
@@ -47,7 +45,7 @@ class TestWordStoreManager: XCTestCase {
     
     func test_removed_from_storage() {
         // given
-        let expectation = expectation(description: "")
+        let expectation = expectation(description: "Removed")
         let countDataArray = 1
         
         // when

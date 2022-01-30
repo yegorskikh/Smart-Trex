@@ -12,10 +12,9 @@ class CoreDataStack {
     
     // MARK: - Property
     
-    // TODO: change the initialization of this property
     static let modelName: String = "TranslationWord"
-    
-    static var model: NSManagedObjectModel = {
+
+    static let model: NSManagedObjectModel = {
         let modelURL = Bundle.main.url(forResource: modelName, withExtension: "momd")!
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
@@ -33,10 +32,6 @@ class CoreDataStack {
         }
         return container
     }()
-    
-    // MARK: Life cycle
-    
-    //   init(modelName: String) { CoreDataStack.modelName = modelName }
     
     // MARK: - Internal
     
