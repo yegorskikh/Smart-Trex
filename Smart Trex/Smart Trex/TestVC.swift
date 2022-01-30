@@ -13,6 +13,8 @@ class TestVC: UIViewController {
     @IBOutlet weak var originalLabel: UILabel!
     @IBOutlet weak var translationLabel: UILabel!
     
+    var data = [TranslationWord]()
+    
     lazy var coreDataStack = CoreDataStack(modelName: "TranslationWord")
     
     override func viewDidLoad() {
@@ -26,8 +28,15 @@ class TestVC: UIViewController {
         printSaveData()
     }
     
+    @IBAction func delButtonTapped(_ sender: Any) {
+        let first = data[0]
+        coreDataStack.delete(word: first)
+        printSaveData()
+    }
+    
     private func printSaveData() {
         coreDataStack.fetchData { data in
+            self.data = data
             print(data.count)
         }
     }

@@ -47,8 +47,12 @@ class CoreDataStack {
             complition(words)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
-         //   complition(nil)
         }
+    }
+    
+    func delete(word: TranslationWord) {
+        managedContext.delete(word)
+        saveContext()
     }
     
     // MARK: - Private
