@@ -136,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				14ABECBF27A602D200708D1E /* CoreDataStack */,
-				144DDD1227A5F73B00678575 /* NSManagedObject */,
 				144DDD0D27A5F6AE00678575 /* Model */,
 			);
 			path = SaveDataViaCoreData;
@@ -162,6 +161,7 @@
 		14ABECBF27A602D200708D1E /* CoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
+				144DDD1227A5F73B00678575 /* NSManagedObject */,
 				14ABECC027A602F500708D1E /* CoreDataStack.swift */,
 			);
 			path = CoreDataStack;
