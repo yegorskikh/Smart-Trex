@@ -13,13 +13,12 @@ import CoreData
 
 class TestWordStoreManager: XCTestCase {
     
-    // MARK: Property
     var wordService: WordStoreManager!
     var coreDataStack: CoreDataStack!
     
     override func setUp() {
         super.setUp()
-        coreDataStack = MockCoreDataTests()
+        coreDataStack = MockCoreDataStack()
         wordService = WordStoreManager(managedObjectContext: coreDataStack.mainContext, coreDataStack: coreDataStack)
     }
     
