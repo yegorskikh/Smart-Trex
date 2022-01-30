@@ -15,7 +15,7 @@ class TestVC: UIViewController {
     
     var data = [TranslationWord]()
     
-    lazy var coreDataStack = CoreDataStack(modelName: .translationWord)
+    lazy var coreDataStack = WordStoreManager(coreDataStack: CoreDataStack(modelName: "TranslationWord"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class TestVC: UIViewController {
     }
     
     private func printSaveData() {
-        coreDataStack.fetchData { data in
+        coreDataStack.fetchArrayData { data in
             self.data = data
             print(data.count)
         }

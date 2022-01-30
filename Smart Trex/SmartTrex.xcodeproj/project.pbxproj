@@ -18,6 +18,8 @@
 		14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECBC27A601B800708D1E /* TranslationWord+CoreDataProperties.swift */; };
 		14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECC027A602F500708D1E /* CoreDataStack.swift */; };
 		14E4520527A63E30008DCEAC /* SmartTrexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520427A63E30008DCEAC /* SmartTrexTests.swift */; };
+		14E4520E27A63FB5008DCEAC /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520D27A63FB5008DCEAC /* TestCoreDataStack.swift */; };
+		14E4521027A64298008DCEAC /* WordStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520F27A64298008DCEAC /* WordStoreManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		14ABECC027A602F500708D1E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		14E4520227A63E30008DCEAC /* SmartTrexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartTrexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E4520427A63E30008DCEAC /* SmartTrexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartTrexTests.swift; sourceTree = "<group>"; };
+		14E4520D27A63FB5008DCEAC /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
+		14E4520F27A64298008DCEAC /* WordStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordStoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +110,7 @@
 		14225B5127A06D38004B63BE /* DAL */ = {
 			isa = PBXGroup;
 			children = (
-				144DDD0C27A5F69000678575 /* SaveDataViaCoreData */,
+				144DDD0C27A5F69000678575 /* DataStore */,
 			);
 			path = DAL;
 			sourceTree = "<group>";
@@ -154,13 +158,12 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
-		144DDD0C27A5F69000678575 /* SaveDataViaCoreData */ = {
+		144DDD0C27A5F69000678575 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
-				14ABECBF27A602D200708D1E /* CoreDataStack */,
-				144DDD0D27A5F6AE00678575 /* Model */,
+				14E4521227A6455E008DCEAC /* CoreData */,
 			);
-			path = SaveDataViaCoreData;
+			path = DataStore;
 			sourceTree = "<group>";
 		};
 		144DDD0D27A5F6AE00678575 /* Model */ = {
@@ -183,7 +186,6 @@
 		14ABECBF27A602D200708D1E /* CoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
-				144DDD1227A5F73B00678575 /* NSManagedObject */,
 				14ABECC027A602F500708D1E /* CoreDataStack.swift */,
 			);
 			path = CoreDataStack;
@@ -192,9 +194,45 @@
 		14E4520327A63E30008DCEAC /* SmartTrexTests */ = {
 			isa = PBXGroup;
 			children = (
+				14E4520B27A63EE5008DCEAC /* DALTests */,
 				14E4520427A63E30008DCEAC /* SmartTrexTests.swift */,
 			);
 			path = SmartTrexTests;
+			sourceTree = "<group>";
+		};
+		14E4520B27A63EE5008DCEAC /* DALTests */ = {
+			isa = PBXGroup;
+			children = (
+				14E4520C27A63F01008DCEAC /* DataStoreTests */,
+			);
+			path = DALTests;
+			sourceTree = "<group>";
+		};
+		14E4520C27A63F01008DCEAC /* DataStoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				14E4520D27A63FB5008DCEAC /* TestCoreDataStack.swift */,
+			);
+			path = DataStoreTests;
+			sourceTree = "<group>";
+		};
+		14E4521127A64536008DCEAC /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				14E4520F27A64298008DCEAC /* WordStoreManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		14E4521227A6455E008DCEAC /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				144DDD0D27A5F6AE00678575 /* Model */,
+				14ABECBF27A602D200708D1E /* CoreDataStack */,
+				14E4521127A64536008DCEAC /* Managers */,
+				144DDD1227A5F73B00678575 /* NSManagedObject */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +341,7 @@
 				14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */,
 				14225B4127A06D1E004B63BE /* TestVC.swift in Sources */,
 				14225B3D27A06D1E004B63BE /* AppDelegate.swift in Sources */,
+				14E4521027A64298008DCEAC /* WordStoreManager.swift in Sources */,
 				14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */,
 				14ABECAE27A5FBCF00708D1E /* TranslationWord.xcdatamodeld in Sources */,
 			);
@@ -313,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14E4520527A63E30008DCEAC /* SmartTrexTests.swift in Sources */,
+				14E4520E27A63FB5008DCEAC /* TestCoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
