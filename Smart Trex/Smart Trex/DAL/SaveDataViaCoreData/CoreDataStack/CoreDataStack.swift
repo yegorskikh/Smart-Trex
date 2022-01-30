@@ -10,6 +10,12 @@ import CoreData
 
 class CoreDataStack {
     
+    // MARK: - Property
+    
+    enum ModelName: String {
+        case translationWord = "TranslationWord"
+    }
+    
     private let modelName: String
     
     private lazy var managedContext: NSManagedObjectContext = {
@@ -26,8 +32,10 @@ class CoreDataStack {
         return container
     }()
     
-    init(modelName: String) {
-        self.modelName = modelName
+    // MARK: Life cycle
+    
+    init(modelName: ModelName) {
+        self.modelName = modelName.rawValue
     }
     
     // MARK: - Internal
@@ -39,12 +47,12 @@ class CoreDataStack {
         saveContext()
     }
     
-    func fetchData(complition: @escaping ([TranslationWord]) -> () ) {
+    func fetchData(completion: @escaping ([TranslationWord]) -> () ) {
         let fetchRequest = NSFetchRequest<TranslationWord>(entityName: modelName)
         
         do {
             let words = try storeContainer.viewContext.fetch(fetchRequest)
-            complition(words)
+            completion(words)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -59,6 +67,7 @@ class CoreDataStack {
     
     private func saveContext() {
         guard managedContext.hasChanges else { return }
+        
         do {
             try managedContext.save()
         } catch let error as NSError {

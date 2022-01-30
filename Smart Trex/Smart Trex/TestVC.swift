@@ -15,7 +15,7 @@ class TestVC: UIViewController {
     
     var data = [TranslationWord]()
     
-    lazy var coreDataStack = CoreDataStack(modelName: "TranslationWord")
+    lazy var coreDataStack = CoreDataStack(modelName: .translationWord)
     
     override func viewDidLoad() {
         super.viewDidLoad()
