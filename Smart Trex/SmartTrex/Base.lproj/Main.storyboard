@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TestVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="TestVC" customModule="Smart_Trex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIh-kQ-W6f">
+                                <rect key="frame" x="174" y="528" width="67" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4kd-uP-CSb"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="GoN-ow-ESI">
+                                <rect key="frame" x="146.5" y="438" width="121" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6L3-T0-UMw">
+                                        <rect key="frame" x="0.0" y="0.0" width="39" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привет" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYF-sQ-gob">
+                                        <rect key="frame" x="63" y="0.0" width="58" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Wx-Uh-XNE">
+                                <rect key="frame" x="271.5" y="81" width="74.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Del first"/>
+                                <connections>
+                                    <action selector="delButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qgl-GT-raV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gIh-kQ-W6f" secondAttribute="trailing" symbolic="YES" id="0sr-Lf-cFO"/>
+                            <constraint firstItem="gIh-kQ-W6f" firstAttribute="leading" secondItem="GoN-ow-ESI" secondAttribute="trailing" constant="-93.5" id="19A-x4-85x"/>
+                            <constraint firstItem="GoN-ow-ESI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7sl-zO-355"/>
+                            <constraint firstItem="GoN-ow-ESI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="HKh-C7-Cbk"/>
+                            <constraint firstItem="0Wx-Uh-XNE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="37" id="NcC-nD-byw"/>
+                            <constraint firstItem="0Wx-Uh-XNE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="RKh-5K-aCo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Wx-Uh-XNE" secondAttribute="trailing" constant="68" id="X3k-L1-tV6"/>
+                            <constraint firstItem="gIh-kQ-W6f" firstAttribute="top" secondItem="GoN-ow-ESI" secondAttribute="bottom" constant="69.5" id="v91-tD-jFJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="originalLabel" destination="6L3-T0-UMw" id="j5x-mb-6Vk"/>
+                        <outlet property="translationLabel" destination="JYF-sQ-gob" id="yo2-JC-uBo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="97.767857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
