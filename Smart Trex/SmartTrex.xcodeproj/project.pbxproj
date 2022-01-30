@@ -17,9 +17,9 @@
 		14ABECBD27A601B800708D1E /* TranslationWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECBB27A601B800708D1E /* TranslationWord+CoreDataClass.swift */; };
 		14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECBC27A601B800708D1E /* TranslationWord+CoreDataProperties.swift */; };
 		14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECC027A602F500708D1E /* CoreDataStack.swift */; };
-		14E4520527A63E30008DCEAC /* SmartTrexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520427A63E30008DCEAC /* SmartTrexTests.swift */; };
-		14E4520E27A63FB5008DCEAC /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520D27A63FB5008DCEAC /* TestCoreDataStack.swift */; };
+		14E4520E27A63FB5008DCEAC /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */; };
 		14E4521027A64298008DCEAC /* WordStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520F27A64298008DCEAC /* WordStoreManager.swift */; };
+		14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,9 +46,9 @@
 		14ABECBC27A601B800708D1E /* TranslationWord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14ABECC027A602F500708D1E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		14E4520227A63E30008DCEAC /* SmartTrexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartTrexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		14E4520427A63E30008DCEAC /* SmartTrexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartTrexTests.swift; sourceTree = "<group>"; };
-		14E4520D27A63FB5008DCEAC /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
+		14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		14E4520F27A64298008DCEAC /* WordStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordStoreManager.swift; sourceTree = "<group>"; };
+		14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWordStoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				14E4520B27A63EE5008DCEAC /* DALTests */,
-				14E4520427A63E30008DCEAC /* SmartTrexTests.swift */,
 			);
 			path = SmartTrexTests;
 			sourceTree = "<group>";
@@ -211,7 +210,8 @@
 		14E4520C27A63F01008DCEAC /* DataStoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				14E4520D27A63FB5008DCEAC /* TestCoreDataStack.swift */,
+				14E4521627A6EB32008DCEAC /* ServiceTests */,
+				14E4521527A6EB2A008DCEAC /* Mocks */,
 			);
 			path = DataStoreTests;
 			sourceTree = "<group>";
@@ -233,6 +233,22 @@
 				144DDD1227A5F73B00678575 /* NSManagedObject */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		14E4521527A6EB2A008DCEAC /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		14E4521627A6EB32008DCEAC /* ServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */,
+			);
+			path = ServiceTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,8 +367,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14E4520527A63E30008DCEAC /* SmartTrexTests.swift in Sources */,
-				14E4520E27A63FB5008DCEAC /* TestCoreDataStack.swift in Sources */,
+				14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */,
+				14E4520E27A63FB5008DCEAC /* MockCoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

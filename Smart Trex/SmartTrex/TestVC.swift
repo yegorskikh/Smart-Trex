@@ -15,7 +15,7 @@ class TestVC: UIViewController {
     
     var data = [TranslationWord]()
     
-    lazy var coreDataStack = WordStoreManager(coreDataStack: CoreDataStack(modelName: "TranslationWord"))
+    lazy var coreDataStack = WordStoreManager(managedObjectContext: CoreDataStack().mainContext, coreDataStack: CoreDataStack())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class TestVC: UIViewController {
     
     
     @IBAction func buttonTapped(_ sender: Any) {
-        coreDataStack.saveData(word: originalLabel.text!, translation: translationLabel.text!)
+        var _ = coreDataStack.saveData(word: originalLabel.text!, translation: translationLabel.text!)
         printSaveData()
     }
     
