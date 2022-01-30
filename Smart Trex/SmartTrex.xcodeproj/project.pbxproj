@@ -17,10 +17,21 @@
 		14ABECBD27A601B800708D1E /* TranslationWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECBB27A601B800708D1E /* TranslationWord+CoreDataClass.swift */; };
 		14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECBC27A601B800708D1E /* TranslationWord+CoreDataProperties.swift */; };
 		14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECC027A602F500708D1E /* CoreDataStack.swift */; };
+		14E4520527A63E30008DCEAC /* SmartTrexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520427A63E30008DCEAC /* SmartTrexTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		14E4520627A63E30008DCEAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14225B3127A06D1E004B63BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14225B3827A06D1E004B63BE;
+			remoteInfo = "Smart Trex";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		14225B3927A06D1E004B63BE /* Smart Trex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Trex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14225B3927A06D1E004B63BE /* SmartTrex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartTrex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14225B3C27A06D1E004B63BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14225B3E27A06D1E004B63BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		14225B4027A06D1E004B63BE /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
@@ -32,10 +43,19 @@
 		14ABECBB27A601B800708D1E /* TranslationWord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14ABECBC27A601B800708D1E /* TranslationWord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14ABECC027A602F500708D1E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		14E4520227A63E30008DCEAC /* SmartTrexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartTrexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		14E4520427A63E30008DCEAC /* SmartTrexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartTrexTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		14225B3627A06D1E004B63BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14E451FF27A63E30008DCEAC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -48,7 +68,8 @@
 		14225B3027A06D1E004B63BE = {
 			isa = PBXGroup;
 			children = (
-				14225B3B27A06D1E004B63BE /* Smart Trex */,
+				14225B3B27A06D1E004B63BE /* SmartTrex */,
+				14E4520327A63E30008DCEAC /* SmartTrexTests */,
 				14225B3A27A06D1E004B63BE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,12 +77,13 @@
 		14225B3A27A06D1E004B63BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				14225B3927A06D1E004B63BE /* Smart Trex.app */,
+				14225B3927A06D1E004B63BE /* SmartTrex.app */,
+				14E4520227A63E30008DCEAC /* SmartTrexTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		14225B3B27A06D1E004B63BE /* Smart Trex */ = {
+		14225B3B27A06D1E004B63BE /* SmartTrex */ = {
 			isa = PBXGroup;
 			children = (
 				14225B5327A06D48004B63BE /* Common */,
@@ -71,7 +93,7 @@
 				14225B4027A06D1E004B63BE /* TestVC.swift */,
 				14225B4227A06D1E004B63BE /* Main.storyboard */,
 			);
-			path = "Smart Trex";
+			path = SmartTrex;
 			sourceTree = "<group>";
 		};
 		14225B5027A06D2F004B63BE /* BLL */ = {
@@ -167,12 +189,20 @@
 			path = CoreDataStack;
 			sourceTree = "<group>";
 		};
+		14E4520327A63E30008DCEAC /* SmartTrexTests */ = {
+			isa = PBXGroup;
+			children = (
+				14E4520427A63E30008DCEAC /* SmartTrexTests.swift */,
+			);
+			path = SmartTrexTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		14225B3827A06D1E004B63BE /* Smart Trex */ = {
+		14225B3827A06D1E004B63BE /* SmartTrex */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14225B4D27A06D22004B63BE /* Build configuration list for PBXNativeTarget "Smart Trex" */;
+			buildConfigurationList = 14225B4D27A06D22004B63BE /* Build configuration list for PBXNativeTarget "SmartTrex" */;
 			buildPhases = (
 				14225B3527A06D1E004B63BE /* Sources */,
 				14225B3627A06D1E004B63BE /* Frameworks */,
@@ -182,10 +212,28 @@
 			);
 			dependencies = (
 			);
-			name = "Smart Trex";
+			name = SmartTrex;
 			productName = "Smart Trex";
-			productReference = 14225B3927A06D1E004B63BE /* Smart Trex.app */;
+			productReference = 14225B3927A06D1E004B63BE /* SmartTrex.app */;
 			productType = "com.apple.product-type.application";
+		};
+		14E4520127A63E30008DCEAC /* SmartTrexTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14E4520A27A63E30008DCEAC /* Build configuration list for PBXNativeTarget "SmartTrexTests" */;
+			buildPhases = (
+				14E451FE27A63E30008DCEAC /* Sources */,
+				14E451FF27A63E30008DCEAC /* Frameworks */,
+				14E4520027A63E30008DCEAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14E4520727A63E30008DCEAC /* PBXTargetDependency */,
+			);
+			name = SmartTrexTests;
+			productName = SmartTrexTests;
+			productReference = 14E4520227A63E30008DCEAC /* SmartTrexTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -200,9 +248,13 @@
 					14225B3827A06D1E004B63BE = {
 						CreatedOnToolsVersion = 13.1;
 					};
+					14E4520127A63E30008DCEAC = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 14225B3827A06D1E004B63BE;
+					};
 				};
 			};
-			buildConfigurationList = 14225B3427A06D1E004B63BE /* Build configuration list for PBXProject "Smart Trex" */;
+			buildConfigurationList = 14225B3427A06D1E004B63BE /* Build configuration list for PBXProject "SmartTrex" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -215,7 +267,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				14225B3827A06D1E004B63BE /* Smart Trex */,
+				14225B3827A06D1E004B63BE /* SmartTrex */,
+				14E4520127A63E30008DCEAC /* SmartTrexTests */,
 			);
 		};
 /* End PBXProject section */
@@ -228,6 +281,13 @@
 				14225B4927A06D21004B63BE /* LaunchScreen.storyboard in Resources */,
 				14225B4627A06D21004B63BE /* Assets.xcassets in Resources */,
 				14225B4427A06D1E004B63BE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14E4520027A63E30008DCEAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +308,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		14E451FE27A63E30008DCEAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14E4520527A63E30008DCEAC /* SmartTrexTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14E4520727A63E30008DCEAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14225B3827A06D1E004B63BE /* SmartTrex */;
+			targetProxy = 14E4520627A63E30008DCEAC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		14225B4227A06D1E004B63BE /* Main.storyboard */ = {
@@ -395,7 +471,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 68FXT4UH73;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Smart Trex/Common/Resources/Info.plist";
+				INFOPLIST_FILE = SmartTrex/Common/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -406,7 +482,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yegorskikh.Smart-Trex";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yegorskikh.SmartTrex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -423,7 +499,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 68FXT4UH73;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Smart Trex/Common/Resources/Info.plist";
+				INFOPLIST_FILE = SmartTrex/Common/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -434,7 +510,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yegorskikh.Smart-Trex";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yegorskikh.SmartTrex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -442,10 +518,56 @@
 			};
 			name = Release;
 		};
+		14E4520827A63E30008DCEAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 68FXT4UH73;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yegorskikh.SmartTrexTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartTrex.app/SmartTrex";
+			};
+			name = Debug;
+		};
+		14E4520927A63E30008DCEAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 68FXT4UH73;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yegorskikh.SmartTrexTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartTrex.app/SmartTrex";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		14225B3427A06D1E004B63BE /* Build configuration list for PBXProject "Smart Trex" */ = {
+		14225B3427A06D1E004B63BE /* Build configuration list for PBXProject "SmartTrex" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14225B4B27A06D22004B63BE /* Debug */,
@@ -454,11 +576,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14225B4D27A06D22004B63BE /* Build configuration list for PBXNativeTarget "Smart Trex" */ = {
+		14225B4D27A06D22004B63BE /* Build configuration list for PBXNativeTarget "SmartTrex" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14225B4E27A06D22004B63BE /* Debug */,
 				14225B4F27A06D22004B63BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14E4520A27A63E30008DCEAC /* Build configuration list for PBXNativeTarget "SmartTrexTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14E4520827A63E30008DCEAC /* Debug */,
+				14E4520927A63E30008DCEAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
