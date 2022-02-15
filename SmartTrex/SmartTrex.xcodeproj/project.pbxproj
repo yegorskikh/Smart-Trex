@@ -14,7 +14,9 @@
 		14225B4427A06D1E004B63BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4227A06D1E004B63BE /* Main.storyboard */; };
 		14225B4627A06D21004B63BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4527A06D21004B63BE /* Assets.xcassets */; };
 		14225B4927A06D21004B63BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4727A06D21004B63BE /* LaunchScreen.storyboard */; };
-		1495033927B1BECB0043F47B /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495033827B1BECB0043F47B /* TranslationService.swift */; };
+		1495033927B1BECB0043F47B /* GoogleTranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495033827B1BECB0043F47B /* GoogleTranslationService.swift */; };
+		14A4B2B627BBCE890075CF30 /* TranslatRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4B2B527BBCE890075CF30 /* TranslatRequestModel.swift */; };
+		14A4B2B827BBCEEC0075CF30 /* TranslatResponeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4B2B727BBCEEC0075CF30 /* TranslatResponeData.swift */; };
 		14ABECAE27A5FBCF00708D1E /* TranslationWord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECAC27A5FBCF00708D1E /* TranslationWord.xcdatamodeld */; };
 		14ABECBD27A601B800708D1E /* TranslationWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECBB27A601B800708D1E /* TranslationWord+CoreDataClass.swift */; };
 		14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECBC27A601B800708D1E /* TranslationWord+CoreDataProperties.swift */; };
@@ -44,7 +46,9 @@
 		14225B4527A06D21004B63BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14225B4827A06D21004B63BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14225B4A27A06D22004B63BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1495033827B1BECB0043F47B /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
+		1495033827B1BECB0043F47B /* GoogleTranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslationService.swift; sourceTree = "<group>"; };
+		14A4B2B527BBCE890075CF30 /* TranslatRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatRequestModel.swift; sourceTree = "<group>"; };
+		14A4B2B727BBCEEC0075CF30 /* TranslatResponeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatResponeData.swift; sourceTree = "<group>"; };
 		14ABECAD27A5FBCF00708D1E /* TranslationWord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TranslationWord.xcdatamodel; sourceTree = "<group>"; };
 		14ABECBB27A601B800708D1E /* TranslationWord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14ABECBC27A601B800708D1E /* TranslationWord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -105,36 +109,28 @@
 			isa = PBXGroup;
 			children = (
 				14225B5327A06D48004B63BE /* Common */,
-				14225B5227A06D3E004B63BE /* GUI */,
-				14225B5127A06D38004B63BE /* DAL */,
-				14225B5027A06D2F004B63BE /* BLL */,
+				14225B5227A06D3E004B63BE /* Domain */,
+				14225B5127A06D38004B63BE /* Data */,
 				14225B4027A06D1E004B63BE /* TestVC.swift */,
 				14225B4227A06D1E004B63BE /* Main.storyboard */,
 			);
 			path = SmartTrex;
 			sourceTree = "<group>";
 		};
-		14225B5027A06D2F004B63BE /* BLL */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BLL;
-			sourceTree = "<group>";
-		};
-		14225B5127A06D38004B63BE /* DAL */ = {
+		14225B5127A06D38004B63BE /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				1495033727B1BE9F0043F47B /* Networking */,
 				144DDD0C27A5F69000678575 /* DataStore */,
 			);
-			path = DAL;
+			path = Data;
 			sourceTree = "<group>";
 		};
-		14225B5227A06D3E004B63BE /* GUI */ = {
+		14225B5227A06D3E004B63BE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = GUI;
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		14225B5327A06D48004B63BE /* Common */ = {
@@ -201,9 +197,43 @@
 		1495033727B1BE9F0043F47B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				1495033827B1BECB0043F47B /* TranslationService.swift */,
+				14A4B2B127BBCE300075CF30 /* GoogleTranslateAPI */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		14A4B2B127BBCE300075CF30 /* GoogleTranslateAPI */ = {
+			isa = PBXGroup;
+			children = (
+				14A4B2B227BBCE5D0075CF30 /* Model */,
+				1495033827B1BECB0043F47B /* GoogleTranslationService.swift */,
+			);
+			path = GoogleTranslateAPI;
+			sourceTree = "<group>";
+		};
+		14A4B2B227BBCE5D0075CF30 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				14A4B2B427BBCE6E0075CF30 /* Request */,
+				14A4B2B327BBCE650075CF30 /* Response */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		14A4B2B327BBCE650075CF30 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				14A4B2B727BBCEEC0075CF30 /* TranslatResponeData.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		14A4B2B427BBCE6E0075CF30 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				14A4B2B527BBCE890075CF30 /* TranslatRequestModel.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		14ABECBF27A602D200708D1E /* CoreDataStack */ = {
@@ -462,12 +492,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14A4B2B827BBCEEC0075CF30 /* TranslatResponeData.swift in Sources */,
 				14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */,
 				14ABECBD27A601B800708D1E /* TranslationWord+CoreDataClass.swift in Sources */,
 				14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */,
 				14225B4127A06D1E004B63BE /* TestVC.swift in Sources */,
 				14225B3D27A06D1E004B63BE /* AppDelegate.swift in Sources */,
-				1495033927B1BECB0043F47B /* TranslationService.swift in Sources */,
+				14A4B2B627BBCE890075CF30 /* TranslatRequestModel.swift in Sources */,
+				1495033927B1BECB0043F47B /* GoogleTranslationService.swift in Sources */,
 				14E4521027A64298008DCEAC /* WordStoreManager.swift in Sources */,
 				14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */,
 				14ABECAE27A5FBCF00708D1E /* TranslationWord.xcdatamodeld in Sources */,
