@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct TranslatResponePayload {
+    let responseData: TranslatResponeData?
+    let errorMessage: String?
+}
+
 struct TranslatResponeData: Decodable {
     let data: TranslationsResponseModel?
 }

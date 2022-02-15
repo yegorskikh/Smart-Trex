@@ -13,7 +13,7 @@ class GoogleTranslationService {
         "x-rapidapi-key": SecureString.xRapidapiKey
     ]
     
-    func toTranslate(_ words: TranslatRequestModel, completion: @escaping ((TranslatResponeData?) -> Void)) {
+    func toTranslate(_ words: TranslatRequestModel, completion: @escaping ((TranslatResponePayload?) -> Void)) {
         
         session.request(url,
                         method: .post,
@@ -26,8 +26,8 @@ class GoogleTranslationService {
                     let responseData = response.data,
                     let statusCode = response.response?.statusCode
                 else {
-                    print("Faild response data")
-                    completion(nil)
+                    completion(TranslatResponePayload(responseData: nil,
+                                                      errorMessage: "Faild response data"))
                     return
                 }
 
@@ -36,15 +36,15 @@ class GoogleTranslationService {
                 case 200:
                     do {
                         let data = try JSONDecoder().decode(TranslatResponeData.self, from: responseData)
-                        completion(data)
+                        completion(TranslatResponePayload(responseData: data, errorMessage: nil))
                     }
                     catch {
-                        print("Faild decode data")
-                        completion(nil)
+                        completion(TranslatResponePayload(responseData: nil,
+                                                          errorMessage: "Faild decode data"))
                     }
                 default:
-                    print("Faild status code")
-                    completion(nil)
+                    completion(TranslatResponePayload(responseData: nil,
+                                                      errorMessage: "Faild status code"))
                 }
                 
             }

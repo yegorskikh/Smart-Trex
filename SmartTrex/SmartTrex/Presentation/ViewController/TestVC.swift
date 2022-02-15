@@ -13,8 +13,11 @@ class TestVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        service.dontWork(.init(q: "Hello, World!", target: "ru")) { data in
-            print(data)
+        
+        service.toTranslate(.init(q: "Я", target: "en")) { data in
+            
+            guard let tr = data?.responseData?.data?.translations?.first?.translatedText else { return }
+            print("Translated -",tr)
         }
     
     }
