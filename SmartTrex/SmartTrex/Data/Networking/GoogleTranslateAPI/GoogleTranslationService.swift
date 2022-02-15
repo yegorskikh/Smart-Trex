@@ -10,7 +10,7 @@ class GoogleTranslationService {
         "content-type": "application/x-www-form-urlencoded",
         "accept-encoding": "application/gzip",
         "x-rapidapi-host": "google-translate1.p.rapidapi.com",
-        "x-rapidapi-key": "9d2d2a03c1mshc9f23a48517a991p1dd382jsna54af8d5d5bd"
+        "x-rapidapi-key": SecureString.xRapidapiKey
     ]
     
     func dontWork(_ word: TranslatRequestModel, completion: @escaping ((TranslatResponeData?) -> Void)) {
