@@ -14,14 +14,40 @@ class TestVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        service.toTranslate(.init(q: "Я", target: "en")) { data in
-            
-            guard let tr = data?.responseData?.data?.translations?.first?.translatedText else { return }
-            print("Translated -",tr)
-        }
+
+
+        detect()
+        translate()
     
     }
     
+    func detect() {
+        service.detectLanguage(DetectRequest(q: "Приветик")) { data in
+            guard
+                let det = data?.responseData?.data?.detections?.first?.language
+            else {
+                let err = data?.errorMessage
+                print(err!)
+                return
+            }
+            
+            print("Detect -", det)
+        }
+    }
+    
+    func translate() {
+        service.toTranslate(.init(q: "Я", target: .en)) { data in
+
+            guard
+                let tr = data?.responseData?.data?.translations?.first?.translatedText
+            else {
+                let err = data?.errorMessage
+                print(err!)
+                return
+            }
+            print("Translated -",tr)
+        }
+    }
     
 }
 

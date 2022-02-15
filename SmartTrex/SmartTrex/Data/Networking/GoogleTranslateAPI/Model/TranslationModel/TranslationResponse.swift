@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct TranslatResponePayload {
-    let responseData: TranslatResponeData?
+struct TranslationResponePayload {
+    let responseData: TranslationResponeData?
     let errorMessage: String?
 }
 
-struct TranslatResponeData: Decodable {
-    let data: TranslationsResponseModel?
+struct TranslationResponeData: Decodable {
+    let data: TranslationResponseModel?
 }
 
-struct TranslationsResponseModel: Decodable {
+struct TranslationResponseModel: Decodable {
     let translations: [WordResponseModel]?
 }
 

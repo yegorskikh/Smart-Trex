@@ -1,19 +1,37 @@
+//
+//  GoogleTranslationService.swift
+//  SmartTrex
+//
+//  Created by Yegor Gorskikh on 13.02.2022.
+//
+
 import Foundation
 import Alamofire
 
 class GoogleTranslationService {
     
-    let session: Session = Session(configuration: URLSessionConfiguration.default)
-    let url = URL(string: "https://google-translate1.p.rapidapi.com/language/translate/v2")!
+    // MARK: - Property
     
-    let headers: HTTPHeaders = [
+    private var session: Session
+    private let urlString = "https://google-translate1.p.rapidapi.com/language/translate/v2"
+    private let headers: HTTPHeaders = [
         "content-type": "application/x-www-form-urlencoded",
         "accept-encoding": "application/gzip",
         "x-rapidapi-host": "google-translate1.p.rapidapi.com",
         "x-rapidapi-key": SecureString.xRapidapiKey
     ]
     
-    func toTranslate(_ words: TranslatRequestModel, completion: @escaping ((TranslatResponePayload?) -> Void)) {
+    // MARK: - Lifecycle
+    
+    init(urlConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
+        session = Session(configuration: urlConfiguration)
+    }
+    
+    // MARK: - Pubclic
+    
+    public func toTranslate(_ words: TranslationRequestModel, completion: @escaping ((TranslationResponePayload?) -> Void)) {
+        
+        let url = URL(string: urlString)!
         
         session.request(url,
                         method: .post,
@@ -21,36 +39,75 @@ class GoogleTranslationService {
                         encoder: URLEncodedFormParameterEncoder.default,
                         headers: headers)
             .response { response in
-
+                
                 guard
                     let responseData = response.data,
                     let statusCode = response.response?.statusCode
                 else {
-                    completion(TranslatResponePayload(responseData: nil,
+                    completion(TranslationResponePayload(responseData: nil,
                                                       errorMessage: "Faild response data"))
                     return
                 }
-
+                
                 
                 switch statusCode {
                 case 200:
                     do {
-                        let data = try JSONDecoder().decode(TranslatResponeData.self, from: responseData)
-                        completion(TranslatResponePayload(responseData: data, errorMessage: nil))
+                        let data = try JSONDecoder().decode(TranslationResponeData.self, from: responseData)
+                        completion(TranslationResponePayload(responseData: data, errorMessage: nil))
                     }
                     catch {
-                        completion(TranslatResponePayload(responseData: nil,
+                        completion(TranslationResponePayload(responseData: nil,
                                                           errorMessage: "Faild decode data"))
                     }
                 default:
-                    completion(TranslatResponePayload(responseData: nil,
+                    completion(TranslationResponePayload(responseData: nil,
                                                       errorMessage: "Faild status code"))
                 }
                 
             }
-            
+        
     }
     
+
+    
+    public func detectLanguage(_ words: DetectRequest, completion: @escaping ((DetectLanguageResponePayload?) -> Void)) {
+        
+        let url = URL(string: urlString + "/detect")!
+        
+        session.request(url,
+                        method: .post,
+                        parameters: words,
+                        encoder: URLEncodedFormParameterEncoder.default,
+                        headers: headers)
+            .response { response in
+                
+                guard
+                    let responseData = response.data,
+                    let statusCode = response.response?.statusCode
+                else {
+                    completion(DetectLanguageResponePayload(responseData: nil,
+                                                      errorMessage: "Faild response data"))
+                    return
+                }
+                
+                
+                switch statusCode {
+                case 200:
+                    do {
+                        let data = try JSONDecoder().decode(DetectLanguageResponeData.self, from: responseData)
+                        completion(DetectLanguageResponePayload(responseData: data, errorMessage: nil))
+                    }
+                    catch {
+                        completion(DetectLanguageResponePayload(responseData: nil,
+                                                          errorMessage: "Faild decode data"))
+                    }
+                default:
+                    completion(DetectLanguageResponePayload(responseData: nil,
+                                                      errorMessage: "Faild status code"))
+                }
+            }
+    }
     
 }
 
