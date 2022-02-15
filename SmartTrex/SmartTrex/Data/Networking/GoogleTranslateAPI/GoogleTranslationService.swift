@@ -13,11 +13,11 @@ class GoogleTranslationService {
         "x-rapidapi-key": SecureString.xRapidapiKey
     ]
     
-    func dontWork(_ word: TranslatRequestModel, completion: @escaping ((TranslatResponeData?) -> Void)) {
+    func toTranslate(_ words: TranslatRequestModel, completion: @escaping ((TranslatResponeData?) -> Void)) {
         
         session.request(url,
                         method: .post,
-                        parameters: word,
+                        parameters: words,
                         encoder: URLEncodedFormParameterEncoder.default,
                         headers: headers)
             .response { response in
