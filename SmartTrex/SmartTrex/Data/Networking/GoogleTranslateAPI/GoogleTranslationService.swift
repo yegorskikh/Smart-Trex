@@ -62,7 +62,7 @@ class GoogleTranslationService {
                     }
                 default:
                     completion(TranslationResponePayload(responseData: nil,
-                                                      errorMessage: "Faild status code"))
+                                                      errorMessage: "Faild status code - \(statusCode)"))
                 }
                 
             }
@@ -104,7 +104,7 @@ class GoogleTranslationService {
                     }
                 default:
                     completion(DetectLanguageResponePayload(responseData: nil,
-                                                      errorMessage: "Faild status code"))
+                                                      errorMessage: "Faild status code - \(statusCode)"))
                 }
             }
     }

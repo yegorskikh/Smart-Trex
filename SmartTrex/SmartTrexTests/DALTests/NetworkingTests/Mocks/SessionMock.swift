@@ -6,7 +6,10 @@
 //
 
 import Foundation
+@testable import SmartTrex
+import XCTest
 
-class SessionMock: URLProtocol {
+class URLProtocolMock: URLProtocol {
     
 }
+
