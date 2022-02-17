@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct TranslationRequestModel: Encodable {
+struct TranslationRequestModel: Codable {
     
-    enum TargerLanguage: String, Encodable {
+    enum TargerLanguage: String, Codable {
         case ru = "ru"
         case en = "en"
     }

@@ -21,6 +21,12 @@ class GoogleTranslationService {
         "x-rapidapi-key": SecureString.xRapidapiKey
     ]
     
+    enum ErrorMessage: String {
+        case responeData = "Faild response data"
+        case statusCode = "Faild status code"
+        case decodeData = "Faild decode data"
+    }
+    
     // MARK: - Lifecycle
     
     init(urlConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
@@ -45,7 +51,7 @@ class GoogleTranslationService {
                     let statusCode = response.response?.statusCode
                 else {
                     completion(TranslationResponePayload(responseData: nil,
-                                                      errorMessage: "Faild response data"))
+                                                         errorMessage: ErrorMessage.responeData.rawValue))
                     return
                 }
                 
@@ -58,11 +64,11 @@ class GoogleTranslationService {
                     }
                     catch {
                         completion(TranslationResponePayload(responseData: nil,
-                                                          errorMessage: "Faild decode data"))
+                                                             errorMessage: ErrorMessage.decodeData.rawValue))
                     }
                 default:
                     completion(TranslationResponePayload(responseData: nil,
-                                                      errorMessage: "Faild status code - \(statusCode)"))
+                                                         errorMessage: "\(ErrorMessage.statusCode.rawValue) - \(statusCode)"))
                 }
                 
             }
@@ -87,7 +93,7 @@ class GoogleTranslationService {
                     let statusCode = response.response?.statusCode
                 else {
                     completion(DetectLanguageResponePayload(responseData: nil,
-                                                      errorMessage: "Faild response data"))
+                                                      errorMessage: ErrorMessage.responeData.rawValue))
                     return
                 }
                 
@@ -100,11 +106,11 @@ class GoogleTranslationService {
                     }
                     catch {
                         completion(DetectLanguageResponePayload(responseData: nil,
-                                                          errorMessage: "Faild decode data"))
+                                                          errorMessage:  ErrorMessage.decodeData.rawValue))
                     }
                 default:
                     completion(DetectLanguageResponePayload(responseData: nil,
-                                                      errorMessage: "Faild status code - \(statusCode)"))
+                                                      errorMessage: "\(ErrorMessage.statusCode.rawValue) - \(statusCode)"))
                 }
             }
     }

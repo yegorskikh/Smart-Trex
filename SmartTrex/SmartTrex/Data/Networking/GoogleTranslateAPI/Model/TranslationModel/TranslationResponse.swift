@@ -12,14 +12,14 @@ struct TranslationResponePayload {
     let errorMessage: String?
 }
 
-struct TranslationResponeData: Decodable {
+struct TranslationResponeData: Codable, Equatable {
     let data: TranslationResponseModel?
 }
 
-struct TranslationResponseModel: Decodable {
+struct TranslationResponseModel: Codable, Equatable {
     let translations: [WordResponseModel]?
 }
 
-struct WordResponseModel: Decodable {
+struct WordResponseModel: Codable, Equatable {
     let translatedText: String?
 }

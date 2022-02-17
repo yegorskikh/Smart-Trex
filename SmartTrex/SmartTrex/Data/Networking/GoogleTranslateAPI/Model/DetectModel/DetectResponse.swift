@@ -7,20 +7,20 @@
 
 import Foundation
 
-struct DetectLanguageResponePayload: Decodable {
+struct DetectLanguageResponePayload: Codable, Equatable {
     let responseData: DetectLanguageResponeData?
     let errorMessage: String?
 }
 
-struct DetectLanguageResponeData: Decodable {
+struct DetectLanguageResponeData: Codable, Equatable {
     let data: DetectLanguageResponseModel?
 }
 
-struct DetectLanguageResponseModel: Decodable {
+struct DetectLanguageResponseModel: Codable, Equatable {
     let detections: [DetectResponseModel]?
 }
 
-struct DetectResponseModel: Decodable {
+struct DetectResponseModel: Codable, Equatable {
     let confidence: Int?
     let language: String?
     let isReliable: Bool?

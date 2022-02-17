@@ -135,11 +135,11 @@
 		14225B3B27A06D1E004B63BE /* SmartTrex */ = {
 			isa = PBXGroup;
 			children = (
-				14A4B2BC27BBDC260075CF30 /* SecureString */,
-				14A4B2B927BBDBC60075CF30 /* Presentation */,
 				14225B5327A06D48004B63BE /* Common */,
-				14225B5227A06D3E004B63BE /* Domain */,
 				14225B5127A06D38004B63BE /* Data */,
+				14225B5227A06D3E004B63BE /* Domain */,
+				14A4B2B927BBDBC60075CF30 /* Presentation */,
+				14A4B2BC27BBDC260075CF30 /* SecureString */,
 			);
 			path = SmartTrex;
 			sourceTree = "<group>";

@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct DetectRequest: Encodable {
+struct DetectRequest: Codable {
     let q: String
 }
