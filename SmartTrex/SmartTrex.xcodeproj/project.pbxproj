@@ -98,18 +98,9 @@
 		14155CF727BC30A60054B502 /* NetworkingTests */ = {
 			isa = PBXGroup;
 			children = (
-				14155CFA27BC30F80054B502 /* Mocks */,
 				14155CF827BC30E30054B502 /* GoogleTranslationServiceTests.swift */,
 			);
 			path = NetworkingTests;
-			sourceTree = "<group>";
-		};
-		14155CFA27BC30F80054B502 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				14155CFB27BC31130054B502 /* SessionMock.swift */,
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 		14225B3027A06D1E004B63BE = {
@@ -317,6 +308,7 @@
 		14E4520B27A63EE5008DCEAC /* DALTests */ = {
 			isa = PBXGroup;
 			children = (
+				14F7030927C0026F00EF0838 /* Mocks */,
 				14155CF727BC30A60054B502 /* NetworkingTests */,
 				14E4520C27A63F01008DCEAC /* DataStoreTests */,
 			);
@@ -327,7 +319,6 @@
 			isa = PBXGroup;
 			children = (
 				14E4521627A6EB32008DCEAC /* ServiceTests */,
-				14E4521527A6EB2A008DCEAC /* Mocks */,
 			);
 			path = DataStoreTests;
 			sourceTree = "<group>";
@@ -351,20 +342,21 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		14E4521527A6EB2A008DCEAC /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
 		14E4521627A6EB32008DCEAC /* ServiceTests */ = {
 			isa = PBXGroup;
 			children = (
 				14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */,
 			);
 			path = ServiceTests;
+			sourceTree = "<group>";
+		};
+		14F7030927C0026F00EF0838 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				14155CFB27BC31130054B502 /* SessionMock.swift */,
+				14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		CF698BEF2D605B256FD18D28 /* Frameworks */ = {
