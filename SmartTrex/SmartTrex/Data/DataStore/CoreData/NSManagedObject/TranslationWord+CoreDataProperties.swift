@@ -12,15 +12,13 @@ import CoreData
 
 extension TranslationWord {
 
+    @NSManaged public var original: String?
+    @NSManaged public var translation: String?
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<TranslationWord> {
         return NSFetchRequest<TranslationWord>(entityName: "TranslationWord")
     }
 
-    @NSManaged public var original: String?
-    @NSManaged public var translation: String?
-
 }
 
-extension TranslationWord : Identifiable {
-
-}
+extension TranslationWord : Identifiable { }
