@@ -29,6 +29,8 @@
 		14E4520E27A63FB5008DCEAC /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */; };
 		14E4521027A64298008DCEAC /* WordStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520F27A64298008DCEAC /* WordStoreManager.swift */; };
 		14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */; };
+		14F7030B27C0034400EF0838 /* TranslatorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */; };
+		14F7031027C0052F00EF0838 /* NetworkingErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7030F27C0052F00EF0838 /* NetworkingErrorMessage.swift */; };
 		A791E927001F89431BA6B2CE /* Pods_SmartTrex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2107E4CEA172B3C463AA219 /* Pods_SmartTrex.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		14E4520F27A64298008DCEAC /* WordStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordStoreManager.swift; sourceTree = "<group>"; };
 		14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWordStoreManager.swift; sourceTree = "<group>"; };
+		14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslatorInteractor.swift; path = SmartTrex/Domain/Interctors/TranslatorInteractor.swift; sourceTree = SOURCE_ROOT; };
+		14F7030F27C0052F00EF0838 /* NetworkingErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingErrorMessage.swift; sourceTree = "<group>"; };
 		55F908DE156425EDE1A2EB24 /* Pods_SmartTrexTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartTrexTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F474BE5CBEBAB52553FBBC /* Pods-SmartTrex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrex.debug.xcconfig"; path = "Target Support Files/Pods-SmartTrex/Pods-SmartTrex.debug.xcconfig"; sourceTree = "<group>"; };
 		6DD48A919EDFE1F70472A4D4 /* Pods-SmartTrexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrexTests.release.xcconfig"; path = "Target Support Files/Pods-SmartTrexTests/Pods-SmartTrexTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,18 +102,9 @@
 		14155CF727BC30A60054B502 /* NetworkingTests */ = {
 			isa = PBXGroup;
 			children = (
-				14155CFA27BC30F80054B502 /* Mocks */,
 				14155CF827BC30E30054B502 /* GoogleTranslationServiceTests.swift */,
 			);
 			path = NetworkingTests;
-			sourceTree = "<group>";
-		};
-		14155CFA27BC30F80054B502 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				14155CFB27BC31130054B502 /* SessionMock.swift */,
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 		14225B3027A06D1E004B63BE = {
@@ -137,7 +132,7 @@
 			children = (
 				14225B5327A06D48004B63BE /* Common */,
 				14225B5127A06D38004B63BE /* Data */,
-				14225B5227A06D3E004B63BE /* Domain */,
+				14F7030C27C0041500EF0838 /* Domain */,
 				14A4B2B927BBDBC60075CF30 /* Presentation */,
 				14A4B2BC27BBDC260075CF30 /* SecureString */,
 			);
@@ -151,13 +146,6 @@
 				144DDD0C27A5F69000678575 /* DataStore */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		14225B5227A06D3E004B63BE /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Domain;
 			sourceTree = "<group>";
 		};
 		14225B5327A06D48004B63BE /* Common */ = {
@@ -224,6 +212,7 @@
 		1495033727B1BE9F0043F47B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				14F7030E27C0051400EF0838 /* Enum */,
 				14A4B2B127BBCE300075CF30 /* GoogleTranslateAPI */,
 			);
 			path = Networking;
@@ -317,6 +306,7 @@
 		14E4520B27A63EE5008DCEAC /* DALTests */ = {
 			isa = PBXGroup;
 			children = (
+				14F7030927C0026F00EF0838 /* Mocks */,
 				14155CF727BC30A60054B502 /* NetworkingTests */,
 				14E4520C27A63F01008DCEAC /* DataStoreTests */,
 			);
@@ -327,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				14E4521627A6EB32008DCEAC /* ServiceTests */,
-				14E4521527A6EB2A008DCEAC /* Mocks */,
 			);
 			path = DataStoreTests;
 			sourceTree = "<group>";
@@ -351,20 +340,45 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		14E4521527A6EB2A008DCEAC /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
 		14E4521627A6EB32008DCEAC /* ServiceTests */ = {
 			isa = PBXGroup;
 			children = (
 				14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */,
 			);
 			path = ServiceTests;
+			sourceTree = "<group>";
+		};
+		14F7030927C0026F00EF0838 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				14155CFB27BC31130054B502 /* SessionMock.swift */,
+				14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		14F7030C27C0041500EF0838 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				14F7030D27C0046D00EF0838 /* Interctors */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		14F7030D27C0046D00EF0838 /* Interctors */ = {
+			isa = PBXGroup;
+			children = (
+				14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */,
+			);
+			path = Interctors;
+			sourceTree = "<group>";
+		};
+		14F7030E27C0051400EF0838 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				14F7030F27C0052F00EF0838 /* NetworkingErrorMessage.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		CF698BEF2D605B256FD18D28 /* Frameworks */ = {
@@ -555,11 +569,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F7031027C0052F00EF0838 /* NetworkingErrorMessage.swift in Sources */,
 				14A4B2B827BBCEEC0075CF30 /* TranslationResponse.swift in Sources */,
 				148F005A27BC50EE00C9A198 /* DetectResponse.swift in Sources */,
 				14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */,
 				14ABECBD27A601B800708D1E /* TranslationWord+CoreDataClass.swift in Sources */,
 				14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */,
+				14F7030B27C0034400EF0838 /* TranslatorInteractor.swift in Sources */,
 				14225B4127A06D1E004B63BE /* TestVC.swift in Sources */,
 				14225B3D27A06D1E004B63BE /* AppDelegate.swift in Sources */,
 				14A4B2B627BBCE890075CF30 /* TranslationRequest.swift in Sources */,

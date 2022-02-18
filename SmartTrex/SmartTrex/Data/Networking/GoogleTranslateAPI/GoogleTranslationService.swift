@@ -21,12 +21,6 @@ class GoogleTranslationService {
         "x-rapidapi-key": SecureString.xRapidapiKey
     ]
     
-    enum ErrorMessage: String {
-        case responeData = "Faild response data"
-        case statusCode = "Faild status code"
-        case decodeData = "Faild decode data"
-    }
-    
     // MARK: - Lifecycle
     
     init(urlConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
@@ -51,31 +45,27 @@ class GoogleTranslationService {
                     let statusCode = response.response?.statusCode
                 else {
                     completion(TranslationResponePayload(responseData: nil,
-                                                         errorMessage: ErrorMessage.responeData.rawValue))
+                                                         errorMessage: NetworkingErrorMessage.responeData.rawValue))
                     return
                 }
-                
                 
                 switch statusCode {
                 case 200:
                     do {
                         let data = try JSONDecoder().decode(TranslationResponeData.self, from: responseData)
                         completion(TranslationResponePayload(responseData: data, errorMessage: nil))
-                    }
-                    catch {
+                    } catch {
                         completion(TranslationResponePayload(responseData: nil,
-                                                             errorMessage: ErrorMessage.decodeData.rawValue))
+                                                             errorMessage: NetworkingErrorMessage.decodeData.rawValue))
                     }
                 default:
                     completion(TranslationResponePayload(responseData: nil,
-                                                         errorMessage: "\(ErrorMessage.statusCode.rawValue) - \(statusCode)"))
+                                                         errorMessage: "\(NetworkingErrorMessage.statusCode.rawValue) - \(statusCode)"))
                 }
-                
             }
-        
     }
     
-
+    
     
     public func detectLanguage(_ words: DetectRequest, completion: @escaping ((DetectLanguageResponePayload?) -> Void)) {
         
@@ -93,24 +83,22 @@ class GoogleTranslationService {
                     let statusCode = response.response?.statusCode
                 else {
                     completion(DetectLanguageResponePayload(responseData: nil,
-                                                      errorMessage: ErrorMessage.responeData.rawValue))
+                                                            errorMessage: NetworkingErrorMessage.responeData.rawValue))
                     return
                 }
-                
                 
                 switch statusCode {
                 case 200:
                     do {
                         let data = try JSONDecoder().decode(DetectLanguageResponeData.self, from: responseData)
                         completion(DetectLanguageResponePayload(responseData: data, errorMessage: nil))
-                    }
-                    catch {
+                    } catch {
                         completion(DetectLanguageResponePayload(responseData: nil,
-                                                          errorMessage:  ErrorMessage.decodeData.rawValue))
+                                                                errorMessage:  NetworkingErrorMessage.decodeData.rawValue))
                     }
                 default:
                     completion(DetectLanguageResponePayload(responseData: nil,
-                                                      errorMessage: "\(ErrorMessage.statusCode.rawValue) - \(statusCode)"))
+                                                            errorMessage: "\(NetworkingErrorMessage.statusCode.rawValue) - \(statusCode)"))
                 }
             }
     }
