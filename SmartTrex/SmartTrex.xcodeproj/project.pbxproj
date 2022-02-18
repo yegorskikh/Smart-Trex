@@ -68,7 +68,7 @@
 		14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		14E4520F27A64298008DCEAC /* WordStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordStoreManager.swift; sourceTree = "<group>"; };
 		14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWordStoreManager.swift; sourceTree = "<group>"; };
-		14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslatorInteractor.swift; path = SmartTrex/Data/Networking/GoogleTranslateAPI/Model/TranslatorInteractor.swift; sourceTree = SOURCE_ROOT; };
+		14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslatorInteractor.swift; path = SmartTrex/Domain/Interctors/TranslatorInteractor.swift; sourceTree = SOURCE_ROOT; };
 		55F908DE156425EDE1A2EB24 /* Pods_SmartTrexTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartTrexTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F474BE5CBEBAB52553FBBC /* Pods-SmartTrex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrex.debug.xcconfig"; path = "Target Support Files/Pods-SmartTrex/Pods-SmartTrex.debug.xcconfig"; sourceTree = "<group>"; };
 		6DD48A919EDFE1F70472A4D4 /* Pods-SmartTrexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrexTests.release.xcconfig"; path = "Target Support Files/Pods-SmartTrexTests/Pods-SmartTrexTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,9 +128,9 @@
 		14225B3B27A06D1E004B63BE /* SmartTrex */ = {
 			isa = PBXGroup;
 			children = (
+				14F7030C27C0041500EF0838 /* Domain */,
 				14225B5327A06D48004B63BE /* Common */,
 				14225B5127A06D38004B63BE /* Data */,
-				14225B5227A06D3E004B63BE /* Domain */,
 				14A4B2B927BBDBC60075CF30 /* Presentation */,
 				14A4B2BC27BBDC260075CF30 /* SecureString */,
 			);
@@ -144,14 +144,6 @@
 				144DDD0C27A5F69000678575 /* DataStore */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		14225B5227A06D3E004B63BE /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */,
-			);
-			path = Domain;
 			sourceTree = "<group>";
 		};
 		14225B5327A06D48004B63BE /* Common */ = {
@@ -360,6 +352,22 @@
 				14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		14F7030C27C0041500EF0838 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				14F7030D27C0046D00EF0838 /* Interctors */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		14F7030D27C0046D00EF0838 /* Interctors */ = {
+			isa = PBXGroup;
+			children = (
+				14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */,
+			);
+			path = Interctors;
 			sourceTree = "<group>";
 		};
 		CF698BEF2D605B256FD18D28 /* Frameworks */ = {
