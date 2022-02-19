@@ -12,7 +12,9 @@ class GoogleTranslationService {
     
     // MARK: - Property
     
-    private var session: Session
+    private let session: Session
+    private let urlStringTranslate = SecureUrlString.urlStringTranslate
+    private let urlStringDetect = SecureUrlString.urlStringDetect
     
     // MARK: - Lifecycle
     
@@ -23,10 +25,8 @@ class GoogleTranslationService {
     // MARK: - Pubclic
     
     public func toTranslate(_ words: TranslationRequestModel, completion: @escaping ((TranslationResponePayload?) -> Void)) {
-        
-        let url = URL(string: SecureUrlString.urlStringTranslate)!
-        
-        session.request(url,
+            
+        session.request(URL(string: urlStringTranslate)!,
                         method: .post,
                         parameters: words,
                         encoder: URLEncodedFormParameterEncoder.default,
@@ -62,9 +62,7 @@ class GoogleTranslationService {
     
     public func detectLanguage(_ words: DetectRequest, completion: @escaping ((DetectLanguageResponePayload?) -> Void)) {
         
-        let url = URL(string: SecureUrlString.urlStringDetect)!
-        
-        session.request(url,
+        session.request(URL(string: urlStringDetect)!,
                         method: .post,
                         parameters: words,
                         encoder: URLEncodedFormParameterEncoder.default,
