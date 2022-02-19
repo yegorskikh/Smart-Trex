@@ -16,6 +16,7 @@
 		14225B4427A06D1E004B63BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4227A06D1E004B63BE /* Main.storyboard */; };
 		14225B4627A06D21004B63BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4527A06D21004B63BE /* Assets.xcassets */; };
 		14225B4927A06D21004B63BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4727A06D21004B63BE /* LaunchScreen.storyboard */; };
+		147E8DD627C1176000375170 /* ConnectionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E8DD527C1176000375170 /* ConnectionChecker.swift */; };
 		148F005A27BC50EE00C9A198 /* DetectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F005927BC50EE00C9A198 /* DetectResponse.swift */; };
 		148F005C27BC513800C9A198 /* DetectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F005B27BC513800C9A198 /* DetectRequest.swift */; };
 		1495033927B1BECB0043F47B /* GoogleTranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495033827B1BECB0043F47B /* GoogleTranslationService.swift */; };
@@ -55,6 +56,7 @@
 		14225B4527A06D21004B63BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14225B4827A06D21004B63BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14225B4A27A06D22004B63BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		147E8DD527C1176000375170 /* ConnectionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionChecker.swift; sourceTree = "<group>"; };
 		148F005927BC50EE00C9A198 /* DetectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectResponse.swift; sourceTree = "<group>"; };
 		148F005B27BC513800C9A198 /* DetectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectRequest.swift; sourceTree = "<group>"; };
 		1495033827B1BECB0043F47B /* GoogleTranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslationService.swift; sourceTree = "<group>"; };
@@ -209,6 +211,14 @@
 			path = NSManagedObject;
 			sourceTree = "<group>";
 		};
+		147E8DD327C1170900375170 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				147E8DD527C1176000375170 /* ConnectionChecker.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		1495033727B1BE9F0043F47B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +370,7 @@
 		14F7030C27C0041500EF0838 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				147E8DD327C1170900375170 /* Utility */,
 				14F7030D27C0046D00EF0838 /* Interctors */,
 			);
 			path = Domain;
@@ -583,6 +594,7 @@
 				14E4521027A64298008DCEAC /* WordStoreManager.swift in Sources */,
 				14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */,
 				14ABECAE27A5FBCF00708D1E /* TranslationWord.xcdatamodeld in Sources */,
+				147E8DD627C1176000375170 /* ConnectionChecker.swift in Sources */,
 				148F005C27BC513800C9A198 /* DetectRequest.swift in Sources */,
 				14A4B2BE27BBDC420075CF30 /* SecureString.swift in Sources */,
 			);
