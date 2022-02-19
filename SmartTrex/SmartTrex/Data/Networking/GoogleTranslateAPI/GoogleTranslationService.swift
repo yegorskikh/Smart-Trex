@@ -13,13 +13,6 @@ class GoogleTranslationService {
     // MARK: - Property
     
     private var session: Session
-    private let urlString = "https://google-translate1.p.rapidapi.com/language/translate/v2"
-    private let headers: HTTPHeaders = [
-        "content-type": "application/x-www-form-urlencoded",
-        "accept-encoding": "application/gzip",
-        "x-rapidapi-host": "google-translate1.p.rapidapi.com",
-        "x-rapidapi-key": SecureString.xRapidapiKey
-    ]
     
     // MARK: - Lifecycle
     
@@ -31,13 +24,13 @@ class GoogleTranslationService {
     
     public func toTranslate(_ words: TranslationRequestModel, completion: @escaping ((TranslationResponePayload?) -> Void)) {
         
-        let url = URL(string: urlString)!
+        let url = URL(string: SecureUrlString.urlStringTranslate)!
         
         session.request(url,
                         method: .post,
                         parameters: words,
                         encoder: URLEncodedFormParameterEncoder.default,
-                        headers: headers)
+                        headers: SecureHeader.headers)
             .response { response in
                 
                 guard
@@ -69,13 +62,13 @@ class GoogleTranslationService {
     
     public func detectLanguage(_ words: DetectRequest, completion: @escaping ((DetectLanguageResponePayload?) -> Void)) {
         
-        let url = URL(string: urlString + "/detect")!
+        let url = URL(string: SecureUrlString.urlStringDetect)!
         
         session.request(url,
                         method: .post,
                         parameters: words,
                         encoder: URLEncodedFormParameterEncoder.default,
-                        headers: headers)
+                        headers: SecureHeader.headers)
             .response { response in
                 
                 guard

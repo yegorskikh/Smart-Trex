@@ -47,4 +47,11 @@ class URLProtocolMock: URLProtocol {
     
     override func stopLoading() {}
     
+    func setupMock(statusCode: Int, responseData: Data?) {
+        URLProtocolMock.loadingHandler = { request in
+            let response = HTTPURLResponse(url: request.url!, statusCode: statusCode, httpVersion: nil, headerFields: nil)!
+            return (response, responseData)
+        }
+    }
+    
 }
