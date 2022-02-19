@@ -13,7 +13,7 @@ import Alamofire
 class GoogleTranslationServiceTests: XCTestCase {
     
     var sut: GoogleTranslationService!
-    var mock: URLProtocol!
+    var mock: URLProtocolMock!
     var translationRequestModel: TranslationRequestModel!
     var detectRequestModel: DetectRequest!
     
@@ -22,10 +22,11 @@ class GoogleTranslationServiceTests: XCTestCase {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [URLProtocolMock.self]
         
-        translationRequestModel = TranslationRequestModel(q: "Bar", target: .en)
-        detectRequestModel = DetectRequest(q: "Foo")
         sut = GoogleTranslationService(urlConfiguration: configuration)
         mock = URLProtocolMock()
+        
+        translationRequestModel = TranslationRequestModel(q: "Bar", target: .en)
+        detectRequestModel = DetectRequest(q: "Foo")
     }
     
     override func tearDown() {
@@ -41,7 +42,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         let expected = TranslationResponeData(data: TranslationResponseModel(translations:
                                                                                 [WordResponseModel(translatedText: "Foo")]))
         let responseJsonData = try! JSONEncoder().encode(expected)
-        setupMock(statusCode: 200, responseData: responseJsonData)
+        mock.setupMock(statusCode: 200, responseData: responseJsonData)
         let expectation = XCTestExpectation(description: "successful request")
         
         // when
@@ -62,7 +63,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         let expected = TranslationResponeData(data: TranslationResponseModel(translations:
                                                                                 [WordResponseModel(translatedText: "Foo")]))
         let responseJsonData = try! JSONEncoder().encode(expected)
-        setupMock(statusCode: 404, responseData: responseJsonData)
+        mock.setupMock(statusCode: 404, responseData: responseJsonData)
         let expectation = XCTestExpectation(description: "faild status code")
         
         // when
@@ -78,7 +79,7 @@ class GoogleTranslationServiceTests: XCTestCase {
     
     func test_translate_faild_response_data() {
         // given
-        setupMock(statusCode: 200, responseData: nil)
+        mock.setupMock(statusCode: 200, responseData: nil)
         let expectation = XCTestExpectation(description: "faild response data")
         
         // when
@@ -96,7 +97,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         // given
         let expected = ""
         let responseJsonData = try! JSONEncoder().encode(expected)
-        setupMock(statusCode: 200, responseData: responseJsonData)
+        mock.setupMock(statusCode: 200, responseData: responseJsonData)
         let expectation = XCTestExpectation(description: "faild decode data")
         
         // when
@@ -119,7 +120,7 @@ class GoogleTranslationServiceTests: XCTestCase {
                                                                                                          language: "Foo",
                                                                                                          isReliable: true)]))
         let responseJsonData = try! JSONEncoder().encode(expected)
-        setupMock(statusCode: 200, responseData: responseJsonData)
+        mock.setupMock(statusCode: 200, responseData: responseJsonData)
         let expectation = XCTestExpectation(description: "successful request")
         
         // when
@@ -144,7 +145,7 @@ class GoogleTranslationServiceTests: XCTestCase {
                                                                                                          language: "Foo",
                                                                                                          isReliable: true)]))
         let responseJsonData = try! JSONEncoder().encode(expected)
-        setupMock(statusCode: 404, responseData: responseJsonData)
+        mock.setupMock(statusCode: 404, responseData: responseJsonData)
         let expectation = XCTestExpectation(description: "faild status code")
         
         // when
@@ -165,7 +166,7 @@ class GoogleTranslationServiceTests: XCTestCase {
                                                                                                          language: "Foo",
                                                                                                          isReliable: true)]))
         let responseJsonData = try! JSONEncoder().encode(expected)
-        setupMock(statusCode: 404, responseData: responseJsonData)
+        mock.setupMock(statusCode: 404, responseData: responseJsonData)
         let expectation = XCTestExpectation(description: "faild status code")
         
         // when
@@ -183,7 +184,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         // given
         let expected = ""
         let responseJsonData = try! JSONEncoder().encode(expected)
-        setupMock(statusCode: 200, responseData: responseJsonData)
+        mock.setupMock(statusCode: 200, responseData: responseJsonData)
         let expectation = XCTestExpectation(description: "faild decode data")
         
         // when
@@ -199,7 +200,7 @@ class GoogleTranslationServiceTests: XCTestCase {
     
     func test_detect_faild_response_data() {
         // given
-        setupMock(statusCode: 200, responseData: nil)
+        mock.setupMock(statusCode: 200, responseData: nil)
         let expectation = XCTestExpectation(description: "faild response data")
         
         // when
@@ -214,14 +215,4 @@ class GoogleTranslationServiceTests: XCTestCase {
     }
     
     
-}
-
-extension GoogleTranslationServiceTests {
-    
-    func setupMock(statusCode: Int, responseData: Data?) {
-        URLProtocolMock.loadingHandler = { request in
-            let response = HTTPURLResponse(url: request.url!, statusCode: statusCode, httpVersion: nil, headerFields: nil)!
-            return (response, responseData)
-        }
-    }
 }
