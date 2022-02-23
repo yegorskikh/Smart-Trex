@@ -6,15 +6,14 @@
 //
 
 import Foundation
-@testable import SmartTrex
 import XCTest
 
 class URLProtocolMock: URLProtocol {
     
     static var loadingHandler: ((URLRequest) -> (HTTPURLResponse, Data?))?
     
-    enum ErrorT: Error {
-        case er
+    enum ErrorMock: Error {
+        case error
     }
     
     override class func canInit(with request: URLRequest) -> Bool {
@@ -40,7 +39,7 @@ class URLProtocolMock: URLProtocol {
             client?.urlProtocolDidFinishLoading(self)
         }
         else {
-            client?.urlProtocol(self, didFailWithError: ErrorT.er)
+            client?.urlProtocol(self, didFailWithError: ErrorMock.error)
             
         }
     }

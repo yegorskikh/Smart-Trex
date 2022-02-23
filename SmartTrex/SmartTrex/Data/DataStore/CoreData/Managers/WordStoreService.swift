@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class WordStoreManager {
+class WordStoreService {
     
     let managedObjectContext: NSManagedObjectContext
     let coreDataStack: CoreDataStack

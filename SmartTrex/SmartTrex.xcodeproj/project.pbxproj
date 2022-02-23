@@ -10,6 +10,7 @@
 		04A336167A2852B732FCEAC6 /* Pods_SmartTrexTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F908DE156425EDE1A2EB24 /* Pods_SmartTrexTests.framework */; };
 		14155CF927BC30E30054B502 /* GoogleTranslationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155CF827BC30E30054B502 /* GoogleTranslationServiceTests.swift */; };
 		14155CFC27BC31130054B502 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155CFB27BC31130054B502 /* URLProtocolMock.swift */; };
+		141B1D2527C2E67000FA8A59 /* URLMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B1D2427C2E67000FA8A59 /* URLMock.swift */; };
 		14225B3D27A06D1E004B63BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14225B3C27A06D1E004B63BE /* AppDelegate.swift */; };
 		14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14225B3E27A06D1E004B63BE /* SceneDelegate.swift */; };
 		14225B4127A06D1E004B63BE /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14225B4027A06D1E004B63BE /* TestVC.swift */; };
@@ -28,7 +29,7 @@
 		14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECBC27A601B800708D1E /* TranslationWord+CoreDataProperties.swift */; };
 		14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECC027A602F500708D1E /* CoreDataStack.swift */; };
 		14E4520E27A63FB5008DCEAC /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */; };
-		14E4521027A64298008DCEAC /* WordStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520F27A64298008DCEAC /* WordStoreManager.swift */; };
+		14E4521027A64298008DCEAC /* WordStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520F27A64298008DCEAC /* WordStoreService.swift */; };
 		14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */; };
 		14F7030B27C0034400EF0838 /* TranslatorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */; };
 		14F7031027C0052F00EF0838 /* NetworkingErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7030F27C0052F00EF0838 /* NetworkingErrorMessage.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		14155CF827BC30E30054B502 /* GoogleTranslationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslationServiceTests.swift; sourceTree = "<group>"; };
 		14155CFB27BC31130054B502 /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
+		141B1D2427C2E67000FA8A59 /* URLMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMock.swift; sourceTree = "<group>"; };
 		14225B3927A06D1E004B63BE /* SmartTrex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartTrex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14225B3C27A06D1E004B63BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14225B3E27A06D1E004B63BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 		14ABECC027A602F500708D1E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		14E4520227A63E30008DCEAC /* SmartTrexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartTrexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
-		14E4520F27A64298008DCEAC /* WordStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordStoreManager.swift; sourceTree = "<group>"; };
+		14E4520F27A64298008DCEAC /* WordStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordStoreService.swift; sourceTree = "<group>"; };
 		14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWordStoreManager.swift; sourceTree = "<group>"; };
 		14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslatorInteractor.swift; path = SmartTrex/Domain/Interctors/TranslatorInteractor.swift; sourceTree = SOURCE_ROOT; };
 		14F7030F27C0052F00EF0838 /* NetworkingErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingErrorMessage.swift; sourceTree = "<group>"; };
@@ -109,6 +111,23 @@
 			path = NetworkingTests;
 			sourceTree = "<group>";
 		};
+		141B1D2227C29EAF00FA8A59 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				14155CFB27BC31130054B502 /* URLProtocolMock.swift */,
+				14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		141B1D2327C2E65500FA8A59 /* FakeData */ = {
+			isa = PBXGroup;
+			children = (
+				141B1D2427C2E67000FA8A59 /* URLMock.swift */,
+			);
+			path = FakeData;
+			sourceTree = "<group>";
+		};
 		14225B3027A06D1E004B63BE = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +151,7 @@
 		14225B3B27A06D1E004B63BE /* SmartTrex */ = {
 			isa = PBXGroup;
 			children = (
+				141B1D2327C2E65500FA8A59 /* FakeData */,
 				14225B5327A06D48004B63BE /* Common */,
 				14225B5127A06D38004B63BE /* Data */,
 				14F7030C27C0041500EF0838 /* Domain */,
@@ -308,6 +328,7 @@
 		14E4520327A63E30008DCEAC /* SmartTrexTests */ = {
 			isa = PBXGroup;
 			children = (
+				141B1D2227C29EAF00FA8A59 /* Mocks */,
 				14E4520B27A63EE5008DCEAC /* DALTests */,
 			);
 			path = SmartTrexTests;
@@ -316,7 +337,6 @@
 		14E4520B27A63EE5008DCEAC /* DALTests */ = {
 			isa = PBXGroup;
 			children = (
-				14F7030927C0026F00EF0838 /* Mocks */,
 				14155CF727BC30A60054B502 /* NetworkingTests */,
 				14E4520C27A63F01008DCEAC /* DataStoreTests */,
 			);
@@ -334,7 +354,7 @@
 		14E4521127A64536008DCEAC /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				14E4520F27A64298008DCEAC /* WordStoreManager.swift */,
+				14E4520F27A64298008DCEAC /* WordStoreService.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -356,15 +376,6 @@
 				14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */,
 			);
 			path = ServiceTests;
-			sourceTree = "<group>";
-		};
-		14F7030927C0026F00EF0838 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				14155CFB27BC31130054B502 /* URLProtocolMock.swift */,
-				14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */,
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 		14F7030C27C0041500EF0838 /* Domain */ = {
@@ -587,11 +598,12 @@
 				14ABECBD27A601B800708D1E /* TranslationWord+CoreDataClass.swift in Sources */,
 				14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */,
 				14F7030B27C0034400EF0838 /* TranslatorInteractor.swift in Sources */,
+				141B1D2527C2E67000FA8A59 /* URLMock.swift in Sources */,
 				14225B4127A06D1E004B63BE /* TestVC.swift in Sources */,
 				14225B3D27A06D1E004B63BE /* AppDelegate.swift in Sources */,
 				14A4B2B627BBCE890075CF30 /* TranslationRequest.swift in Sources */,
 				1495033927B1BECB0043F47B /* GoogleTranslationService.swift in Sources */,
-				14E4521027A64298008DCEAC /* WordStoreManager.swift in Sources */,
+				14E4521027A64298008DCEAC /* WordStoreService.swift in Sources */,
 				14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */,
 				14ABECAE27A5FBCF00708D1E /* TranslationWord.xcdatamodeld in Sources */,
 				147E8DD627C1176000375170 /* ConnectionChecker.swift in Sources */,

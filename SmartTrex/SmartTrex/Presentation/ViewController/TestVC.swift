@@ -14,13 +14,14 @@ class TestVC: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var label: UILabel!
     
-    let service = GoogleTranslationService()
+    var interactor: TranslatorInteractor!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setDI()
     }
     
     @IBAction func buttonTapped(_ sender: Any) {
@@ -37,32 +38,30 @@ class TestVC: UIViewController {
         textField.clipsToBounds = true
     }
     
-    private func detect(text: String) {
-        service.detectLanguage(DetectRequest(q: text)) { data in
-            guard
-                let det = data?.responseData?.data?.detections?.first?.language
-            else {
-                let err = data?.errorMessage
-                self.label.text = err!
-                return
-            }
-            
-            self.label.text = "Detect -, \(det)"
+    private func translate(text: String) {
+        interactor.translateAndSaveToStore(text: textField.text!) { i in
+            self.label.text = i
         }
     }
     
-    private func translate(text: String) {
-        service.toTranslate(.init(q: text, target: .en)) { data in
-            
-            guard
-                let tr = data?.responseData?.data?.translations?.first?.translatedText
-            else {
-                let err = data?.errorMessage
-                self.label.text = err!
-                return
-            }
-            self.label.text = "Translated - \(tr)"
-        }
+    private func setDI() {
+        // URLMock
+        let mock: URLMock = URLMock()
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [URLMock.self]
+        
+        let service = GoogleTranslationService(urlConfiguration: configuration)
+        
+        let expected = TranslationResponeData(data: TranslationResponseModel(translations:
+                                                                                [WordResponseModel(translatedText: "Перевод")]))
+        let responseJsonData = try! JSONEncoder().encode(expected)
+        mock.setupMock(statusCode: 400, responseData: responseJsonData)
+        
+        let coreDataStack = CoreDataStack()
+        let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
+                                       coreDataStack: coreDataStack)
+        
+        interactor = TranslatorInteractor(storage: storage, translate: service)
     }
     
 }
