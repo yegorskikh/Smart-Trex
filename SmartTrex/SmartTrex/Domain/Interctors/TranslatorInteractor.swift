@@ -4,16 +4,15 @@
 //
 //  Created by Yegor Gorskikh on 18.02.2022.
 //
-//
 
 import Foundation
 
-class TranslatorInteractor {
+class TranslatorInteractor: TranslatorInteractorable {
     
-    let serviceStorage: WordStoreService
-    let serviceTranslate: GoogleTranslationService
+    var serviceStorage: WordStoragable
+    var serviceTranslate: Translationable
     
-    init(storage: WordStoreService, translate: GoogleTranslationService) {
+    init(storage: WordStoragable, translate: Translationable) {
         self.serviceStorage = storage
         self.serviceTranslate = translate
     }
@@ -21,7 +20,7 @@ class TranslatorInteractor {
     func translateAndSaveToStore(text: String, completion: @escaping (String) -> () ) {
         let model = TranslationRequestModel(q: text, target: .en)
         
-        serviceTranslate.toTranslate(model) { response in
+        serviceTranslate.toTranslate(model) { [weak self] response in
             
             guard
                 let translate = response?.responseData?.data?.translations?.first?.translatedText
@@ -31,11 +30,7 @@ class TranslatorInteractor {
                 return
             }
             
-            //            let _ = self?.serviceStorage.saveToStorage(original: text, translation: translate)
-            //            let _ = self?.serviceStorage.getDataFromStorage { dataStorage in
-            //                dataStorage.map { print($0.translation) }
-            //            }
-            
+            let _ = self?.serviceStorage.saveToStorage(original: text, translation: translate)
             completion(translate)
         }
         

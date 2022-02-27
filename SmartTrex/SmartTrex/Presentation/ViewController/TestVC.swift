@@ -9,7 +9,7 @@ import UIKit
 
 class TestVC: UIViewController {
     
-    // MARK: Property
+    // MARK: - Property
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var label: UILabel!
@@ -46,16 +46,16 @@ class TestVC: UIViewController {
     
     private func setDI() {
         // URLMock
+        let responseModel = TranslationResponeData(data: TranslationResponseModel(translations:
+                                                                                [WordResponseModel(translatedText: "хуй войне")]))
+        let responseJsonData = try! JSONEncoder().encode(responseModel)
+        
         let mock: URLMock = URLMock()
+        mock.setupMock(statusCode: 200, responseData: responseJsonData)
+        
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [URLMock.self]
-        
         let service = GoogleTranslationService(urlConfiguration: configuration)
-        
-        let expected = TranslationResponeData(data: TranslationResponseModel(translations:
-                                                                                [WordResponseModel(translatedText: "Перевод")]))
-        let responseJsonData = try! JSONEncoder().encode(expected)
-        mock.setupMock(statusCode: 400, responseData: responseJsonData)
         
         let coreDataStack = CoreDataStack()
         let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
