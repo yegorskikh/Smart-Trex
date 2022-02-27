@@ -31,5 +31,4 @@ class ConnectionChecker {
         return (isReachable && !needsConnection)
     }
     
-    
 }

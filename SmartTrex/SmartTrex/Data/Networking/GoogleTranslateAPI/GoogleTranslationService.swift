@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class GoogleTranslationService {
+class GoogleTranslationService: Translationable {
     
     // MARK: - Property
     

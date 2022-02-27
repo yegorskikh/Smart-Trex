@@ -13,13 +13,13 @@ import CoreData
 
 class TestWordStoreManager: XCTestCase {
     
-    var wordService: WordStoreManager!
+    var wordService: WordStoreService!
     var coreDataStack: CoreDataStack!
     
     override func setUp() {
         super.setUp()
         coreDataStack = MockCoreDataStack()
-        wordService = WordStoreManager(managedObjectContext: coreDataStack.mainContext, coreDataStack: coreDataStack)
+        wordService = WordStoreService(managedObjectContext: coreDataStack.mainContext, coreDataStack: coreDataStack)
     }
     
     override func tearDown() {
@@ -74,7 +74,7 @@ class TestWordStoreManager: XCTestCase {
     func test_root_context_in_saved_after_adding_word() {
         // when
         let derivedContext = coreDataStack.newDerivedContext()
-        wordService = WordStoreManager(managedObjectContext: derivedContext,
+        wordService = WordStoreService(managedObjectContext: derivedContext,
                                        coreDataStack: coreDataStack)
         
         expectation(forNotification: .NSManagedObjectContextDidSave,
