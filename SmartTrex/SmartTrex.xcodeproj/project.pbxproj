@@ -39,6 +39,7 @@
 		97EB1C9127CBCBFE00832CC7 /* TranslatorInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9027CBCBFE00832CC7 /* TranslatorInteractorTests.swift */; };
 		97EB1C9527CBD8F400832CC7 /* StoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9427CBD8F400832CC7 /* StoreMock.swift */; };
 		97EB1C9827CBD94600832CC7 /* TranslationNetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */; };
+		97F00A4D27CC290600D35188 /* TranslationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F00A4C27CC290600D35188 /* TranslationPresenter.swift */; };
 		A791E927001F89431BA6B2CE /* Pods_SmartTrex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2107E4CEA172B3C463AA219 /* Pods_SmartTrex.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		97EB1C9027CBCBFE00832CC7 /* TranslatorInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorInteractorTests.swift; sourceTree = "<group>"; };
 		97EB1C9427CBD8F400832CC7 /* StoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMock.swift; sourceTree = "<group>"; };
 		97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationNetworkMock.swift; sourceTree = "<group>"; };
+		97F00A4C27CC290600D35188 /* TranslationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationPresenter.swift; sourceTree = "<group>"; };
 		B2107E4CEA172B3C463AA219 /* Pods_SmartTrex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartTrex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -395,8 +397,8 @@
 		14F7030C27C0041500EF0838 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				97F00A4B27CC28CB00D35188 /* Presenter */,
 				14F7030D27C0046D00EF0838 /* Interctors */,
-				972AE4E227CBB82000EE205E /* Protocol */,
 				147E8DD327C1170900375170 /* Utility */,
 			);
 			path = Domain;
@@ -405,6 +407,7 @@
 		14F7030D27C0046D00EF0838 /* Interctors */ = {
 			isa = PBXGroup;
 			children = (
+				972AE4E227CBB82000EE205E /* Protocol */,
 				14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */,
 			);
 			path = Interctors;
@@ -459,6 +462,14 @@
 				97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		97F00A4B27CC28CB00D35188 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				97F00A4C27CC290600D35188 /* TranslationPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		CF698BEF2D605B256FD18D28 /* Frameworks */ = {
@@ -657,6 +668,7 @@
 				14ABECBD27A601B800708D1E /* TranslationWord+CoreDataClass.swift in Sources */,
 				14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */,
 				14F7030B27C0034400EF0838 /* TranslatorInteractor.swift in Sources */,
+				97F00A4D27CC290600D35188 /* TranslationPresenter.swift in Sources */,
 				141B1D2527C2E67000FA8A59 /* URLMock.swift in Sources */,
 				14225B4127A06D1E004B63BE /* TestVC.swift in Sources */,
 				97EB1C8D27CBBA1000832CC7 /* Translationable.swift in Sources */,
