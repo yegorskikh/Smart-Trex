@@ -7,7 +7,15 @@
 
 import UIKit
 
-final class TestVC: UIViewController {
+protocol TestVCProtocol: AnyObject {
+    var presenter: TranslationPresentable! { get set }
+    var textField: UITextField! { get }
+    var label: UILabel! { get }
+    
+    func showAlert(text: String)
+}
+
+class TestVC: UIViewController, TestVCProtocol {
     
     // MARK: - Property
     
@@ -27,6 +35,14 @@ final class TestVC: UIViewController {
     
     @IBAction func buttonTapped(_ sender: Any) {
         presenter.translate()
+    }
+    
+    func showAlert(text: String) {
+        let alert = UIAlertController(title: "Error",
+                                      message: text,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Private
