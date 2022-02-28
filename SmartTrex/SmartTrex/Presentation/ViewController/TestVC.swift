@@ -20,9 +20,10 @@ final class TestVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDI()
         setupViews()
     }
+    
+    // MARK: - Action
     
     @IBAction func buttonTapped(_ sender: Any) {
         presenter.translate()
@@ -38,34 +39,6 @@ final class TestVC: UIViewController {
         textField.clipsToBounds = true
     }
     
-    private func setDI() {
-        // URLMock
-        let responseModel = TranslationResponeData(data: TranslationResponseModel(translations:
-                                                                                    [WordResponseModel(translatedText: "хуй войне")]))
-        let responseJsonData = try! JSONEncoder().encode(responseModel)
-        
-        let mock: URLMock = URLMock()
-        mock.setupMock(statusCode: 200, responseData: responseJsonData)
-        
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [URLMock.self]
-        let service = GoogleTranslationService(urlConfiguration: configuration)
-        
-        let coreDataStack = CoreDataStack()
-        let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
-                                       coreDataStack: coreDataStack)
-        
-        
-        
-        let interactor = TranslatorInteractor(storage: storage, translate: service)
-        
-        let view = TestVC()
-        
-        presenter = TranslationPresenter(interactor: interactor)
-        presenter.view = self
-        
-        view.presenter = presenter
-    }
 }
 
 extension TestVC: UITextFieldDelegate {
@@ -76,3 +49,5 @@ extension TestVC: UITextFieldDelegate {
     }
     
 }
+
+
