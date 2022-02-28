@@ -29,11 +29,10 @@ class Collector {
         let interactor = TranslatorInteractor(storage: storage, translate: service)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         let view = storyboard.instantiateViewController(withIdentifier: "TestVC") as! TestVC
-        //TestVC()
         
-        let presenter = TranslationPresenter(interactor: interactor)
+        let presenter = TranslationPresenter()
+        presenter.interactor = interactor
         presenter.view = view
         
         view.presenter = presenter

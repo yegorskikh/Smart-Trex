@@ -8,7 +8,7 @@
 import Foundation
 
 protocol TranslationPresentable {
-    var interactor: TranslatorInteractorable { get }
+    var interactor: TranslatorInteractorable! { get set  }
     var view: TestVC! { get set }
     
     func translate()
@@ -17,11 +17,7 @@ protocol TranslationPresentable {
 class TranslationPresenter: TranslationPresentable {
     
     weak var view: TestVC!
-    var interactor: TranslatorInteractorable
-   
-    init(interactor: TranslatorInteractorable) {
-        self.interactor = interactor
-    }
+    var interactor: TranslatorInteractorable!
     
     func translate() {
         interactor.translateAndSaveToStore(text: view.textField.text ?? "") { translte in
