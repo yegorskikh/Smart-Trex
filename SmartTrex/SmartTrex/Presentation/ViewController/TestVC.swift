@@ -7,25 +7,25 @@
 
 import UIKit
 
-class TestVC: UIViewController {
+final class TestVC: UIViewController {
     
     // MARK: - Property
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var label: UILabel!
     
-    var interactor: TranslatorInteractor!
+    var presenter: TranslationPresentable!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
         setDI()
+        setupViews()
     }
     
     @IBAction func buttonTapped(_ sender: Any) {
-        translate(text: textField.text!)
+        presenter.translate()
     }
     
     // MARK: - Private
@@ -38,16 +38,10 @@ class TestVC: UIViewController {
         textField.clipsToBounds = true
     }
     
-    private func translate(text: String) {
-        interactor.translateAndSaveToStore(text: textField.text!) { i in
-            self.label.text = i
-        }
-    }
-    
     private func setDI() {
         // URLMock
         let responseModel = TranslationResponeData(data: TranslationResponseModel(translations:
-                                                                                [WordResponseModel(translatedText: "хуй войне")]))
+                                                                                    [WordResponseModel(translatedText: "хуй войне")]))
         let responseJsonData = try! JSONEncoder().encode(responseModel)
         
         let mock: URLMock = URLMock()
@@ -61,9 +55,17 @@ class TestVC: UIViewController {
         let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
                                        coreDataStack: coreDataStack)
         
-        interactor = TranslatorInteractor(storage: storage, translate: service)
+        
+        
+        let interactor = TranslatorInteractor(storage: storage, translate: service)
+        
+        let view = TestVC()
+        
+        presenter = TranslationPresenter(interactor: interactor)
+        presenter.view = self
+        
+        view.presenter = presenter
     }
-    
 }
 
 extension TestVC: UITextFieldDelegate {

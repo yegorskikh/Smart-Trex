@@ -302,6 +302,7 @@
 		14A4B2B927BBDBC60075CF30 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				97F00A4B27CC28CB00D35188 /* Presenter */,
 				14A4B2BB27BBDBF90075CF30 /* View */,
 				14A4B2BA27BBDBED0075CF30 /* ViewController */,
 			);
@@ -397,7 +398,6 @@
 		14F7030C27C0041500EF0838 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				97F00A4B27CC28CB00D35188 /* Presenter */,
 				14F7030D27C0046D00EF0838 /* Interctors */,
 				147E8DD327C1170900375170 /* Utility */,
 			);
