@@ -13,7 +13,7 @@
 		141B1D2527C2E67000FA8A59 /* URLMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B1D2427C2E67000FA8A59 /* URLMock.swift */; };
 		14225B3D27A06D1E004B63BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14225B3C27A06D1E004B63BE /* AppDelegate.swift */; };
 		14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14225B3E27A06D1E004B63BE /* SceneDelegate.swift */; };
-		14225B4127A06D1E004B63BE /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14225B4027A06D1E004B63BE /* TestVC.swift */; };
+		14225B4127A06D1E004B63BE /* TranslateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14225B4027A06D1E004B63BE /* TranslateVC.swift */; };
 		14225B4427A06D1E004B63BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4227A06D1E004B63BE /* Main.storyboard */; };
 		14225B4627A06D21004B63BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4527A06D21004B63BE /* Assets.xcassets */; };
 		14225B4927A06D21004B63BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4727A06D21004B63BE /* LaunchScreen.storyboard */; };
@@ -34,11 +34,17 @@
 		14F7030B27C0034400EF0838 /* TranslatorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */; };
 		14F7031027C0052F00EF0838 /* NetworkingErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7030F27C0052F00EF0838 /* NetworkingErrorMessage.swift */; };
 		972AE4E427CBB83C00EE205E /* TranslatorInteractorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972AE4E327CBB83C00EE205E /* TranslatorInteractorable.swift */; };
+		9756824B27CE94E900C7E85F /* TranslateVCAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756824A27CE94E900C7E85F /* TranslateVCAble.swift */; };
+		9756824E27CE951D00C7E85F /* TranslationPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756824D27CE951D00C7E85F /* TranslationPresentable.swift */; };
+		9756825327CE98E600C7E85F /* TranslateVcMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825227CE98E600C7E85F /* TranslateVcMock.swift */; };
+		9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */; };
+		9756825927CEAF6E00C7E85F /* TranslatePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */; };
 		97EB1C8B27CBB9C500832CC7 /* WordStoragable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C8A27CBB9C500832CC7 /* WordStoragable.swift */; };
 		97EB1C8D27CBBA1000832CC7 /* Translationable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C8C27CBBA1000832CC7 /* Translationable.swift */; };
 		97EB1C9127CBCBFE00832CC7 /* TranslatorInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9027CBCBFE00832CC7 /* TranslatorInteractorTests.swift */; };
 		97EB1C9527CBD8F400832CC7 /* StoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9427CBD8F400832CC7 /* StoreMock.swift */; };
 		97EB1C9827CBD94600832CC7 /* TranslationNetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */; };
+		97F00A4D27CC290600D35188 /* TranslationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F00A4C27CC290600D35188 /* TranslationPresenter.swift */; };
 		A791E927001F89431BA6B2CE /* Pods_SmartTrex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2107E4CEA172B3C463AA219 /* Pods_SmartTrex.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +65,7 @@
 		14225B3927A06D1E004B63BE /* SmartTrex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartTrex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14225B3C27A06D1E004B63BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14225B3E27A06D1E004B63BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		14225B4027A06D1E004B63BE /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		14225B4027A06D1E004B63BE /* TranslateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateVC.swift; sourceTree = "<group>"; };
 		14225B4327A06D1E004B63BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14225B4527A06D21004B63BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14225B4827A06D21004B63BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -87,11 +93,17 @@
 		76193E63218A6980CA108C11 /* Pods-SmartTrex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrex.release.xcconfig"; path = "Target Support Files/Pods-SmartTrex/Pods-SmartTrex.release.xcconfig"; sourceTree = "<group>"; };
 		943C5BA60EFD9DE0AEBBFA1A /* Pods-SmartTrexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrexTests.debug.xcconfig"; path = "Target Support Files/Pods-SmartTrexTests/Pods-SmartTrexTests.debug.xcconfig"; sourceTree = "<group>"; };
 		972AE4E327CBB83C00EE205E /* TranslatorInteractorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorInteractorable.swift; sourceTree = "<group>"; };
+		9756824A27CE94E900C7E85F /* TranslateVCAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateVCAble.swift; sourceTree = "<group>"; };
+		9756824D27CE951D00C7E85F /* TranslationPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationPresentable.swift; sourceTree = "<group>"; };
+		9756825227CE98E600C7E85F /* TranslateVcMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateVcMock.swift; sourceTree = "<group>"; };
+		9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractorMock.swift; sourceTree = "<group>"; };
+		9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatePresenterTests.swift; sourceTree = "<group>"; };
 		97EB1C8A27CBB9C500832CC7 /* WordStoragable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordStoragable.swift; sourceTree = "<group>"; };
 		97EB1C8C27CBBA1000832CC7 /* Translationable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translationable.swift; sourceTree = "<group>"; };
 		97EB1C9027CBCBFE00832CC7 /* TranslatorInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorInteractorTests.swift; sourceTree = "<group>"; };
 		97EB1C9427CBD8F400832CC7 /* StoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMock.swift; sourceTree = "<group>"; };
 		97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationNetworkMock.swift; sourceTree = "<group>"; };
+		97F00A4C27CC290600D35188 /* TranslationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationPresenter.swift; sourceTree = "<group>"; };
 		B2107E4CEA172B3C463AA219 /* Pods_SmartTrex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartTrex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -300,6 +312,7 @@
 		14A4B2B927BBDBC60075CF30 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				97F00A4B27CC28CB00D35188 /* Presenter */,
 				14A4B2BB27BBDBF90075CF30 /* View */,
 				14A4B2BA27BBDBED0075CF30 /* ViewController */,
 			);
@@ -309,7 +322,8 @@
 		14A4B2BA27BBDBED0075CF30 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				14225B4027A06D1E004B63BE /* TestVC.swift */,
+				9756824927CE94D100C7E85F /* Protocol */,
+				14225B4027A06D1E004B63BE /* TranslateVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -341,6 +355,7 @@
 		14E4520327A63E30008DCEAC /* SmartTrexTests */ = {
 			isa = PBXGroup;
 			children = (
+				9756824F27CE974600C7E85F /* PresentationTests */,
 				97EB1C8E27CBCBC400832CC7 /* BLLTests */,
 				14E4520B27A63EE5008DCEAC /* DALTests */,
 			);
@@ -396,7 +411,6 @@
 			isa = PBXGroup;
 			children = (
 				14F7030D27C0046D00EF0838 /* Interctors */,
-				972AE4E227CBB82000EE205E /* Protocol */,
 				147E8DD327C1170900375170 /* Utility */,
 			);
 			path = Domain;
@@ -405,6 +419,7 @@
 		14F7030D27C0046D00EF0838 /* Interctors */ = {
 			isa = PBXGroup;
 			children = (
+				972AE4E227CBB82000EE205E /* Protocol */,
 				14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */,
 			);
 			path = Interctors;
@@ -424,6 +439,47 @@
 				972AE4E327CBB83C00EE205E /* TranslatorInteractorable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		9756824927CE94D100C7E85F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9756824A27CE94E900C7E85F /* TranslateVCAble.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		9756824C27CE950B00C7E85F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9756824D27CE951D00C7E85F /* TranslationPresentable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		9756824F27CE974600C7E85F /* PresentationTests */ = {
+			isa = PBXGroup;
+			children = (
+				9756825127CE976E00C7E85F /* Mocks */,
+				9756825027CE976300C7E85F /* PresenterTests */,
+			);
+			path = PresentationTests;
+			sourceTree = "<group>";
+		};
+		9756825027CE976300C7E85F /* PresenterTests */ = {
+			isa = PBXGroup;
+			children = (
+				9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */,
+			);
+			path = PresenterTests;
+			sourceTree = "<group>";
+		};
+		9756825127CE976E00C7E85F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9756825227CE98E600C7E85F /* TranslateVcMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		97EB1C8927CBB98800832CC7 /* Protocol */ = {
@@ -457,8 +513,18 @@
 			children = (
 				97EB1C9427CBD8F400832CC7 /* StoreMock.swift */,
 				97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */,
+				9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		97F00A4B27CC28CB00D35188 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9756824C27CE950B00C7E85F /* Protocol */,
+				97F00A4C27CC290600D35188 /* TranslationPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		CF698BEF2D605B256FD18D28 /* Frameworks */ = {
@@ -657,15 +723,18 @@
 				14ABECBD27A601B800708D1E /* TranslationWord+CoreDataClass.swift in Sources */,
 				14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */,
 				14F7030B27C0034400EF0838 /* TranslatorInteractor.swift in Sources */,
+				97F00A4D27CC290600D35188 /* TranslationPresenter.swift in Sources */,
 				141B1D2527C2E67000FA8A59 /* URLMock.swift in Sources */,
-				14225B4127A06D1E004B63BE /* TestVC.swift in Sources */,
+				14225B4127A06D1E004B63BE /* TranslateVC.swift in Sources */,
 				97EB1C8D27CBBA1000832CC7 /* Translationable.swift in Sources */,
 				14225B3D27A06D1E004B63BE /* AppDelegate.swift in Sources */,
 				97EB1C8B27CBB9C500832CC7 /* WordStoragable.swift in Sources */,
 				14A4B2B627BBCE890075CF30 /* TranslationRequest.swift in Sources */,
+				9756824B27CE94E900C7E85F /* TranslateVCAble.swift in Sources */,
 				1495033927B1BECB0043F47B /* GoogleTranslationService.swift in Sources */,
 				14E4521027A64298008DCEAC /* WordStoreService.swift in Sources */,
 				14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */,
+				9756824E27CE951D00C7E85F /* TranslationPresentable.swift in Sources */,
 				14ABECAE27A5FBCF00708D1E /* TranslationWord.xcdatamodeld in Sources */,
 				147E8DD627C1176000375170 /* ConnectionChecker.swift in Sources */,
 				148F005C27BC513800C9A198 /* DetectRequest.swift in Sources */,
@@ -678,12 +747,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				14155CF927BC30E30054B502 /* GoogleTranslationServiceTests.swift in Sources */,
+				9756825927CEAF6E00C7E85F /* TranslatePresenterTests.swift in Sources */,
 				14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */,
+				9756825327CE98E600C7E85F /* TranslateVcMock.swift in Sources */,
 				14155CFC27BC31130054B502 /* URLProtocolMock.swift in Sources */,
 				97EB1C9827CBD94600832CC7 /* TranslationNetworkMock.swift in Sources */,
 				97EB1C9127CBCBFE00832CC7 /* TranslatorInteractorTests.swift in Sources */,
 				14E4520E27A63FB5008DCEAC /* MockCoreDataStack.swift in Sources */,
 				97EB1C9527CBD8F400832CC7 /* StoreMock.swift in Sources */,
+				9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,7 +918,6 @@
 				INFOPLIST_FILE = SmartTrex/Common/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -875,7 +946,6 @@
 				INFOPLIST_FILE = SmartTrex/Common/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
