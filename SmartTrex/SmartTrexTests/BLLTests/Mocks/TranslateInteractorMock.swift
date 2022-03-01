@@ -11,7 +11,7 @@ import Foundation
 class TranslateInteractorMock: TranslatorInteractorable {
     var serviceStorage: WordStoragable!
     var serviceTranslate: Translationable!
-    private var wasCalled = false
+    var wasCalled = false
     
     
     enum TypeResponse {

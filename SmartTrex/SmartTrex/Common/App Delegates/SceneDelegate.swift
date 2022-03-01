@@ -26,7 +26,9 @@ class Collector {
         
         
         
-        let interactor = TranslatorInteractor(storage: storage, translate: service)
+        let interactor = TranslatorInteractor()
+        interactor.serviceStorage = storage
+        interactor.serviceTranslate = service
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "TestVC") as! TranslateVC

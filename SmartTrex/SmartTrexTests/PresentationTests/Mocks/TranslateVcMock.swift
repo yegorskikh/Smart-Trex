@@ -16,6 +16,12 @@ class TranslateVcMock: TranslateVCAble {
     
     var showAlertWasCalled = false
     
+    init() {
+        textField = UITextField()
+        label = UILabel()
+        textField.text = "Foo"
+    }
+    
     func showAlert(text: String) {
         showAlertWasCalled = true
     }

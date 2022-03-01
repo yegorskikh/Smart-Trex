@@ -11,12 +11,7 @@ class TranslatorInteractor: TranslatorInteractorable {
     
     var serviceStorage: WordStoragable!
     var serviceTranslate: Translationable!
-    
-    init(storage: WordStoragable, translate: Translationable) {
-        self.serviceStorage = storage
-        self.serviceTranslate = translate
-    }
-    
+        
     func translateAndSaveToStore(text: String, completion: @escaping (_ translate: String?,
                                                                       _ error: String?) -> () ) {
         let model = TranslationRequestModel(q: text, target: .en)
