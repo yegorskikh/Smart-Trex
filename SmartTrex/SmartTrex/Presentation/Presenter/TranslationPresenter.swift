@@ -7,22 +7,22 @@
 
 import Foundation
 
-protocol TranslationPresentable {
-    var interactor: TranslatorInteractorable! { get set  }
-    var view: TestVCProtocol! { get set }
-    
-    func translate()
-}
-
 class TranslationPresenter: TranslationPresentable {
     
-    weak var view: TestVCProtocol!
+    weak var view: TranslateVCAble!
     var interactor: TranslatorInteractorable!
     
     func translate() {
-        interactor.translateAndSaveToStore(text: view.textField.text ?? "") { translte in
-            self.view.showAlert(text: translte)
-            self.view.label.text = translte
+        interactor.translateAndSaveToStore(text: view.textField.text ?? "") { [weak self] translte, error in
+            
+            guard
+                let translte = translte
+            else {
+                self?.view.showAlert(text: error!)
+                return
+            }
+
+            self?.view.label.text = translte
         }
         
     }

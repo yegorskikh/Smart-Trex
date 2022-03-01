@@ -14,7 +14,7 @@ class Collector {
         let responseJsonData = try! JSONEncoder().encode(responseModel)
         
         let mock: URLMock = URLMock()
-        mock.setupMock(statusCode: 200, responseData: responseJsonData)
+        mock.setupMock(statusCode: 201, responseData: responseJsonData)
         
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [URLMock.self]
@@ -29,7 +29,7 @@ class Collector {
         let interactor = TranslatorInteractor(storage: storage, translate: service)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "TestVC") as! TestVC
+        let view = storyboard.instantiateViewController(withIdentifier: "TestVC") as! TranslateVC
         
         let presenter = TranslationPresenter()
         presenter.interactor = interactor

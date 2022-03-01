@@ -7,15 +7,7 @@
 
 import UIKit
 
-protocol TestVCProtocol: AnyObject {
-    var presenter: TranslationPresentable! { get set }
-    var textField: UITextField! { get }
-    var label: UILabel! { get }
-    
-    func showAlert(text: String)
-}
-
-class TestVC: UIViewController, TestVCProtocol {
+class TranslateVC: UIViewController, TranslateVCAble {
     
     // MARK: - Property
     
@@ -38,7 +30,7 @@ class TestVC: UIViewController, TestVCProtocol {
     }
     
     func showAlert(text: String) {
-        let alert = UIAlertController(title: "Error",
+        let alert = UIAlertController(title: "Something went wrong",
                                       message: text,
                                       preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -57,7 +49,7 @@ class TestVC: UIViewController, TestVCProtocol {
     
 }
 
-extension TestVC: UITextFieldDelegate {
+extension TranslateVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
