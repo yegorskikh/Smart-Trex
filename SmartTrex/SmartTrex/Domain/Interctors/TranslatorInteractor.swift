@@ -9,8 +9,8 @@ import Foundation
 
 class TranslatorInteractor: TranslatorInteractorable {
     
-    var serviceStorage: WordStoragable
-    var serviceTranslate: Translationable
+    var serviceStorage: WordStoragable!
+    var serviceTranslate: Translationable!
     
     init(storage: WordStoragable, translate: Translationable) {
         self.serviceStorage = storage

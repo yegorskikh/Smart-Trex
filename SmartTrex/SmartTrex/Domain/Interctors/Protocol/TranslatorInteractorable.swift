@@ -8,10 +8,9 @@
 import Foundation
 
 protocol TranslatorInteractorable {
-    var serviceStorage: WordStoragable { get }
-    var serviceTranslate: Translationable { get }
+    var serviceStorage: WordStoragable! { get set }
+    var serviceTranslate: Translationable! { get set }
         
-//    func translateAndSaveToStore(text: String, completion: @escaping (String) -> ())
     func translateAndSaveToStore(text: String, completion: @escaping (_ translate: String?,
                                                                       _ error: String?) -> () )
 }

@@ -36,6 +36,8 @@
 		972AE4E427CBB83C00EE205E /* TranslatorInteractorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972AE4E327CBB83C00EE205E /* TranslatorInteractorable.swift */; };
 		9756824B27CE94E900C7E85F /* TranslateVCAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756824A27CE94E900C7E85F /* TranslateVCAble.swift */; };
 		9756824E27CE951D00C7E85F /* TranslationPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756824D27CE951D00C7E85F /* TranslationPresentable.swift */; };
+		9756825327CE98E600C7E85F /* TranslateVcMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825227CE98E600C7E85F /* TranslateVcMock.swift */; };
+		9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */; };
 		97EB1C8B27CBB9C500832CC7 /* WordStoragable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C8A27CBB9C500832CC7 /* WordStoragable.swift */; };
 		97EB1C8D27CBBA1000832CC7 /* Translationable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C8C27CBBA1000832CC7 /* Translationable.swift */; };
 		97EB1C9127CBCBFE00832CC7 /* TranslatorInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9027CBCBFE00832CC7 /* TranslatorInteractorTests.swift */; };
@@ -92,6 +94,8 @@
 		972AE4E327CBB83C00EE205E /* TranslatorInteractorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorInteractorable.swift; sourceTree = "<group>"; };
 		9756824A27CE94E900C7E85F /* TranslateVCAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateVCAble.swift; sourceTree = "<group>"; };
 		9756824D27CE951D00C7E85F /* TranslationPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationPresentable.swift; sourceTree = "<group>"; };
+		9756825227CE98E600C7E85F /* TranslateVcMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateVcMock.swift; sourceTree = "<group>"; };
+		9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractorMock.swift; sourceTree = "<group>"; };
 		97EB1C8A27CBB9C500832CC7 /* WordStoragable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordStoragable.swift; sourceTree = "<group>"; };
 		97EB1C8C27CBBA1000832CC7 /* Translationable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translationable.swift; sourceTree = "<group>"; };
 		97EB1C9027CBCBFE00832CC7 /* TranslatorInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorInteractorTests.swift; sourceTree = "<group>"; };
@@ -470,6 +474,7 @@
 		9756825127CE976E00C7E85F /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				9756825227CE98E600C7E85F /* TranslateVcMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -505,6 +510,7 @@
 			children = (
 				97EB1C9427CBD8F400832CC7 /* StoreMock.swift */,
 				97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */,
+				9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -739,11 +745,13 @@
 			files = (
 				14155CF927BC30E30054B502 /* GoogleTranslationServiceTests.swift in Sources */,
 				14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */,
+				9756825327CE98E600C7E85F /* TranslateVcMock.swift in Sources */,
 				14155CFC27BC31130054B502 /* URLProtocolMock.swift in Sources */,
 				97EB1C9827CBD94600832CC7 /* TranslationNetworkMock.swift in Sources */,
 				97EB1C9127CBCBFE00832CC7 /* TranslatorInteractorTests.swift in Sources */,
 				14E4520E27A63FB5008DCEAC /* MockCoreDataStack.swift in Sources */,
 				97EB1C9527CBD8F400832CC7 /* StoreMock.swift in Sources */,
+				9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
