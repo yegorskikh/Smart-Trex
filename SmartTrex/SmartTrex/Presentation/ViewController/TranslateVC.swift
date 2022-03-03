@@ -3,7 +3,7 @@
 //  Smart Trex
 //
 //  Created by Yegor Gorskikh on 25.01.2022.
-// хуй войне
+//
 
 import UIKit
 

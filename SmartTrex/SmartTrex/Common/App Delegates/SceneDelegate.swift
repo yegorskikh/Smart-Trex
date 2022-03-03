@@ -10,7 +10,7 @@ import UIKit
 class Collector {
     
     func get() -> UIViewController {
-        let responseModel = TranslationResponeData(data: .init(translations: [.init(translatedText: "хуй войне")]))
+        let responseModel = TranslateResponeData(data: .init(translations: [.init(translatedText: "хуй войне")]))
         let responseJsonData = try! JSONEncoder().encode(responseModel)
         
         let mock: URLMock = URLMock()
@@ -31,7 +31,7 @@ class Collector {
         interactor.serviceTranslate = service
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "TestVC") as! TranslateVC
+        let view = storyboard.instantiateViewController(withIdentifier: "TranslateVC") as! TranslateVC
         
         let presenter = TranslatePresenter()
         presenter.interactor = interactor
