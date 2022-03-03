@@ -7,18 +7,19 @@
 
 import Foundation
 
-class TranslationPresenter: TranslationPresentable {
+class TranslatePresenter: TranslatePresentable {
     
     weak var view: TranslateVCAble!
-    var interactor: TranslatorInteractorable!
+    var interactor: TranslateInteractorable!
     
     func translate() {
-        interactor.translateAndSaveToStore(text: view.textField.text ?? "") { [weak self] translte, error in
+        // TODO: - Pull target with view
+        interactor.translateAndSaveToStore(text: view.textField.text ?? "", target: .en) { [weak self] translte, error in
             
             guard
                 let translte = translte
             else {
-                self?.view.showAlert(text: error!)
+                self?.view.showErrorAlert(text: error!)
                 return
             }
 

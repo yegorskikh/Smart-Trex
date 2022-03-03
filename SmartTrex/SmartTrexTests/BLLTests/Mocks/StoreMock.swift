@@ -8,7 +8,7 @@
 import Foundation
 @testable import SmartTrex
 
-class StoreMock: WordStoragable {
+class StoreMock: TranslateStoragable {
     
     var wasCalled = false
     

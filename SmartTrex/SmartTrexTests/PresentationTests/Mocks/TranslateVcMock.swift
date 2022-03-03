@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class TranslateVcMock: TranslateVCAble {
-    var presenter: TranslationPresentable!
+    var presenter: TranslatePresentable!
     var textField: UITextField!
     var label: UILabel!
     
@@ -22,7 +22,7 @@ class TranslateVcMock: TranslateVCAble {
         textField.text = "Foo"
     }
     
-    func showAlert(text: String) {
+    func showErrorAlert(text: String) {
         showAlertWasCalled = true
     }
     

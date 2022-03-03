@@ -25,7 +25,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         sut = GoogleTranslationService(urlConfiguration: configuration)
         mock = URLProtocolMock()
         
-        translationRequestModel = TranslationRequestModel(q: "Bar", target: .en)
+        translationRequestModel = TranslationRequestModel(q: "Bar", target: "en")
         detectRequestModel = DetectRequest(q: "Foo")
     }
     

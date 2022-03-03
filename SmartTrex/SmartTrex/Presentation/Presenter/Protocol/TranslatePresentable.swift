@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol TranslationPresentable {
-    var interactor: TranslatorInteractorable! { get set  }
+protocol TranslatePresentable {
+    var interactor: TranslateInteractorable! { get set  }
     var view: TranslateVCAble! { get set }
     
     func translate()

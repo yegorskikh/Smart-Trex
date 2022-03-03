@@ -8,8 +8,9 @@
 import Foundation
 @testable import SmartTrex
 
-class TranslateInteractorMock: TranslatorInteractorable {
-    var serviceStorage: WordStoragable!
+class TranslateInteractorMock: TranslateInteractorable {
+    
+    var serviceStorage: TranslateStoragable!
     var serviceTranslate: Translationable!
     var wasCalled = false
     
@@ -22,7 +23,7 @@ class TranslateInteractorMock: TranslatorInteractorable {
     var typeResponse = TypeResponse.succes
     
     
-    func translateAndSaveToStore(text: String, completion: @escaping (String?, String?) -> ()) {
+    func translateAndSaveToStore(text: String, target: TargerLanguage, completion: @escaping (String?, String?) -> ()) {
         wasCalled = true
         
         switch typeResponse {

@@ -3,7 +3,7 @@
 //  Smart Trex
 //
 //  Created by Yegor Gorskikh on 25.01.2022.
-//
+// хуй войне
 
 import UIKit
 
@@ -14,7 +14,7 @@ class TranslateVC: UIViewController, TranslateVCAble {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var label: UILabel!
     
-    var presenter: TranslationPresentable!
+    var presenter: TranslatePresentable!
     
     // MARK: - Lifecycle
     
@@ -29,7 +29,7 @@ class TranslateVC: UIViewController, TranslateVCAble {
         presenter.translate()
     }
     
-    func showAlert(text: String) {
+    func showErrorAlert(text: String) {
         let alert = UIAlertController(title: "Something went wrong",
                                       message: text,
                                       preferredStyle: UIAlertController.Style.alert)

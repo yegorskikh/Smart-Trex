@@ -7,14 +7,14 @@
 
 import Foundation
 
-class TranslatorInteractor: TranslatorInteractorable {
+class TranslateInteractor: TranslateInteractorable {
     
-    var serviceStorage: WordStoragable!
+    var serviceStorage: TranslateStoragable!
     var serviceTranslate: Translationable!
         
-    func translateAndSaveToStore(text: String, completion: @escaping (_ translate: String?,
+    func translateAndSaveToStore(text: String, target: TargerLanguage, completion: @escaping (_ translate: String?,
                                                                       _ error: String?) -> () ) {
-        let model = TranslationRequestModel(q: text, target: .en)
+        let model = TranslationRequestModel(q: text, target: target.rawValue)
         
         serviceTranslate.toTranslate(model) { [weak self] response in
             
