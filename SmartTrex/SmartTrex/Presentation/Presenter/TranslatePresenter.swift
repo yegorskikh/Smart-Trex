@@ -13,8 +13,11 @@ class TranslatePresenter: TranslatePresentable {
     var interactor: TranslateInteractorable!
     
     func translate() {
-        // TODO: - Pull target with view
-        interactor.translateAndSaveToStore(text: view.textField.text ?? "", target: .en) { [weak self] translte, error in
+
+        let text = self.view.getTextForTranslation()
+        let target = self.view.getSelectedLanguageForTranslation()        
+        
+        interactor.translateAndSaveToStore(text: text, target: target) { [weak self] translte, error in
             
             guard
                 let translte = translte
@@ -22,10 +25,11 @@ class TranslatePresenter: TranslatePresentable {
                 self?.view.showErrorAlert(text: error!)
                 return
             }
-
-            self?.view.label.text = translte
+            
+            self?.view.setTheResultingTextTranslation(text: translte)
         }
         
     }
+    
     
 }

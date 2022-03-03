@@ -37,7 +37,7 @@ class TranslatorInteractorTests: XCTestCase {
         translationNetworkMock.responseType = .success
         
         // when
-        sut.translateAndSaveToStore(text: "Bar", target: .en) { [weak self] translation, error in
+        sut.translateAndSaveToStore(text: "Bar", target: "Foo") { [weak self] translation, error in
             // than
             XCTAssertEqual(translation, "Baz")
             XCTAssertEqual(true, self?.storeMock.wasCalled)
@@ -53,7 +53,7 @@ class TranslatorInteractorTests: XCTestCase {
         translationNetworkMock.responseType = .failed
         
         // when
-        sut.translateAndSaveToStore(text: "Bar", target: .en) { [weak self] translation, error in
+        sut.translateAndSaveToStore(text: "Bar", target: "Foo") { [weak self] translation, error in
             // than
             XCTAssertEqual(error, "Foo")
             XCTAssertEqual(false, self?.storeMock.wasCalled)

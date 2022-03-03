@@ -23,7 +23,7 @@ class TranslateInteractorMock: TranslateInteractorable {
     var typeResponse = TypeResponse.succes
     
     
-    func translateAndSaveToStore(text: String, target: TargerLanguage, completion: @escaping (String?, String?) -> ()) {
+    func translateAndSaveToStore(text: String, target: String, completion: @escaping (String?, String?) -> ()) {
         wasCalled = true
         
         switch typeResponse {

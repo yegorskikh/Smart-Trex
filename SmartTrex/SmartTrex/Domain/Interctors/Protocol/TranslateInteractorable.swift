@@ -11,6 +11,6 @@ protocol TranslateInteractorable {
     var serviceStorage: TranslateStoragable! { get set }
     var serviceTranslate: Translationable! { get set }
         
-    func translateAndSaveToStore(text: String, target: TargerLanguage, completion: @escaping (_ translate: String?,
+    func translateAndSaveToStore(text: String, target: String, completion: @escaping (_ translate: String?,
                                                                       _ error: String?) -> () )
 }

@@ -39,10 +39,18 @@
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ulz-Xj-m5I"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-YD-FS3">
+                                <rect key="frame" x="20" y="166" width="374" height="32"/>
+                                <segments>
+                                    <segment title="ru"/>
+                                    <segment title="en"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
+                            <constraint firstItem="IcM-YD-FS3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="C34-UN-zEX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kvI-ya-KZe" secondAttribute="trailing" constant="20" id="Dbc-S4-EZz"/>
                             <constraint firstItem="tSn-ip-jdX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GcK-qI-GgD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6xT-ch-4rc" secondAttribute="trailing" constant="20" id="TN2-vb-gzt"/>
@@ -51,10 +59,13 @@
                             <constraint firstItem="tSn-ip-jdX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X52-ti-6P4"/>
                             <constraint firstItem="6xT-ch-4rc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XtQ-jq-OjH"/>
                             <constraint firstItem="kvI-ya-KZe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ed1-3T-mPL"/>
+                            <constraint firstItem="IcM-YD-FS3" firstAttribute="top" secondItem="6xT-ch-4rc" secondAttribute="bottom" constant="8" symbolic="YES" id="hYe-Hc-S6S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IcM-YD-FS3" secondAttribute="trailing" constant="20" id="myY-7B-7M6"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="label" destination="tSn-ip-jdX" id="zS2-Ea-R9l"/>
+                        <outlet property="targetSegmentControl" destination="IcM-YD-FS3" id="tLb-Bi-BfR"/>
                         <outlet property="textField" destination="6xT-ch-4rc" id="TYc-Za-Whp"/>
                     </connections>
                 </viewController>

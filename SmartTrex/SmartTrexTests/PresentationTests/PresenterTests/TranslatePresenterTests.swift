@@ -41,7 +41,7 @@ class TranslatePresenterTests: XCTestCase {
         
         // then
         XCTAssertEqual(interactorMock.wasCalled, true)
-        XCTAssertEqual(viewMock.label.text?.isEmpty, false)
+        XCTAssertEqual(viewMock.setTranslationTextWasCalled, true)
     }
     
     func test_faild_translate() {

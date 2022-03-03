@@ -10,11 +10,13 @@ import Foundation
 import UIKit
 
 class TranslateVcMock: TranslateVCAble {
+
     var presenter: TranslatePresentable!
     var textField: UITextField!
     var label: UILabel!
     
     var showAlertWasCalled = false
+    var setTranslationTextWasCalled = false
     
     init() {
         textField = UITextField()
@@ -26,5 +28,16 @@ class TranslateVcMock: TranslateVCAble {
         showAlertWasCalled = true
     }
     
+    func getTextForTranslation() -> String {
+        return "Foo"
+    }
+    
+    func getSelectedLanguageForTranslation() -> String {
+        return "Foo"
+    }
+    
+    func setTheResultingTextTranslation(text: String) {
+        setTranslationTextWasCalled = true
+    }
     
 }

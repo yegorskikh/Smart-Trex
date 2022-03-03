@@ -8,10 +8,11 @@
 import UIKit
 
 class TranslateVC: UIViewController, TranslateVCAble {
-    
+
     // MARK: - Property
     
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var targetSegmentControl: UISegmentedControl!
     @IBOutlet weak var label: UILabel!
     
     var presenter: TranslatePresentable!
@@ -37,6 +38,14 @@ class TranslateVC: UIViewController, TranslateVCAble {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func getTextForTranslation() -> String {
+        return textField.text ?? ""
+    }
+    
+    func setTheResultingTextTranslation(text: String) {
+        label.text = text
+    }
+    
     // MARK: - Private
     
     private func setupViews() {
@@ -45,6 +54,10 @@ class TranslateVC: UIViewController, TranslateVCAble {
         textField.layer.borderColor = UIColor.green.cgColor
         textField.layer.cornerRadius = 10.0
         textField.clipsToBounds = true
+    }
+    
+    func getSelectedLanguageForTranslation() -> String {
+        return targetSegmentControl.titleForSegment(at: targetSegmentControl.selectedSegmentIndex) ?? "en"
     }
     
 }
