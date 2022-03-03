@@ -8,13 +8,14 @@
 import UIKit
 
 class TranslateVC: UIViewController, TranslateVCAble {
-    
+
     // MARK: - Property
     
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var targetSegmentControl: UISegmentedControl!
     @IBOutlet weak var label: UILabel!
     
-    var presenter: TranslationPresentable!
+    var presenter: TranslatePresentable!
     
     // MARK: - Lifecycle
     
@@ -29,12 +30,20 @@ class TranslateVC: UIViewController, TranslateVCAble {
         presenter.translate()
     }
     
-    func showAlert(text: String) {
+    func showErrorAlert(text: String) {
         let alert = UIAlertController(title: "Something went wrong",
                                       message: text,
                                       preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func getTextForTranslation() -> String {
+        return textField.text ?? ""
+    }
+    
+    func setTheResultingTextTranslation(text: String) {
+        label.text = text
     }
     
     // MARK: - Private
@@ -45,6 +54,10 @@ class TranslateVC: UIViewController, TranslateVCAble {
         textField.layer.borderColor = UIColor.green.cgColor
         textField.layer.cornerRadius = 10.0
         textField.clipsToBounds = true
+    }
+    
+    func getSelectedLanguageForTranslation() -> String {
+        return targetSegmentControl.titleForSegment(at: targetSegmentControl.selectedSegmentIndex) ?? "en"
     }
     
 }

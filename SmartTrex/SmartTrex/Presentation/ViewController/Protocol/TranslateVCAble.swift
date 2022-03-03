@@ -9,9 +9,12 @@ import Foundation
 import UIKit
 
 protocol TranslateVCAble: AnyObject {
-    var presenter: TranslationPresentable! { get set }
-    var textField: UITextField! { get }
-    var label: UILabel! { get }
+    var presenter: TranslatePresentable! { get set }
+//    var textField: UITextField! { get }
+//    var label: UILabel! { get }
     
-    func showAlert(text: String)
+    func showErrorAlert(text: String)
+    func getTextForTranslation() -> String
+    func getSelectedLanguageForTranslation() -> String
+    func setTheResultingTextTranslation(text: String)
 }

@@ -25,7 +25,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         sut = GoogleTranslationService(urlConfiguration: configuration)
         mock = URLProtocolMock()
         
-        translationRequestModel = TranslationRequestModel(q: "Bar", target: .en)
+        translationRequestModel = TranslationRequestModel(q: "Bar", target: "en")
         detectRequestModel = DetectRequest(q: "Foo")
     }
     
@@ -39,7 +39,7 @@ class GoogleTranslationServiceTests: XCTestCase {
     
     func test_translate_successful_request() {
         // given
-        let expected = TranslationResponeData(data: TranslationResponseModel(translations:
+        let expected = TranslateResponeData(data: TranslationResponseModel(translations:
                                                                                 [WordResponseModel(translatedText: "Foo")]))
         let responseJsonData = try! JSONEncoder().encode(expected)
         mock.setupMock(statusCode: 200, responseData: responseJsonData)
@@ -60,7 +60,7 @@ class GoogleTranslationServiceTests: XCTestCase {
     
     func test_translate_response_with_faild_status_code() {
         // given
-        let expected = TranslationResponeData(data: TranslationResponseModel(translations:
+        let expected = TranslateResponeData(data: TranslationResponseModel(translations:
                                                                                 [WordResponseModel(translatedText: "Foo")]))
         let responseJsonData = try! JSONEncoder().encode(expected)
         mock.setupMock(statusCode: 404, responseData: responseJsonData)

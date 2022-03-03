@@ -31,20 +31,21 @@
 		14E4520E27A63FB5008DCEAC /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */; };
 		14E4521027A64298008DCEAC /* WordStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520F27A64298008DCEAC /* WordStoreService.swift */; };
 		14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */; };
-		14F7030B27C0034400EF0838 /* TranslatorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */; };
+		14F7030B27C0034400EF0838 /* TranslateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7030A27C0034400EF0838 /* TranslateInteractor.swift */; };
 		14F7031027C0052F00EF0838 /* NetworkingErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7030F27C0052F00EF0838 /* NetworkingErrorMessage.swift */; };
-		972AE4E427CBB83C00EE205E /* TranslatorInteractorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972AE4E327CBB83C00EE205E /* TranslatorInteractorable.swift */; };
+		972AE4E427CBB83C00EE205E /* TranslateInteractorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972AE4E327CBB83C00EE205E /* TranslateInteractorable.swift */; };
 		9756824B27CE94E900C7E85F /* TranslateVCAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756824A27CE94E900C7E85F /* TranslateVCAble.swift */; };
-		9756824E27CE951D00C7E85F /* TranslationPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756824D27CE951D00C7E85F /* TranslationPresentable.swift */; };
+		9756824E27CE951D00C7E85F /* TranslatePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756824D27CE951D00C7E85F /* TranslatePresentable.swift */; };
 		9756825327CE98E600C7E85F /* TranslateVcMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825227CE98E600C7E85F /* TranslateVcMock.swift */; };
 		9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */; };
 		9756825927CEAF6E00C7E85F /* TranslatePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */; };
-		97EB1C8B27CBB9C500832CC7 /* WordStoragable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C8A27CBB9C500832CC7 /* WordStoragable.swift */; };
+		97E2A7FF27D087C800D74810 /* TargerLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2A7FE27D087C800D74810 /* TargerLanguage.swift */; };
+		97EB1C8B27CBB9C500832CC7 /* TranslateStoragable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C8A27CBB9C500832CC7 /* TranslateStoragable.swift */; };
 		97EB1C8D27CBBA1000832CC7 /* Translationable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C8C27CBBA1000832CC7 /* Translationable.swift */; };
 		97EB1C9127CBCBFE00832CC7 /* TranslatorInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9027CBCBFE00832CC7 /* TranslatorInteractorTests.swift */; };
 		97EB1C9527CBD8F400832CC7 /* StoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9427CBD8F400832CC7 /* StoreMock.swift */; };
 		97EB1C9827CBD94600832CC7 /* TranslationNetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */; };
-		97F00A4D27CC290600D35188 /* TranslationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F00A4C27CC290600D35188 /* TranslationPresenter.swift */; };
+		97F00A4D27CC290600D35188 /* TranslatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F00A4C27CC290600D35188 /* TranslatePresenter.swift */; };
 		A791E927001F89431BA6B2CE /* Pods_SmartTrex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2107E4CEA172B3C463AA219 /* Pods_SmartTrex.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,25 +86,26 @@
 		14E4520D27A63FB5008DCEAC /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		14E4520F27A64298008DCEAC /* WordStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordStoreService.swift; sourceTree = "<group>"; };
 		14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWordStoreManager.swift; sourceTree = "<group>"; };
-		14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslatorInteractor.swift; path = SmartTrex/Domain/Interctors/TranslatorInteractor.swift; sourceTree = SOURCE_ROOT; };
+		14F7030A27C0034400EF0838 /* TranslateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateInteractor.swift; path = SmartTrex/Domain/Interctors/TranslateInteractor.swift; sourceTree = SOURCE_ROOT; };
 		14F7030F27C0052F00EF0838 /* NetworkingErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingErrorMessage.swift; sourceTree = "<group>"; };
 		55F908DE156425EDE1A2EB24 /* Pods_SmartTrexTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartTrexTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F474BE5CBEBAB52553FBBC /* Pods-SmartTrex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrex.debug.xcconfig"; path = "Target Support Files/Pods-SmartTrex/Pods-SmartTrex.debug.xcconfig"; sourceTree = "<group>"; };
 		6DD48A919EDFE1F70472A4D4 /* Pods-SmartTrexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrexTests.release.xcconfig"; path = "Target Support Files/Pods-SmartTrexTests/Pods-SmartTrexTests.release.xcconfig"; sourceTree = "<group>"; };
 		76193E63218A6980CA108C11 /* Pods-SmartTrex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrex.release.xcconfig"; path = "Target Support Files/Pods-SmartTrex/Pods-SmartTrex.release.xcconfig"; sourceTree = "<group>"; };
 		943C5BA60EFD9DE0AEBBFA1A /* Pods-SmartTrexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrexTests.debug.xcconfig"; path = "Target Support Files/Pods-SmartTrexTests/Pods-SmartTrexTests.debug.xcconfig"; sourceTree = "<group>"; };
-		972AE4E327CBB83C00EE205E /* TranslatorInteractorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorInteractorable.swift; sourceTree = "<group>"; };
+		972AE4E327CBB83C00EE205E /* TranslateInteractorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractorable.swift; sourceTree = "<group>"; };
 		9756824A27CE94E900C7E85F /* TranslateVCAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateVCAble.swift; sourceTree = "<group>"; };
-		9756824D27CE951D00C7E85F /* TranslationPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationPresentable.swift; sourceTree = "<group>"; };
+		9756824D27CE951D00C7E85F /* TranslatePresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatePresentable.swift; sourceTree = "<group>"; };
 		9756825227CE98E600C7E85F /* TranslateVcMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateVcMock.swift; sourceTree = "<group>"; };
 		9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractorMock.swift; sourceTree = "<group>"; };
 		9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatePresenterTests.swift; sourceTree = "<group>"; };
-		97EB1C8A27CBB9C500832CC7 /* WordStoragable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordStoragable.swift; sourceTree = "<group>"; };
+		97E2A7FE27D087C800D74810 /* TargerLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargerLanguage.swift; sourceTree = "<group>"; };
+		97EB1C8A27CBB9C500832CC7 /* TranslateStoragable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateStoragable.swift; sourceTree = "<group>"; };
 		97EB1C8C27CBBA1000832CC7 /* Translationable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translationable.swift; sourceTree = "<group>"; };
 		97EB1C9027CBCBFE00832CC7 /* TranslatorInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorInteractorTests.swift; sourceTree = "<group>"; };
 		97EB1C9427CBD8F400832CC7 /* StoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMock.swift; sourceTree = "<group>"; };
 		97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationNetworkMock.swift; sourceTree = "<group>"; };
-		97F00A4C27CC290600D35188 /* TranslationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationPresenter.swift; sourceTree = "<group>"; };
+		97F00A4C27CC290600D35188 /* TranslatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatePresenter.swift; sourceTree = "<group>"; };
 		B2107E4CEA172B3C463AA219 /* Pods_SmartTrex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartTrex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -420,7 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				972AE4E227CBB82000EE205E /* Protocol */,
-				14F7030A27C0034400EF0838 /* TranslatorInteractor.swift */,
+				14F7030A27C0034400EF0838 /* TranslateInteractor.swift */,
 			);
 			path = Interctors;
 			sourceTree = "<group>";
@@ -436,7 +438,7 @@
 		972AE4E227CBB82000EE205E /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				972AE4E327CBB83C00EE205E /* TranslatorInteractorable.swift */,
+				972AE4E327CBB83C00EE205E /* TranslateInteractorable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -452,7 +454,7 @@
 		9756824C27CE950B00C7E85F /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				9756824D27CE951D00C7E85F /* TranslationPresentable.swift */,
+				9756824D27CE951D00C7E85F /* TranslatePresentable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -482,10 +484,18 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		97E2A7FD27D087AE00D74810 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				97E2A7FE27D087C800D74810 /* TargerLanguage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		97EB1C8927CBB98800832CC7 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				97EB1C8A27CBB9C500832CC7 /* WordStoragable.swift */,
+				97EB1C8A27CBB9C500832CC7 /* TranslateStoragable.swift */,
 				97EB1C8C27CBBA1000832CC7 /* Translationable.swift */,
 			);
 			path = Protocol;
@@ -521,8 +531,9 @@
 		97F00A4B27CC28CB00D35188 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				97E2A7FD27D087AE00D74810 /* Model */,
 				9756824C27CE950B00C7E85F /* Protocol */,
-				97F00A4C27CC290600D35188 /* TranslationPresenter.swift */,
+				97F00A4C27CC290600D35188 /* TranslatePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -719,22 +730,23 @@
 				14A4B2B827BBCEEC0075CF30 /* TranslationResponse.swift in Sources */,
 				148F005A27BC50EE00C9A198 /* DetectResponse.swift in Sources */,
 				14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */,
-				972AE4E427CBB83C00EE205E /* TranslatorInteractorable.swift in Sources */,
+				972AE4E427CBB83C00EE205E /* TranslateInteractorable.swift in Sources */,
 				14ABECBD27A601B800708D1E /* TranslationWord+CoreDataClass.swift in Sources */,
 				14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */,
-				14F7030B27C0034400EF0838 /* TranslatorInteractor.swift in Sources */,
-				97F00A4D27CC290600D35188 /* TranslationPresenter.swift in Sources */,
+				14F7030B27C0034400EF0838 /* TranslateInteractor.swift in Sources */,
+				97E2A7FF27D087C800D74810 /* TargerLanguage.swift in Sources */,
+				97F00A4D27CC290600D35188 /* TranslatePresenter.swift in Sources */,
 				141B1D2527C2E67000FA8A59 /* URLMock.swift in Sources */,
 				14225B4127A06D1E004B63BE /* TranslateVC.swift in Sources */,
 				97EB1C8D27CBBA1000832CC7 /* Translationable.swift in Sources */,
 				14225B3D27A06D1E004B63BE /* AppDelegate.swift in Sources */,
-				97EB1C8B27CBB9C500832CC7 /* WordStoragable.swift in Sources */,
+				97EB1C8B27CBB9C500832CC7 /* TranslateStoragable.swift in Sources */,
 				14A4B2B627BBCE890075CF30 /* TranslationRequest.swift in Sources */,
 				9756824B27CE94E900C7E85F /* TranslateVCAble.swift in Sources */,
 				1495033927B1BECB0043F47B /* GoogleTranslationService.swift in Sources */,
 				14E4521027A64298008DCEAC /* WordStoreService.swift in Sources */,
 				14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */,
-				9756824E27CE951D00C7E85F /* TranslationPresentable.swift in Sources */,
+				9756824E27CE951D00C7E85F /* TranslatePresentable.swift in Sources */,
 				14ABECAE27A5FBCF00708D1E /* TranslationWord.xcdatamodeld in Sources */,
 				147E8DD627C1176000375170 /* ConnectionChecker.swift in Sources */,
 				148F005C27BC513800C9A198 /* DetectRequest.swift in Sources */,

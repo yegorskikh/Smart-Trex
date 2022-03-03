@@ -45,7 +45,7 @@ class GoogleTranslationService: Translationable {
                 switch statusCode {
                 case 200:
                     do {
-                        let data = try JSONDecoder().decode(TranslationResponeData.self, from: responseData)
+                        let data = try JSONDecoder().decode(TranslateResponeData.self, from: responseData)
                         completion(TranslationResponePayload(responseData: data, errorMessage: nil))
                     } catch {
                         completion(TranslationResponePayload(responseData: nil,

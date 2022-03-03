@@ -11,7 +11,7 @@ import XCTest
 
 class TranslatePresenterTests: XCTestCase {
     
-    var sut: TranslationPresentable!
+    var sut: TranslatePresentable!
     var interactorMock: TranslateInteractorMock!
     var viewMock: TranslateVcMock!
     
@@ -19,7 +19,7 @@ class TranslatePresenterTests: XCTestCase {
         super.setUp()
         interactorMock = TranslateInteractorMock()
         viewMock = TranslateVcMock()
-        sut = TranslationPresenter()
+        sut = TranslatePresenter()
         
         sut.interactor = interactorMock
         sut.view = viewMock
@@ -41,7 +41,7 @@ class TranslatePresenterTests: XCTestCase {
         
         // then
         XCTAssertEqual(interactorMock.wasCalled, true)
-        XCTAssertEqual(viewMock.label.text?.isEmpty, false)
+        XCTAssertEqual(viewMock.setTranslationTextWasCalled, true)
     }
     
     func test_faild_translate() {

@@ -8,11 +8,11 @@
 import Foundation
 
 struct TranslationResponePayload {
-    let responseData: TranslationResponeData?
+    let responseData: TranslateResponeData?
     let errorMessage: String?
 }
 
-struct TranslationResponeData: Codable, Equatable {
+struct TranslateResponeData: Codable, Equatable {
     let data: TranslationResponseModel?
 }
 

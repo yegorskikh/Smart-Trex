@@ -8,13 +8,8 @@
 import Foundation
 
 struct TranslationRequestModel: Codable {
-    
-    enum TargerLanguage: String, Codable {
-        case ru = "ru"
-        case en = "en"
-    }
-    
+        
     let q: String
-    let target: TargerLanguage
+    let target: String
     
 }
