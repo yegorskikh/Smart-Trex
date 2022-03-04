@@ -12,8 +12,10 @@ class TranslateInteractor: TranslateInteractorable {
     var serviceStorage: TranslateStoragable!
     var serviceTranslate: Translationable!
     
-    func translateAndSaveToStore(text: String, target: String, completion: @escaping (_ translate: String?,
-                                                                                      _ error: String?) -> () ) {
+    func translateAndSaveToStore(text: String,
+                                 target: String,
+                                 completion: @escaping (_ translate: String?,
+                                                        _ error: String?) -> () ) {
         let model = TranslationRequestModel(q: text, target: target)
         
         serviceTranslate.toTranslate(model) { [weak self] response in

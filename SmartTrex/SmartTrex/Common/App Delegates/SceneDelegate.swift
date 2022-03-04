@@ -7,42 +7,6 @@
 
 import UIKit
 
-class Collector {
-    
-    func get() -> UIViewController {
-        let responseModel = TranslateResponeData(data: .init(translations: [.init(translatedText: "хуй войне")]))
-        let responseJsonData = try! JSONEncoder().encode(responseModel)
-        
-        let mock: URLMock = URLMock()
-        mock.setupMock(statusCode: 200, responseData: responseJsonData)
-        
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [URLMock.self]
-        let service = GoogleTranslationService(urlConfiguration: configuration)
-        
-        let coreDataStack = CoreDataStack()
-        let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
-                                       coreDataStack: coreDataStack)
-        
-        
-        
-        let interactor = TranslateInteractor()
-        interactor.serviceStorage = storage
-        interactor.serviceTranslate = service
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "TranslateVC") as! TranslateVC
-        
-        let presenter = TranslatePresenter()
-        presenter.interactor = interactor
-        presenter.view = view
-        
-        view.presenter = presenter
-        
-        return view
-    }
-    
-}
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -56,9 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let сollector = Collector()
+        let сollector = TranslateCollectorFactory()
         
-        let viewController = сollector.get()
+        let viewController = сollector.getModule()
         
         window.rootViewController = viewController
         self.window = window
