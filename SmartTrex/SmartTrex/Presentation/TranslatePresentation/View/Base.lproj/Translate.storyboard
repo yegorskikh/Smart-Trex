@@ -21,19 +21,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSn-ip-jdX">
-                                <rect key="frame" x="207" y="448" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="0.0"/>
-                                <color key="textColor" systemColor="systemBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-ya-KZe">
                                 <rect key="frame" x="20" y="781" width="374" height="31"/>
-                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="lets go!">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="baseBackgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ulz-Xj-m5I"/>
@@ -46,27 +41,38 @@
                                     <segment title="en"/>
                                 </segments>
                             </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EA5-hU-fez">
+                                <rect key="frame" x="20" y="222" width="374" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="uXb-fw-Ndt"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
                             <constraint firstItem="IcM-YD-FS3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="C34-UN-zEX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kvI-ya-KZe" secondAttribute="trailing" constant="20" id="Dbc-S4-EZz"/>
-                            <constraint firstItem="tSn-ip-jdX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GcK-qI-GgD"/>
+                            <constraint firstItem="EA5-hU-fez" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="OzD-gU-cBu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6xT-ch-4rc" secondAttribute="trailing" constant="20" id="TN2-vb-gzt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kvI-ya-KZe" secondAttribute="bottom" constant="50" id="Tis-Lt-jHG"/>
                             <constraint firstItem="6xT-ch-4rc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="Vo9-rn-VVo"/>
-                            <constraint firstItem="tSn-ip-jdX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X52-ti-6P4"/>
                             <constraint firstItem="6xT-ch-4rc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XtQ-jq-OjH"/>
                             <constraint firstItem="kvI-ya-KZe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ed1-3T-mPL"/>
+                            <constraint firstItem="EA5-hU-fez" firstAttribute="top" secondItem="IcM-YD-FS3" secondAttribute="bottom" constant="25" id="h2V-DZ-fHi"/>
                             <constraint firstItem="IcM-YD-FS3" firstAttribute="top" secondItem="6xT-ch-4rc" secondAttribute="bottom" constant="8" symbolic="YES" id="hYe-Hc-S6S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IcM-YD-FS3" secondAttribute="trailing" constant="20" id="myY-7B-7M6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EA5-hU-fez" secondAttribute="trailing" constant="20" id="rKY-1J-GaA"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="label" destination="tSn-ip-jdX" id="zS2-Ea-R9l"/>
                         <outlet property="targetSegmentControl" destination="IcM-YD-FS3" id="tLb-Bi-BfR"/>
                         <outlet property="textField" destination="6xT-ch-4rc" id="TYc-Za-Whp"/>
+                        <outlet property="textView" destination="EA5-hU-fez" id="SqB-5Y-e6U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -75,11 +81,14 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

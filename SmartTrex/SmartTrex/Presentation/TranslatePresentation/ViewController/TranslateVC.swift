@@ -13,7 +13,7 @@ class TranslateVC: UIViewController, TranslateVCAble {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var targetSegmentControl: UISegmentedControl!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var textView: UITextView!
     
     var presenter: TranslatePresentable!
     
@@ -43,7 +43,7 @@ class TranslateVC: UIViewController, TranslateVCAble {
     }
     
     func setTheResultingTextTranslation(text: String) {
-        label.text = text
+        textView.text = text
     }
     
     // MARK: - Private
