@@ -19,21 +19,20 @@ class TranslateCollectorFactory: CollectorModuleFactory {
         
         let responseModel = TranslateResponeData(data: .init(translations: [.init(translatedText: "Translation will be here")]))
         let responseJsonData = try! JSONEncoder().encode(responseModel)
-        
+
         let mock: URLMock = URLMock()
         mock.setupMock(statusCode: 200, responseData: responseJsonData)
-        
+
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [URLMock.self]
+        let service = GoogleTranslationService(urlConfiguration: configuration)
         
         // assembly
         
-        let service = GoogleTranslationService(urlConfiguration: configuration)
+        // let service = GoogleTranslationService()
         let coreDataStack = CoreDataStack()
         let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
                                        coreDataStack: coreDataStack)
-        
-        
         
         let interactor = TranslateInteractor()
         interactor.serviceStorage = storage
