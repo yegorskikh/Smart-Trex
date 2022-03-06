@@ -17,16 +17,16 @@ class TranslatePresenter: TranslatePresentable {
         let text = self.view.getTextForTranslation()
         let target = self.view.getSelectedLanguageForTranslation()        
         
-        interactor.translateAndSaveToStore(text: text, target: target) { [weak self] translte, error in
+        interactor.translateAndSaveToStore(text: text, target: target) { [weak self] translation, error in
             
             guard
-                let translte = translte
+                let translation = translation
             else {
                 self?.view.showErrorAlert(text: error!)
                 return
             }
             
-            self?.view.setTheResultingTextTranslation(text: translte)
+            self?.view.setTheResultingTextTranslation(text: translation)
         }
         
     }

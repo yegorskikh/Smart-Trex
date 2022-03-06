@@ -16,63 +16,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6xT-ch-4rc">
-                                <rect key="frame" x="20" y="124" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-ya-KZe">
-                                <rect key="frame" x="20" y="781" width="374" height="31"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="lets go!">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
-                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
-                                    <color key="baseBackgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ulz-Xj-m5I"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-YD-FS3">
-                                <rect key="frame" x="20" y="166" width="374" height="32"/>
+                                <rect key="frame" x="20" y="257" width="374" height="32"/>
                                 <segments>
                                     <segment title="ru"/>
                                     <segment title="en"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                             </segmentedControl>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EA5-hU-fez">
-                                <rect key="frame" x="20" y="222" width="374" height="150"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bNz-z8-LUo">
+                                <rect key="frame" x="20" y="84" width="374" height="158"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="uXb-fw-Ndt"/>
+                                    <constraint firstAttribute="height" constant="158" id="2xJ-cF-IOs"/>
                                 </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EA5-hU-fez">
+                                <rect key="frame" x="20" y="308" width="374" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="y0K-jd-3ze"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMc-0F-0rz">
+                                <rect key="frame" x="43" y="814.5" width="329" height="37.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Translate">
+                                    <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="translateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gGg-tw-KEH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" red="0.26963831948425937" green="0.26230174907542325" blue="0.63245976155566186" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IcM-YD-FS3" secondAttribute="trailing" constant="20" id="6yY-P1-3Ml"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EA5-hU-fez" secondAttribute="trailing" constant="20" id="9eO-sH-zE0"/>
+                            <constraint firstItem="EA5-hU-fez" firstAttribute="top" secondItem="IcM-YD-FS3" secondAttribute="bottom" constant="20" id="BeM-lY-gfX"/>
                             <constraint firstItem="IcM-YD-FS3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="C34-UN-zEX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kvI-ya-KZe" secondAttribute="trailing" constant="20" id="Dbc-S4-EZz"/>
-                            <constraint firstItem="EA5-hU-fez" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="OzD-gU-cBu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6xT-ch-4rc" secondAttribute="trailing" constant="20" id="TN2-vb-gzt"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kvI-ya-KZe" secondAttribute="bottom" constant="50" id="Tis-Lt-jHG"/>
-                            <constraint firstItem="6xT-ch-4rc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="Vo9-rn-VVo"/>
-                            <constraint firstItem="6xT-ch-4rc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XtQ-jq-OjH"/>
-                            <constraint firstItem="kvI-ya-KZe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ed1-3T-mPL"/>
-                            <constraint firstItem="EA5-hU-fez" firstAttribute="top" secondItem="IcM-YD-FS3" secondAttribute="bottom" constant="25" id="h2V-DZ-fHi"/>
-                            <constraint firstItem="IcM-YD-FS3" firstAttribute="top" secondItem="6xT-ch-4rc" secondAttribute="bottom" constant="8" symbolic="YES" id="hYe-Hc-S6S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NMc-0F-0rz" secondAttribute="bottom" constant="10" id="CU1-bI-jvN"/>
+                            <constraint firstItem="IcM-YD-FS3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="GsD-9c-g9z"/>
+                            <constraint firstItem="bNz-z8-LUo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="L1S-N1-fS0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bNz-z8-LUo" secondAttribute="trailing" constant="20" id="Mw2-Sp-tsP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NMc-0F-0rz" secondAttribute="trailing" constant="42" id="aP0-xl-grT"/>
+                            <constraint firstItem="IcM-YD-FS3" firstAttribute="top" secondItem="bNz-z8-LUo" secondAttribute="bottom" constant="15" id="bVT-t6-zhy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IcM-YD-FS3" secondAttribute="trailing" constant="20" id="myY-7B-7M6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EA5-hU-fez" secondAttribute="trailing" constant="20" id="rKY-1J-GaA"/>
+                            <constraint firstItem="EA5-hU-fez" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ojg-7J-vR4"/>
+                            <constraint firstItem="NMc-0F-0rz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="uEB-E9-fiZ"/>
+                            <constraint firstItem="bNz-z8-LUo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vic-5D-JjP"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="targetSegmentControl" destination="IcM-YD-FS3" id="tLb-Bi-BfR"/>
-                        <outlet property="textField" destination="6xT-ch-4rc" id="TYc-Za-Whp"/>
-                        <outlet property="textView" destination="EA5-hU-fez" id="SqB-5Y-e6U"/>
+                        <outlet property="targetTextView" destination="bNz-z8-LUo" id="0ma-Wb-YbA"/>
+                        <outlet property="translationTextView" destination="EA5-hU-fez" id="SqB-5Y-e6U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -81,17 +86,11 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

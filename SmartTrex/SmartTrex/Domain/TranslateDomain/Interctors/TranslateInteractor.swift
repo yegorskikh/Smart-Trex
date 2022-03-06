@@ -16,6 +16,7 @@ class TranslateInteractor: TranslateInteractorable {
                                  target: String,
                                  completion: @escaping (_ translate: String?,
                                                         _ error: String?) -> () ) {
+        
         let model = TranslationRequestModel(q: text, target: target)
         
         serviceTranslate.toTranslate(model) { [weak self] response in
