@@ -40,6 +40,9 @@
 		9756825327CE98E600C7E85F /* TranslateVcMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825227CE98E600C7E85F /* TranslateVcMock.swift */; };
 		9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */; };
 		9756825927CEAF6E00C7E85F /* TranslatePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */; };
+		97BC477327D579FC00DC1C3D /* HistoryTranslateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477227D579FC00DC1C3D /* HistoryTranslateVC.swift */; };
+		97BC477527D57A3700DC1C3D /* HistoryTranslateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477427D57A3700DC1C3D /* HistoryTranslateCell.swift */; };
+		97BC477727D584FC00DC1C3D /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477627D584FC00DC1C3D /* MainVC.swift */; };
 		97E2A7FF27D087C800D74810 /* TargerLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E2A7FE27D087C800D74810 /* TargerLanguage.swift */; };
 		97EB1C8B27CBB9C500832CC7 /* TranslateStoragable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C8A27CBB9C500832CC7 /* TranslateStoragable.swift */; };
 		97EB1C8D27CBBA1000832CC7 /* Translationable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C8C27CBBA1000832CC7 /* Translationable.swift */; };
@@ -101,6 +104,9 @@
 		9756825227CE98E600C7E85F /* TranslateVcMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateVcMock.swift; sourceTree = "<group>"; };
 		9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractorMock.swift; sourceTree = "<group>"; };
 		9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatePresenterTests.swift; sourceTree = "<group>"; };
+		97BC477227D579FC00DC1C3D /* HistoryTranslateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateVC.swift; sourceTree = "<group>"; };
+		97BC477427D57A3700DC1C3D /* HistoryTranslateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateCell.swift; sourceTree = "<group>"; };
+		97BC477627D584FC00DC1C3D /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		97E2A7FE27D087C800D74810 /* TargerLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargerLanguage.swift; sourceTree = "<group>"; };
 		97EB1C8A27CBB9C500832CC7 /* TranslateStoragable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateStoragable.swift; sourceTree = "<group>"; };
 		97EB1C8C27CBBA1000832CC7 /* Translationable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translationable.swift; sourceTree = "<group>"; };
@@ -185,6 +191,11 @@
 				14F7030C27C0041500EF0838 /* Domain */,
 				14A4B2B927BBDBC60075CF30 /* Presentation */,
 				14A4B2BC27BBDC260075CF30 /* SecureString */,
+				97BC477227D579FC00DC1C3D /* HistoryTranslateVC.swift */,
+				97BC477427D57A3700DC1C3D /* HistoryTranslateCell.swift */,
+				97BC477627D584FC00DC1C3D /* MainVC.swift */,
+				972C020A27D14EAE0080AA92 /* Collector.swift */,
+				14225B4227A06D1E004B63BE /* Translate.storyboard */,
 			);
 			path = SmartTrex;
 			sourceTree = "<group>";
@@ -200,7 +211,6 @@
 		14225B5327A06D48004B63BE /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				972C020927D14E990080AA92 /* Collector */,
 				14225B5527A06D69004B63BE /* App Delegates */,
 				14225B5627A06EA0004B63BE /* LaunchScreen */,
 				14225B5427A06D58004B63BE /* Resources */,
@@ -329,14 +339,6 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		14A4B2BB27BBDBF90075CF30 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				14225B4227A06D1E004B63BE /* Translate.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		14A4B2BC27BBDC260075CF30 /* SecureString */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,14 +443,6 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		972C020927D14E990080AA92 /* Collector */ = {
-			isa = PBXGroup;
-			children = (
-				972C020A27D14EAE0080AA92 /* Collector.swift */,
-			);
-			path = Collector;
-			sourceTree = "<group>";
-		};
 		972C020C27D14F5B0080AA92 /* TranslateData */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,7 +466,6 @@
 			isa = PBXGroup;
 			children = (
 				97F00A4B27CC28CB00D35188 /* Presenter */,
-				14A4B2BB27BBDBF90075CF30 /* View */,
 				14A4B2BA27BBDBED0075CF30 /* ViewController */,
 			);
 			path = TranslatePresentation;
@@ -766,6 +759,7 @@
 				148F005A27BC50EE00C9A198 /* DetectResponse.swift in Sources */,
 				14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */,
 				972AE4E427CBB83C00EE205E /* TranslateInteractorable.swift in Sources */,
+				97BC477527D57A3700DC1C3D /* HistoryTranslateCell.swift in Sources */,
 				14ABECBD27A601B800708D1E /* TranslationWord+CoreDataClass.swift in Sources */,
 				14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */,
 				972C020F27D14FB60080AA92 /* TranslateInteractor.swift in Sources */,
@@ -773,7 +767,9 @@
 				97F00A4D27CC290600D35188 /* TranslatePresenter.swift in Sources */,
 				141B1D2527C2E67000FA8A59 /* URLMock.swift in Sources */,
 				14225B4127A06D1E004B63BE /* TranslateVC.swift in Sources */,
+				97BC477727D584FC00DC1C3D /* MainVC.swift in Sources */,
 				97EB1C8D27CBBA1000832CC7 /* Translationable.swift in Sources */,
+				97BC477327D579FC00DC1C3D /* HistoryTranslateVC.swift in Sources */,
 				14225B3D27A06D1E004B63BE /* AppDelegate.swift in Sources */,
 				97EB1C8B27CBB9C500832CC7 /* TranslateStoragable.swift in Sources */,
 				972C020B27D14EAE0080AA92 /* Collector.swift in Sources */,
