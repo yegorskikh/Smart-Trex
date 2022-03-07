@@ -20,11 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let сollector = TranslateCollectorFactory()
+        let storyboard = UIStoryboard(name: "Translate", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "MainVC") as! MainVC
+
+        let navController = UINavigationController()
+        navController.viewControllers = [viewController]
         
-        let viewController = сollector.getModule()
-        
-        window.rootViewController = viewController
+        window.rootViewController = navController
         self.window = window
         window.makeKeyAndVisible()
         

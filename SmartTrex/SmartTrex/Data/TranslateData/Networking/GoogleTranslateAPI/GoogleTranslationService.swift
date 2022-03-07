@@ -38,14 +38,14 @@ class GoogleTranslationService: Translationable {
                     let statusCode = response.response?.statusCode
                 else {
                     completion(TranslationResponePayload(responseData: nil,
-                                                         errorMessage: NetworkingErrorMessage.responeData.rawValue))
+                                                         errorMessage: NetworkingErrorMessage.responseData.rawValue))
                     return
                 }
                 
                 switch statusCode {
                 case 200:
                     do {
-                        let data = try JSONDecoder().decode(TranslateResponeData.self, from: responseData)
+                        let data = try JSONDecoder().decode(TranslateResponseData.self, from: responseData)
                         completion(TranslationResponePayload(responseData: data, errorMessage: nil))
                     } catch {
                         completion(TranslationResponePayload(responseData: nil,
@@ -74,7 +74,7 @@ class GoogleTranslationService: Translationable {
                     let statusCode = response.response?.statusCode
                 else {
                     completion(DetectLanguageResponePayload(responseData: nil,
-                                                            errorMessage: NetworkingErrorMessage.responeData.rawValue))
+                                                            errorMessage: NetworkingErrorMessage.responseData.rawValue))
                     return
                 }
                 
