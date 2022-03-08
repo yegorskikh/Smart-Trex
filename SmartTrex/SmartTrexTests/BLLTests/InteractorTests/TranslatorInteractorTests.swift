@@ -31,7 +31,7 @@ class TranslatorInteractorTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_success() {
+    func test_success_save_after_translation() {
         // given
         let expectation = XCTestExpectation(description: "successful")
         translationNetworkMock.responseType = .success
@@ -40,14 +40,14 @@ class TranslatorInteractorTests: XCTestCase {
         sut.translateAndSaveToStore(text: "Bar", target: "Foo") { [weak self] translation, error in
             // than
             XCTAssertEqual(translation, "Baz")
-            XCTAssertEqual(true, self?.storeMock.wasCalled)
+            XCTAssertEqual(true, self?.storeMock.saveToStorageWasCalled)
             expectation.fulfill()
         }
         
         wait(for: [expectation], timeout: 1)
     }
     
-    func test_failer() {
+    func test_failed_save_after_translation() {
         // given
         let expectation = XCTestExpectation(description: "failed")
         translationNetworkMock.responseType = .failed
@@ -56,7 +56,7 @@ class TranslatorInteractorTests: XCTestCase {
         sut.translateAndSaveToStore(text: "Bar", target: "Foo") { [weak self] translation, error in
             // than
             XCTAssertEqual(error, "Foo")
-            XCTAssertEqual(false, self?.storeMock.wasCalled)
+            XCTAssertEqual(false, self?.storeMock.saveToStorageWasCalled)
             expectation.fulfill()
         }
         

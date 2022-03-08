@@ -16,20 +16,20 @@ class TranslateCollectorFactory: CollectorModuleFactory {
     func getModule() -> UIViewController {
         
         // mock
-//        
-//        let responseModel = TranslateResponseData(data: .init(translations: [.init(translatedText: "Translation will be here")]))
-//        let responseJsonData = try! JSONEncoder().encode(responseModel)
-//
-//        let mock: URLMock = URLMock()
-//        mock.setupMock(statusCode: 200, responseData: responseJsonData)
-//
-//        let configuration = URLSessionConfiguration.ephemeral
-//        configuration.protocolClasses = [URLMock.self]
-//        let service = GoogleTranslationService(urlConfiguration: configuration)
+        
+        let responseModel = TranslateResponseData(data: .init(translations: [.init(translatedText: "Translation will be here")]))
+        let responseJsonData = try! JSONEncoder().encode(responseModel)
+
+        let mock: URLMock = URLMock()
+        mock.setupMock(statusCode: 200, responseData: responseJsonData)
+
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [URLMock.self]
+        let service = GoogleTranslationService(urlConfiguration: configuration)
         
         // assembly
         
-        let service = GoogleTranslationService()
+//        let service = GoogleTranslationService()
         let coreDataStack = CoreDataStack()
         let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
                                        coreDataStack: coreDataStack)
@@ -59,11 +59,19 @@ class HistoryTranslateCollectorFactory: CollectorModuleFactory {
         let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
                                        coreDataStack: coreDataStack)
         
-        let storyboard = UIStoryboard(name: "Translate", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "HistoryTranslateVC") as! HistoryTranslateVC
-        view.storage = storage
+        let interactor = HistoryTranslateInteractor()
+        interactor.storage = storage
         
-        return view
+//      let presenter =
+//      presenter.interactor =
+        
+//      vc.presenter =
+        
+        let storyboard = UIStoryboard(name: "Translate", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "HistoryTranslateVC") as! HistoryTranslateVC
+        vc.storage = storage
+        
+        return vc
     }
     
 }

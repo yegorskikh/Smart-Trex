@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 @testable import SmartTrex
 
-class MockCoreDataStack: CoreDataStack {
+class coreDataStackMock: CoreDataStack {
     
     override init() {
         super.init()

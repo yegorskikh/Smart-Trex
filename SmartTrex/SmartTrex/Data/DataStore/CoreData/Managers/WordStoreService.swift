@@ -41,8 +41,8 @@ class WordStoreService: TranslateStoragable {
         }
     }
     
-    func removeFromStorage(_ word: TranslationWord) {
-        coreDataStack.mainContext.delete(word)
+    func removeFromStorage(translation: TranslationWord) {
+        coreDataStack.mainContext.delete(translation)
         coreDataStack.saveContext(managedObjectContext)
     }
     

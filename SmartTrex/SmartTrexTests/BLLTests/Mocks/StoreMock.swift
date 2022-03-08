@@ -10,13 +10,22 @@ import Foundation
 
 class StoreMock: TranslateStoragable {
     
-    var wasCalled = false
+    var saveToStorageWasCalled = false
+    var getDataFromStorageWasCalled = false
+    var removeFromStorageWasCalled = false
     
     func saveToStorage(original: String, translation: String) -> TranslationWord? {
-        wasCalled = true
+        saveToStorageWasCalled = true
         return nil
     }
     
-    func getDataFromStorage(completion: @escaping ([TranslationWord]) -> ()) { }
-    func removeFromStorage(_ word: TranslationWord) { }
+    func getDataFromStorage(completion: @escaping ([TranslationWord]) -> ()) {
+        getDataFromStorageWasCalled = true
+        completion([])
+    }
+    
+    func removeFromStorage(translation: TranslationWord) {
+        removeFromStorageWasCalled = true
+    }
+    
 }

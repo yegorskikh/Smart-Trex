@@ -11,12 +11,6 @@ class MainVC: UIViewController {
 
     var collector: CollectorModuleFactory!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
     @IBAction func translateButtonTapped(_ sender: Any) {
         collector = TranslateCollectorFactory()
         let vc = collector.getModule()        
