@@ -76,7 +76,7 @@ extension HistoryTranslateVC: UITableViewDelegate {
         else {
             return
         }
-        storage.removeFromStorage(remove)
+        storage.removeFromStorage(translation: remove)
         
         storage.getDataFromStorage { [weak self] array in
             self?.dataArray = array

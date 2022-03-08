@@ -10,5 +10,5 @@ import Foundation
 protocol TranslateStoragable {
     func saveToStorage(original: String, translation: String) -> TranslationWord?
     func getDataFromStorage(completion: @escaping ([TranslationWord]) -> ())
-    func removeFromStorage(_ word: TranslationWord)
+    func removeFromStorage(translation: TranslationWord)
 }

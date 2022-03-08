@@ -18,7 +18,7 @@ class TestWordStoreManager: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        coreDataStack = MockCoreDataStack()
+        coreDataStack = coreDataStackMock()
         wordService = WordStoreService(managedObjectContext: coreDataStack.mainContext, coreDataStack: coreDataStack)
     }
     
@@ -50,7 +50,7 @@ class TestWordStoreManager: XCTestCase {
         // when
         let _ = wordService.saveToStorage(original: "Bar", translation: "Foo")
         let secondWord = wordService.saveToStorage(original: "Foo", translation: "Baz")
-        wordService.removeFromStorage(secondWord!)
+        wordService.removeFromStorage(translation: secondWord!)
         
         wordService.getDataFromStorage { data in
             // then
