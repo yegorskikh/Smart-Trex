@@ -38,6 +38,7 @@ class TranslatorInteractorTests: XCTestCase {
         
         // when
         sut.translateAndSaveToStore(text: "Bar", target: "Foo") { [weak self] translation, error in
+            
             // than
             XCTAssertEqual(translation, "Baz")
             XCTAssertEqual(true, self?.storeMock.saveToStorageWasCalled)
@@ -54,6 +55,7 @@ class TranslatorInteractorTests: XCTestCase {
         
         // when
         sut.translateAndSaveToStore(text: "Bar", target: "Foo") { [weak self] translation, error in
+            
             // than
             XCTAssertEqual(error, "Foo")
             XCTAssertEqual(false, self?.storeMock.saveToStorageWasCalled)

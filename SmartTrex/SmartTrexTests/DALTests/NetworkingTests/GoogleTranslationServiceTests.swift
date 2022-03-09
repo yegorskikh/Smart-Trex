@@ -58,7 +58,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
-    func test_translate_response_with_faild_status_code() {
+    func test_translate_response_with_failed_status_code() {
         // given
         let expected = TranslateResponseData(data: TranslationResponseModel(translations:
                                                                                 [WordResponseModel(translatedText: "Foo")]))
@@ -77,7 +77,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
-    func test_translate_faild_response_data() {
+    func test_translate_failed_response_data() {
         // given
         mock.setupMock(statusCode: 200, responseData: nil)
         let expectation = XCTestExpectation(description: "faild response data")
@@ -93,7 +93,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
-    func test_translate_faild_decode_data() {
+    func test_translate_failed_decode_data() {
         // given
         let expected = ""
         let responseJsonData = try! JSONEncoder().encode(expected)
@@ -137,7 +137,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
-    func test_detect_faild_status_code() {
+    func test_detect_failed_status_code() {
         // given
         let expected = DetectLanguageResponeData(data:
                                                     DetectLanguageResponseModel(detections:
@@ -158,7 +158,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 1)
     }
-    func test_detect_response_with_faild_status_code() {
+    func test_detect_response_with_failed_status_code() {
         // given
         let expected = DetectLanguageResponeData(data:
                                                     DetectLanguageResponseModel(detections:
@@ -180,7 +180,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
-    func test_detect_faild_decode_data() {
+    func test_detect_failed_decode_data() {
         // given
         let expected = ""
         let responseJsonData = try! JSONEncoder().encode(expected)
@@ -198,7 +198,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
-    func test_detect_faild_response_data() {
+    func test_detect_failed_response_data() {
         // given
         mock.setupMock(statusCode: 200, responseData: nil)
         let expectation = XCTestExpectation(description: "faild response data")

@@ -8,7 +8,7 @@
 import Foundation
 
 enum NetworkingErrorMessage: String {
-    case responseData = "Faild response data"
-    case statusCode = "Faild status code"
-    case decodeData = "Faild decode data"
+    case responseData = "Failed response data"
+    case statusCode = "Failed status code"
+    case decodeData = "Failed decode data"
 }
