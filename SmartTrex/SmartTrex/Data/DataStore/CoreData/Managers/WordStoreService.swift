@@ -8,6 +8,12 @@
 import Foundation
 import CoreData
 
+protocol TranslateStoragable {
+    func saveToStorage(original: String, translation: String) -> TranslationWord?
+    func getDataFromStorage(completion: @escaping ([TranslationWord]) -> ())
+    func removeFromStorage(translation: TranslationWord)
+}
+
 class WordStoreService: TranslateStoragable {
     
     let managedObjectContext: NSManagedObjectContext

@@ -7,6 +7,13 @@
 
 import Foundation
 
+protocol TranslatePresentable {
+    var interactor: TranslateInteractorable! { get set  }
+    var view: TranslateVCAble! { get set }
+    
+    func translate()
+}
+
 class TranslatePresenter: TranslatePresentable {
     
     weak var view: TranslateVCAble!

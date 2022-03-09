@@ -7,6 +7,13 @@
 
 import Foundation
 
+protocol HistoryTranslateInteractorable {
+    var storage: TranslateStoragable! { get set }
+    
+    func getData(completion: @escaping ([TranslationWord]) -> ())
+    func removeElement(translation: TranslationWord)
+}
+
 class HistoryTranslateInteractor: HistoryTranslateInteractorable {
     
     var storage: TranslateStoragable!

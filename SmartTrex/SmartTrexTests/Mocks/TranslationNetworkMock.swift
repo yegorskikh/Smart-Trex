@@ -21,10 +21,11 @@ class TranslationNetworkMock: Translationable {
         self.responseType = responseType
     }
     
-    func toTranslate(_ words: TranslationRequestModel, completion: @escaping ((TranslationResponePayload?) -> Void)) {
+    func toTranslate(_ words: TranslationRequestModel, completion: @escaping ((TranslationResponsePayload?) -> Void)) {
         switch responseType {
-        case .success: completion(.init(responseData: .init(data: .init(translations: [.init(translatedText: "Baz")])), errorMessage: nil))
-        case .failed: completion(.init(responseData: nil, errorMessage: "Foo"))
+        case .success: completion(.init(responseData: .init(data: .init(translations: [.init(translatedText: "Baz")])),
+                                        stringError: nil))
+        case .failed: completion(.init(responseData: nil, stringError: "Foo"))
         }
     }
     

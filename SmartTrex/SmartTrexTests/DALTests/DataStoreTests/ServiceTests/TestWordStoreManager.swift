@@ -18,7 +18,7 @@ class TestWordStoreManager: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        coreDataStack = coreDataStackMock()
+        coreDataStack = CoreDataStackMock()
         wordService = WordStoreService(managedObjectContext: coreDataStack.mainContext, coreDataStack: coreDataStack)
     }
     

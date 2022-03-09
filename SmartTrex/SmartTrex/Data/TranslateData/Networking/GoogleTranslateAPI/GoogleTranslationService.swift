@@ -8,6 +8,10 @@
 import Foundation
 import Alamofire
 
+protocol Translationable {
+    func toTranslate(_ words: TranslationRequestModel, completion: @escaping ((TranslationResponsePayload?) -> Void))
+}
+
 class GoogleTranslationService: Translationable {
     
     // MARK: - Property
@@ -22,10 +26,10 @@ class GoogleTranslationService: Translationable {
         session = Session(configuration: urlConfiguration)
     }
     
-    // MARK: - Pubclic
+    // MARK: - Public
     
-    public func toTranslate(_ words: TranslationRequestModel, completion: @escaping ((TranslationResponePayload?) -> Void)) {
-            
+    public func toTranslate(_ words: TranslationRequestModel, completion: @escaping ((TranslationResponsePayload?) -> Void)) {
+        
         session.request(URL(string: urlStringTranslate)!,
                         method: .post,
                         parameters: words,
@@ -37,8 +41,8 @@ class GoogleTranslationService: Translationable {
                     let responseData = response.data,
                     let statusCode = response.response?.statusCode
                 else {
-                    completion(TranslationResponePayload(responseData: nil,
-                                                         errorMessage: NetworkingErrorMessage.responseData.rawValue))
+                    completion(TranslationResponsePayload(responseData: nil,
+                                                          stringError: NetworkingErrorMessage.responseData.rawValue))
                     return
                 }
                 
@@ -46,21 +50,21 @@ class GoogleTranslationService: Translationable {
                 case 200:
                     do {
                         let data = try JSONDecoder().decode(TranslateResponseData.self, from: responseData)
-                        completion(TranslationResponePayload(responseData: data, errorMessage: nil))
+                        completion(TranslationResponsePayload(responseData: data, stringError: nil))
                     } catch {
-                        completion(TranslationResponePayload(responseData: nil,
-                                                             errorMessage: NetworkingErrorMessage.decodeData.rawValue))
+                        completion(TranslationResponsePayload(responseData: nil,
+                                                              stringError: NetworkingErrorMessage.decodeData.rawValue))
                     }
                 default:
-                    completion(TranslationResponePayload(responseData: nil,
-                                                         errorMessage: "\(NetworkingErrorMessage.statusCode.rawValue) - \(statusCode)"))
+                    completion(TranslationResponsePayload(responseData: nil,
+                                                          stringError: "\(NetworkingErrorMessage.statusCode.rawValue) - \(statusCode)"))
                 }
             }
     }
     
     
     
-    public func detectLanguage(_ words: DetectRequest, completion: @escaping ((DetectLanguageResponePayload?) -> Void)) {
+    public func detectLanguage(_ words: DetectRequest, completion: @escaping ((DetectLanguageResponsePayload?) -> Void)) {
         
         session.request(URL(string: urlStringDetect)!,
                         method: .post,
@@ -73,8 +77,8 @@ class GoogleTranslationService: Translationable {
                     let responseData = response.data,
                     let statusCode = response.response?.statusCode
                 else {
-                    completion(DetectLanguageResponePayload(responseData: nil,
-                                                            errorMessage: NetworkingErrorMessage.responseData.rawValue))
+                    completion(DetectLanguageResponsePayload(responseData: nil,
+                                                             stringError: NetworkingErrorMessage.responseData.rawValue))
                     return
                 }
                 
@@ -82,14 +86,14 @@ class GoogleTranslationService: Translationable {
                 case 200:
                     do {
                         let data = try JSONDecoder().decode(DetectLanguageResponeData.self, from: responseData)
-                        completion(DetectLanguageResponePayload(responseData: data, errorMessage: nil))
+                        completion(DetectLanguageResponsePayload(responseData: data, stringError: nil))
                     } catch {
-                        completion(DetectLanguageResponePayload(responseData: nil,
-                                                                errorMessage:  NetworkingErrorMessage.decodeData.rawValue))
+                        completion(DetectLanguageResponsePayload(responseData: nil,
+                                                                 stringError:  NetworkingErrorMessage.decodeData.rawValue))
                     }
                 default:
-                    completion(DetectLanguageResponePayload(responseData: nil,
-                                                            errorMessage: "\(NetworkingErrorMessage.statusCode.rawValue) - \(statusCode)"))
+                    completion(DetectLanguageResponsePayload(responseData: nil,
+                                                             stringError: "\(NetworkingErrorMessage.statusCode.rawValue) - \(statusCode)"))
                 }
             }
     }

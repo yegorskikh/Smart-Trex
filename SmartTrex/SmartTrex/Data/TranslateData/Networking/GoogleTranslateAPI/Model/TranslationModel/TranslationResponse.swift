@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct TranslationResponePayload {
+struct TranslationResponsePayload {
     let responseData: TranslateResponseData?
-    let errorMessage: String?
+    let stringError: String?
 }
 
 struct TranslateResponseData: Codable, Equatable {

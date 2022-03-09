@@ -9,9 +9,12 @@ import UIKit
 
 class HistoryTranslateVC: UIViewController {
 
-    var storage: TranslateStoragable!
     @IBOutlet weak var historyTableView: UITableView!
-    var dataArray: [TranslationWord?] = []
+    // MARK: - Property
+    
+    var presenter: HistoryTranslatePresentable!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,26 +23,21 @@ class HistoryTranslateVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        storage.getDataFromStorage { [weak self] array in
-            self?.dataArray = array
-        }
+        presenter.getArrayOfTranslatedWords()
     }
     
     func setupTableView() {
-//        historyTableView.register(HistoryTranslateCell.self,
-//                                  forCellReuseIdentifier: HistoryTranslateCell.reuseIdentifier)
         historyTableView.dataSource = self
         historyTableView.delegate = self
         historyTableView.rowHeight = 85
     }
-    
 
 }
 
 extension HistoryTranslateVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataArray.count
+        presenter.numberOfRowsInSection()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,7 +45,7 @@ extension HistoryTranslateVC: UITableViewDataSource {
                                                          for: indexPath) as! HistoryTranslateCell
 
         guard
-            let word = dataArray[indexPath.row]
+            let word = presenter?.translatedWordsArray[indexPath.row]
         else {
             return cell
         }
@@ -72,16 +70,12 @@ extension HistoryTranslateVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard
-            let remove = dataArray[indexPath.row]
+            let removeElement = presenter?.translatedWordsArray[indexPath.row]
         else {
             return
         }
-        storage.removeFromStorage(translation: remove)
-        
-        storage.getDataFromStorage { [weak self] array in
-            self?.dataArray = array
-        }
-        
+        presenter.removeElement(translation: removeElement)
         tableView.deleteRows(at: [indexPath], with: .left)
     }
+    
 }
