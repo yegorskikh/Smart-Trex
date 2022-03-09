@@ -19,17 +19,17 @@ class TranslateCollectorFactory: CollectorModuleFactory {
         
         let responseModel = TranslateResponseData(data: .init(translations: [.init(translatedText: "Translation will be here")]))
         let responseJsonData = try! JSONEncoder().encode(responseModel)
-
+        
         let mock: URLMock = URLMock()
         mock.setupMock(statusCode: 200, responseData: responseJsonData)
-
+        
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [URLMock.self]
         let service = GoogleTranslationService(urlConfiguration: configuration)
         
         // assembly
         
-//        let service = GoogleTranslationService()
+        //        let service = GoogleTranslationService()
         let coreDataStack = CoreDataStack()
         let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
                                        coreDataStack: coreDataStack)
@@ -62,14 +62,12 @@ class HistoryTranslateCollectorFactory: CollectorModuleFactory {
         let interactor = HistoryTranslateInteractor()
         interactor.storage = storage
         
-//      let presenter =
-//      presenter.interactor =
-        
-//      vc.presenter =
+        let presenter = HistoryTranslatePresenter()
+        presenter.interactor = interactor
         
         let storyboard = UIStoryboard(name: "Translate", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "HistoryTranslateVC") as! HistoryTranslateVC
-        vc.storage = storage
+        vc.presenter = presenter
         
         return vc
     }

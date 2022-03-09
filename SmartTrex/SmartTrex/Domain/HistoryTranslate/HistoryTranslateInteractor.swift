@@ -12,7 +12,7 @@ class HistoryTranslateInteractor: HistoryTranslateInteractorable {
     var storage: TranslateStoragable!
     
     func getData(completion: @escaping ([TranslationWord]) -> ()) {
-        storage.getDataFromStorage { dataArray in
+        storage.getDataFromStorage { [ weak self] dataArray in
             completion(dataArray)
         }
     }
