@@ -7,6 +7,16 @@
 
 import Foundation
 
+protocol TranslateInteractorable {
+    var serviceStorage: TranslateStoragable! { get set }
+    var serviceTranslate: Translationable! { get set }
+    
+    func translateAndSaveToStore(text: String,
+                                 target: String,
+                                 completion: @escaping (_ translate: String?,
+                                                        _ error: String?) -> () )
+}
+
 class TranslateInteractor: TranslateInteractorable {
     
     var serviceStorage: TranslateStoragable!
@@ -24,7 +34,7 @@ class TranslateInteractor: TranslateInteractorable {
             guard
                 let translate = response?.responseData?.data?.translations?.first?.translatedText
             else {
-                completion(nil, response?.errorMessage!)
+                completion(nil, response?.stringError!)
                 return
             }
             

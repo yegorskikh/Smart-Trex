@@ -51,7 +51,7 @@ class GoogleTranslationServiceTests: XCTestCase {
             let responseText = response?.responseData?.data?.translations?.first?.translatedText
             let expectedText = expected.data?.translations?.first?.translatedText
             XCTAssertEqual(responseText, expectedText)
-            XCTAssertNil(response?.errorMessage)
+            XCTAssertNil(response?.stringError)
             expectation.fulfill()
         }
         
@@ -69,7 +69,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         // when
         sut.toTranslate(translationRequestModel) { response in
             // then
-            XCTAssertNotNil(response?.errorMessage)
+            XCTAssertNotNil(response?.stringError)
             XCTAssertNil(response?.responseData)
             expectation.fulfill()
         }
@@ -85,7 +85,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         // when
         sut.toTranslate(translationRequestModel) { response in
             // then
-            XCTAssertNotNil(response?.errorMessage)
+            XCTAssertNotNil(response?.stringError)
             XCTAssertNil(response?.responseData)
             expectation.fulfill()
         }
@@ -103,7 +103,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         // when
         sut.toTranslate(translationRequestModel) { response in
             // then
-            XCTAssertNotNil(response?.errorMessage)
+            XCTAssertNotNil(response?.stringError)
             XCTAssertNil(response?.responseData)
             expectation.fulfill()
         }
@@ -130,7 +130,7 @@ class GoogleTranslationServiceTests: XCTestCase {
             let expectedModel = expected.data?.detections?.first
             
             XCTAssertEqual(responseModel, expectedModel)
-            XCTAssertNil(response?.errorMessage)
+            XCTAssertNil(response?.stringError)
             expectation.fulfill()
         }
         
@@ -151,7 +151,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         // when
         sut.detectLanguage(detectRequestModel) { response in
             // then
-            XCTAssertNotNil(response?.errorMessage)
+            XCTAssertNotNil(response?.stringError)
             XCTAssertNil(response?.responseData)
             expectation.fulfill()
         }
@@ -172,7 +172,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         // when
         sut.detectLanguage(detectRequestModel) { response in
             // then
-            XCTAssertNotNil(response?.errorMessage)
+            XCTAssertNotNil(response?.stringError)
             XCTAssertNil(response?.responseData)
             expectation.fulfill()
         }
@@ -190,7 +190,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         // when
         sut.detectLanguage(detectRequestModel) { response in
             // then
-            XCTAssertNotNil(response?.errorMessage)
+            XCTAssertNotNil(response?.stringError)
             XCTAssertNil(response?.responseData)
             expectation.fulfill()
         }
@@ -206,7 +206,7 @@ class GoogleTranslationServiceTests: XCTestCase {
         // when
         sut.detectLanguage(detectRequestModel) { response in
             // then
-            XCTAssertNotNil(response?.errorMessage)
+            XCTAssertNotNil(response?.stringError)
             XCTAssertNil(response?.responseData)
             expectation.fulfill()
         }
