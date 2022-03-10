@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="97.767857142857139"/>
         </scene>
-        <!--MainVC-->
+        <!--Root View Controller-->
         <scene sceneID="Dh9-bQ-6ln">
             <objects>
-                <viewController storyboardIdentifier="MainVC" id="ybb-qm-h90" customClass="MainVC" customModule="SmartTrex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="ybb-qm-h90" customClass="RootViewController" customModule="SmartTrex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WLz-Bp-wvH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,6 +100,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="83.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Books"/>
+                                        <connections>
+                                            <action selector="booksButtonTapped:" destination="ybb-qm-h90" eventType="touchUpInside" id="Njo-sw-iwZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVa-C2-TAU">
                                         <rect key="frame" x="0.0" y="41" width="83.5" height="31"/>

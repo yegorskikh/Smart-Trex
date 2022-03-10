@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let storyboard = UIStoryboard(name: "Translate", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "MainVC") as! MainVC
-
+        let viewController = storyboard.instantiateViewController(withIdentifier: "MainVC") as! RootViewController
+        
         let navController = UINavigationController()
         navController.viewControllers = [viewController]
         
