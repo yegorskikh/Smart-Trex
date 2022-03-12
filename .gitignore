@@ -63,6 +63,7 @@ Pods/
 Podfile
 Podfile.lock
 *.xcworkspace
+*.xcodeproj
 
 # Carthage
 #
