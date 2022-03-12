@@ -23,6 +23,7 @@ class TranslateVC: UIViewController, TranslateVCAble {
     @IBOutlet weak var targetTextView: UITextView!
     @IBOutlet weak var targetSegmentControl: UISegmentedControl!
     @IBOutlet weak var translationTextView: UITextView!
+    @IBOutlet weak var selectTargetPickerView: UIPickerView!
     
     var presenter: TranslatePresentable!
     
@@ -85,5 +86,3 @@ extension TranslateVC: UITextViewDelegate {
     }
     
 }
-
-
