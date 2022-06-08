@@ -22,8 +22,8 @@ class WordStoreService: TranslateStoragable {
     // MARK: - Lifecycle
     
     init(managedObjectContext: NSManagedObjectContext, coreDataStack: CoreDataStack) {
-      self.managedObjectContext = managedObjectContext
-      self.coreDataStack = coreDataStack
+        self.managedObjectContext = managedObjectContext
+        self.coreDataStack = coreDataStack
     }
     
     // MARK: - Internal
@@ -32,6 +32,7 @@ class WordStoreService: TranslateStoragable {
         let translationWord = TranslationWord(context: managedObjectContext)
         translationWord.original = original
         translationWord.translation = translation
+        translationWord.uuid = UUID()
         coreDataStack.saveContext(managedObjectContext)
         return translationWord
     }
@@ -52,4 +53,13 @@ class WordStoreService: TranslateStoragable {
         coreDataStack.saveContext(managedObjectContext)
     }
     
+    func removeFromStorage(by uuid: UUID) {
+        getDataFromStorage { [weak self] objects  in
+            guard let self = self else { return }
+            if let objectForRemove = objects.first(where: { $0.uuid == uuid }) {
+            self.coreDataStack.mainContext.delete(objectForRemove)
+            self.coreDataStack.saveContext(self.managedObjectContext)
+            }
+        }
+    }
 }
