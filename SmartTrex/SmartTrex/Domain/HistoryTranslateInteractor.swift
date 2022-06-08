@@ -17,7 +17,7 @@ protocol HistoryTranslateInteractorable {
 class HistoryTranslateInteractor: HistoryTranslateInteractorable {
     
     var storage: TranslateStoragable!
-    
+
     func getData(completion: @escaping ([TranslationWord]) -> ()) {
         storage.getDataFromStorage { dataArray in
             completion(dataArray)

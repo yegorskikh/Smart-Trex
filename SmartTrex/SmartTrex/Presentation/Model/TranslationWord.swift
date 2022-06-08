@@ -6,7 +6,7 @@
 //
 import Foundation
 
-struct TranslationWordPresentation {
+struct TranslationWordPresentation: Equatable {
     let uuid: UUID
     let original: String
     let translation: String

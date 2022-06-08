@@ -41,6 +41,7 @@
 		97AD742428510DA5006DEB15 /* TranslationWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD742228510DA5006DEB15 /* TranslationWord+CoreDataClass.swift */; };
 		97AD7427285117DD006DEB15 /* TranslationWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD7426285117DD006DEB15 /* TranslationWord.swift */; };
 		97AD742A28511851006DEB15 /* TranslationWordMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD742928511851006DEB15 /* TranslationWordMapper.swift */; };
+		97AD742D28512DB7006DEB15 /* TranslationWordMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD742C28512DB7006DEB15 /* TranslationWordMapperTests.swift */; };
 		97BC477327D579FC00DC1C3D /* HistoryTranslateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477227D579FC00DC1C3D /* HistoryTranslateVC.swift */; };
 		97BC477527D57A3700DC1C3D /* HistoryTranslateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477427D57A3700DC1C3D /* HistoryTranslateCell.swift */; };
 		97BC477727D584FC00DC1C3D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477627D584FC00DC1C3D /* RootViewController.swift */; };
@@ -105,6 +106,7 @@
 		97AD742228510DA5006DEB15 /* TranslationWord+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		97AD7426285117DD006DEB15 /* TranslationWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWord.swift; sourceTree = "<group>"; };
 		97AD742928511851006DEB15 /* TranslationWordMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWordMapper.swift; sourceTree = "<group>"; };
+		97AD742C28512DB7006DEB15 /* TranslationWordMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWordMapperTests.swift; sourceTree = "<group>"; };
 		97BC477227D579FC00DC1C3D /* HistoryTranslateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateVC.swift; sourceTree = "<group>"; };
 		97BC477427D57A3700DC1C3D /* HistoryTranslateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateCell.swift; sourceTree = "<group>"; };
 		97BC477627D584FC00DC1C3D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -446,6 +448,14 @@
 			path = Mapper;
 			sourceTree = "<group>";
 		};
+		97AD742B28512D89006DEB15 /* MapperTests */ = {
+			isa = PBXGroup;
+			children = (
+				97AD742C28512DB7006DEB15 /* TranslationWordMapperTests.swift */,
+			);
+			path = MapperTests;
+			sourceTree = "<group>";
+		};
 		97C99EB527D928190048271B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +476,7 @@
 		97EB1C8E27CBCBC400832CC7 /* BLLTests */ = {
 			isa = PBXGroup;
 			children = (
+				97AD742B28512D89006DEB15 /* MapperTests */,
 				97EB1C8F27CBCBD800832CC7 /* InteractorTests */,
 			);
 			path = BLLTests;
@@ -715,6 +726,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97AD742D28512DB7006DEB15 /* TranslationWordMapperTests.swift in Sources */,
 				97C99EB827D92A820048271B /* HistoryTranslateInteractorMock.swift in Sources */,
 				14155CF927BC30E30054B502 /* GoogleTranslationServiceTests.swift in Sources */,
 				9756825927CEAF6E00C7E85F /* TranslatePresenterTests.swift in Sources */,

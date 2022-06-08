@@ -92,28 +92,28 @@ class TestWordStoreManager: XCTestCase {
             XCTAssertNil(error, "Save did not occur")
         }
     }
-    
-    func test_removed_by_uuid() {
-        // given
-        let expectation = expectation(description: "Removed")
-        let countDataArray = 1
-        
-        // when
-        let _ = wordService.saveToStorage(original: "Bar", translation: "Foo")
-        let secondWord = wordService.saveToStorage(original: "Foo", translation: "Baz")
-        
-        let beforeMap = WordPresentation(uuid: secondWord!.uuid!, original: secondWord!.original!, translation: secondWord!.translation!)
-        let afterMap = beforeMap.uuid
-        
-        wordService.removeFromStorage(by: afterMap)
-        
-        wordService.getDataFromStorage { data in
-            // then
-            XCTAssertEqual(data.count, countDataArray)
-            expectation.fulfill()
-        }
-        
-        waitForExpectations(timeout: 2)
-    }
+//    
+//    func test_removed_by_uuid() {
+//        // given
+//        let expectation = expectation(description: "Removed")
+//        let countDataArray = 1
+//        
+//        // when
+//        let _ = wordService.saveToStorage(original: "Bar", translation: "Foo")
+//        let secondWord = wordService.saveToStorage(original: "Foo", translation: "Baz")
+//        
+//        let beforeMap = WordPresentation(uuid: secondWord!.uuid!, original: secondWord!.original!, translation: secondWord!.translation!)
+//        let afterMap = beforeMap.uuid
+//        
+//        wordService.removeFromStorage(by: afterMap)
+//        
+//        wordService.getDataFromStorage { data in
+//            // then
+//            XCTAssertEqual(data.count, countDataArray)
+//            expectation.fulfill()
+//        }
+//        
+//        waitForExpectations(timeout: 2)
+//    }
 }
 

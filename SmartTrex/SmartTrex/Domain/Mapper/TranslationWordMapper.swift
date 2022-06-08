@@ -7,20 +7,31 @@
 
 import Foundation
 
-struct TranslationWordMapper {
+protocol TranslationWordMapperable {
+    func toPresentationLayer(from models: [TranslationWord]) -> [TranslationWordPresentation]
+    func toDataLayer(from model: TranslationWordPresentation) -> UUID
+}
+
+struct TranslationWordMapper: TranslationWordMapperable {
     
-    func toPresentationLayer(from model: TranslationWord) -> TranslationWordPresentation? {
-        guard
-            let uuid = model.uuid,
-            let original = model.original,
-            let translation = model.translation
-        else {
-            return nil
+    func toPresentationLayer(from models: [TranslationWord]) -> [TranslationWordPresentation] {
+        var modelsPresentation: [TranslationWordPresentation] = []
+        
+        for i in models {
+            guard
+                let uuid = i.uuid,
+                let original = i.original,
+                let translation = i.translation
+            else {
+                continue
+            }
+            
+            modelsPresentation.append(TranslationWordPresentation(uuid: uuid,
+                                                                  original: original,
+                                                                  translation: translation))
         }
-        let modelPresentation = TranslationWordPresentation(uuid: uuid,
-                                                            original: original,
-                                                            translation: translation)
-        return modelPresentation
+        
+        return modelsPresentation
     }
     
     func toDataLayer(from model: TranslationWordPresentation) -> UUID {

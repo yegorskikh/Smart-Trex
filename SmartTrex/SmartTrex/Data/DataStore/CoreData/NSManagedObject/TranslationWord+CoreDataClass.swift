@@ -10,6 +10,4 @@ import Foundation
 import CoreData
 
 
-public class TranslationWord: NSManagedObject {
-
-}
+public class TranslationWord: NSManagedObject { }
