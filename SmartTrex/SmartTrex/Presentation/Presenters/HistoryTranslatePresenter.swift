@@ -8,18 +8,18 @@
 import Foundation
 
 protocol HistoryTranslatePresentable {
-    var translatedWordsArray: [TranslationWord] { get set }
+    var translatedWordsArray: [TranslationWordPresentation] { get set }
     
     func getArrayOfTranslatedWords()
     func numberOfRowsInSection() -> Int
-    func removeElement(translation: TranslationWord)
+    func removeElement(uuid: UUID)
 }
 
 class HistoryTranslatePresenter: HistoryTranslatePresentable {
     
     var interactor: HistoryTranslateInteractorable!
     
-    var translatedWordsArray: [TranslationWord] = []
+    var translatedWordsArray: [TranslationWordPresentation] = []
     
     func getArrayOfTranslatedWords() {
         interactor.getData { [weak self] data in
@@ -31,8 +31,8 @@ class HistoryTranslatePresenter: HistoryTranslatePresentable {
         return translatedWordsArray.count
     }
     
-    func removeElement(translation: TranslationWord) {
-        interactor.removeElement(translation: translation)
+    func removeElement(uuid: UUID) {
+        interactor.removeElement(uuid: uuid)
         getArrayOfTranslatedWords()
     }
     

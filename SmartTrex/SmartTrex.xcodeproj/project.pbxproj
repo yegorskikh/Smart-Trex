@@ -35,6 +35,7 @@
 		9756825327CE98E600C7E85F /* TranslateVcMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825227CE98E600C7E85F /* TranslateVcMock.swift */; };
 		9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */; };
 		9756825927CEAF6E00C7E85F /* TranslatePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */; };
+		9770A71A28526B6500212F39 /* TranslationWordMapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770A71928526B6500212F39 /* TranslationWordMapperMock.swift */; };
 		97946DCC27D6F3160032A5C7 /* HistoryTranslateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97946DCB27D6F3160032A5C7 /* HistoryTranslateInteractor.swift */; };
 		97946DD227D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97946DD127D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift */; };
 		97AD742328510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD742128510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift */; };
@@ -100,6 +101,7 @@
 		9756825227CE98E600C7E85F /* TranslateVcMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateVcMock.swift; sourceTree = "<group>"; };
 		9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractorMock.swift; sourceTree = "<group>"; };
 		9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatePresenterTests.swift; sourceTree = "<group>"; };
+		9770A71928526B6500212F39 /* TranslationWordMapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWordMapperMock.swift; sourceTree = "<group>"; };
 		97946DCB27D6F3160032A5C7 /* HistoryTranslateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateInteractor.swift; sourceTree = "<group>"; };
 		97946DD127D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateInteractorTests.swift; sourceTree = "<group>"; };
 		97AD742128510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 				9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */,
 				14155CFB27BC31130054B502 /* URLProtocolMock.swift */,
 				14E4520D27A63FB5008DCEAC /* CoreDataStackMock.swift */,
+				9770A71928526B6500212F39 /* TranslationWordMapperMock.swift */,
 				97C99EB727D92A820048271B /* HistoryTranslateInteractorMock.swift */,
 			);
 			path = Mocks;
@@ -728,6 +731,7 @@
 			files = (
 				97AD742D28512DB7006DEB15 /* TranslationWordMapperTests.swift in Sources */,
 				97C99EB827D92A820048271B /* HistoryTranslateInteractorMock.swift in Sources */,
+				9770A71A28526B6500212F39 /* TranslationWordMapperMock.swift in Sources */,
 				14155CF927BC30E30054B502 /* GoogleTranslationServiceTests.swift in Sources */,
 				9756825927CEAF6E00C7E85F /* TranslatePresenterTests.swift in Sources */,
 				14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */,

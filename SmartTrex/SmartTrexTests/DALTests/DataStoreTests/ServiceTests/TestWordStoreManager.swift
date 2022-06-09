@@ -15,14 +15,19 @@ class TestWordStoreManager: XCTestCase {
     
     var wordService: WordStoreService!
     var coreDataStack: CoreDataStack!
+    var mapper: TranslationWordMapperMock!
     
     override func setUp() {
         super.setUp()
         coreDataStack = CoreDataStackMock()
-        wordService = WordStoreService(managedObjectContext: coreDataStack.mainContext, coreDataStack: coreDataStack)
+        mapper = TranslationWordMapperMock()
+        wordService = WordStoreService(managedObjectContext: coreDataStack.mainContext,
+                                       coreDataStack: coreDataStack,
+                                       mapper: mapper)
     }
     
     override func tearDown() {
+        mapper = nil
         coreDataStack = nil
         wordService = nil
         super.tearDown()
@@ -41,26 +46,7 @@ class TestWordStoreManager: XCTestCase {
         }
         waitForExpectations(timeout: 2)
     }
-    
-    func test_removed_from_storage() {
-        // given
-        let expectation = expectation(description: "Removed")
-        let countDataArray = 1
         
-        // when
-        let _ = wordService.saveToStorage(original: "Bar", translation: "Foo")
-        let secondWord = wordService.saveToStorage(original: "Foo", translation: "Baz")
-        wordService.removeFromStorage(translation: secondWord!)
-        
-        wordService.getDataFromStorage { data in
-            // then
-            XCTAssertEqual(data.count, countDataArray)
-            expectation.fulfill()
-        }
-        
-        waitForExpectations(timeout: 2)
-    }
-    
     func test_save_to_storage() {
         // when
         let word = wordService.saveToStorage(original: "Foo", translation: "Baz")
@@ -75,7 +61,8 @@ class TestWordStoreManager: XCTestCase {
         // when
         let derivedContext = coreDataStack.newDerivedContext()
         wordService = WordStoreService(managedObjectContext: derivedContext,
-                                       coreDataStack: coreDataStack)
+                                       coreDataStack: coreDataStack,
+                                       mapper: mapper)
         
         expectation(forNotification: .NSManagedObjectContextDidSave,
                     object: coreDataStack.mainContext) { _ in
@@ -117,10 +104,10 @@ class TestWordStoreManager: XCTestCase {
         // given
         let expectation = expectation(description: "Removed")
         let countDataArray = 0
+        mapper.response = []
         
         // when
         let uuid = UUID()
-        
         wordService.removeFromStorage(by: uuid)
         
         wordService.getDataFromStorage { data in

@@ -49,8 +49,8 @@ extension HistoryTranslateVC: UITableViewDataSource {
         else {
             return cell
         }
-        cell.setupCell(original: word.original ?? "",
-                       translation: word.translation ?? "")
+        cell.setupCell(original: word.original,
+                       translation: word.translation)
         return cell
     }
     
@@ -74,7 +74,7 @@ extension HistoryTranslateVC: UITableViewDelegate {
         else {
             return
         }
-        presenter.removeElement(translation: removeElement)
+        presenter.removeElement(uuid: removeElement.uuid)
         tableView.deleteRows(at: [indexPath], with: .left)
     }
     

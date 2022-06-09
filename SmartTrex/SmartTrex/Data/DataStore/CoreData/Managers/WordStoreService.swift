@@ -10,20 +10,22 @@ import CoreData
 
 protocol TranslateStoragable {
     func saveToStorage(original: String, translation: String) -> TranslationWord?
-    func getDataFromStorage(completion: @escaping ([TranslationWord]) -> ())
-    func removeFromStorage(translation: TranslationWord)
+    func getDataFromStorage(completion: @escaping ([TranslationWordPresentation]) -> ())
+    func removeFromStorage(by uuid: UUID)
 }
 
 class WordStoreService: TranslateStoragable {
     
     let managedObjectContext: NSManagedObjectContext
     let coreDataStack: CoreDataStack
+    let mapper: TranslationWordMapperable!
     
     // MARK: - Lifecycle
     
-    init(managedObjectContext: NSManagedObjectContext, coreDataStack: CoreDataStack) {
+    init(managedObjectContext: NSManagedObjectContext, coreDataStack: CoreDataStack, mapper: TranslationWordMapperable) {
         self.managedObjectContext = managedObjectContext
         self.coreDataStack = coreDataStack
+        self.mapper = mapper
     }
     
     // MARK: - Internal
@@ -37,20 +39,16 @@ class WordStoreService: TranslateStoragable {
         return translationWord
     }
     
-    func getDataFromStorage(completion: @escaping ([TranslationWord]) -> ()) {
+    func getDataFromStorage(completion: @escaping ([TranslationWordPresentation]) -> ()) {
         let fetchRequest = NSFetchRequest<TranslationWord>(entityName: CoreDataStack.modelName)
         
         do {
             let words = try coreDataStack.storeContainer.viewContext.fetch(fetchRequest)
-            completion(words)
+            let presentationModels = mapper.toPresentationLayer(from: words)
+            completion(presentationModels)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
-    }
-    // DEL
-    func removeFromStorage(translation: TranslationWord) {
-        coreDataStack.mainContext.delete(translation)
-        coreDataStack.saveContext(managedObjectContext)
     }
     
     func removeFromStorage(by uuid: UUID) {
@@ -72,11 +70,22 @@ class WordStoreService: TranslateStoragable {
     private func findBy(uuid: UUID) -> TranslationWord? {
         var object: TranslationWord? = nil
         
-        getDataFromStorage { objects in
+        getDataFromStorageDalLayer { objects in
             object = objects.first(where: { $0.uuid == uuid })
         }
         
         return object
+    }
+    
+    private func getDataFromStorageDalLayer(completion: @escaping ([TranslationWord]) -> ()) {
+        let fetchRequest = NSFetchRequest<TranslationWord>(entityName: CoreDataStack.modelName)
+        
+        do {
+            let words = try coreDataStack.storeContainer.viewContext.fetch(fetchRequest)
+            completion(words)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
     
 }

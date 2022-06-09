@@ -21,7 +21,8 @@ class TranslationWordMapperTests: XCTestCase {
         sut = TranslationWordMapper()
         coreDataStackMock = CoreDataStackMock()
         serviceStore = WordStoreService(managedObjectContext: coreDataStackMock.mainContext,
-                                        coreDataStack: coreDataStackMock)
+                                        coreDataStack: coreDataStackMock,
+        mapper: sut)
     }
     
     override func tearDown() {
@@ -33,20 +34,16 @@ class TranslationWordMapperTests: XCTestCase {
     func test_mapping_for_presenter() {
         // given
         let expectation = expectation(description: "mapping")
-        var givenModels = [TranslationWord]()
-        
+
         //when
         let savedModel = serviceStore.saveToStorage(original: "Foo", translation: "Bar")
         let expectedModel = TranslationWordPresentation(uuid: savedModel!.uuid!,
                                                         original: "Foo",
                                                         translation: "Bar")
         
-        serviceStore.getDataFromStorage { [weak self] models in
-            givenModels = models
-            let result = self!.sut.toPresentationLayer(from: givenModels)
-            
+        serviceStore.getDataFromStorage { models in
             // then
-            XCTAssertEqual(result.first!, expectedModel)
+            XCTAssertEqual(models.first!.original, expectedModel.original)
             expectation.fulfill()
         }
         
@@ -57,15 +54,13 @@ class TranslationWordMapperTests: XCTestCase {
         // given
         let expectation = expectation(description: "mapping nil")
         let _ = TranslationWord(context: coreDataStackMock.mainContext)
-        var expectedArray = [TranslationWordPresentation]()
         let expectedCountArray = 0
         
         // when
-        serviceStore.getDataFromStorage { [weak self] models in
-            expectedArray = self!.sut!.toPresentationLayer(from: models)
-            
+        serviceStore.getDataFromStorage { models in
+
             // then
-            XCTAssertEqual(expectedArray.count, expectedCountArray)
+            XCTAssertEqual(models.count, expectedCountArray)
             expectation.fulfill()
         }
         
