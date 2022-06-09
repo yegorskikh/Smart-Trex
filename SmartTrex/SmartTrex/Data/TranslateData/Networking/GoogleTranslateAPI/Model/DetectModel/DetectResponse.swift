@@ -8,11 +8,11 @@
 import Foundation
 
 struct DetectLanguageResponsePayload: Codable, Equatable {
-    let responseData: DetectLanguageResponeData?
+    let responseData: DetectLanguageResponseData?
     let stringError: String?
 }
 
-struct DetectLanguageResponeData: Codable, Equatable {
+struct DetectLanguageResponseData: Codable, Equatable {
     let data: DetectLanguageResponseModel?
 }
 

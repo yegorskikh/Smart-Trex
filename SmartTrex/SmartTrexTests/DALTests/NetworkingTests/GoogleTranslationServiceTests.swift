@@ -114,7 +114,7 @@ class GoogleTranslationServiceTests: XCTestCase {
     
     func test_detect_successful_response() {
         // given
-        let expected = DetectLanguageResponeData(data:
+        let expected = DetectLanguageResponseData(data:
                                                     DetectLanguageResponseModel(detections:
                                                                                     [DetectResponseModel(confidence: 1,
                                                                                                          language: "Foo",
@@ -139,7 +139,7 @@ class GoogleTranslationServiceTests: XCTestCase {
     
     func test_detect_failed_status_code() {
         // given
-        let expected = DetectLanguageResponeData(data:
+        let expected = DetectLanguageResponseData(data:
                                                     DetectLanguageResponseModel(detections:
                                                                                     [DetectResponseModel(confidence: 1,
                                                                                                          language: "Foo",
@@ -160,7 +160,7 @@ class GoogleTranslationServiceTests: XCTestCase {
     }
     func test_detect_response_with_failed_status_code() {
         // given
-        let expected = DetectLanguageResponeData(data:
+        let expected = DetectLanguageResponseData(data:
                                                     DetectLanguageResponseModel(detections:
                                                                                     [DetectResponseModel(confidence: 1,
                                                                                                          language: "Foo",
