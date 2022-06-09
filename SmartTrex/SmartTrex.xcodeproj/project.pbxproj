@@ -24,8 +24,6 @@
 		14A4B2B827BBCEEC0075CF30 /* TranslationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4B2B727BBCEEC0075CF30 /* TranslationResponse.swift */; };
 		14A4B2BE27BBDC420075CF30 /* SecureString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4B2BD27BBDC420075CF30 /* SecureString.swift */; };
 		14ABECAE27A5FBCF00708D1E /* TranslationWord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECAC27A5FBCF00708D1E /* TranslationWord.xcdatamodeld */; };
-		14ABECBD27A601B800708D1E /* TranslationWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECBB27A601B800708D1E /* TranslationWord+CoreDataClass.swift */; };
-		14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECBC27A601B800708D1E /* TranslationWord+CoreDataProperties.swift */; };
 		14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECC027A602F500708D1E /* CoreDataStack.swift */; };
 		14E4520E27A63FB5008DCEAC /* CoreDataStackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520D27A63FB5008DCEAC /* CoreDataStackMock.swift */; };
 		14E4521027A64298008DCEAC /* WordStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520F27A64298008DCEAC /* WordStoreService.swift */; };
@@ -37,8 +35,14 @@
 		9756825327CE98E600C7E85F /* TranslateVcMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825227CE98E600C7E85F /* TranslateVcMock.swift */; };
 		9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */; };
 		9756825927CEAF6E00C7E85F /* TranslatePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */; };
+		9770A71A28526B6500212F39 /* TranslationWordMapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770A71928526B6500212F39 /* TranslationWordMapperMock.swift */; };
 		97946DCC27D6F3160032A5C7 /* HistoryTranslateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97946DCB27D6F3160032A5C7 /* HistoryTranslateInteractor.swift */; };
 		97946DD227D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97946DD127D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift */; };
+		97AD742328510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD742128510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift */; };
+		97AD742428510DA5006DEB15 /* TranslationWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD742228510DA5006DEB15 /* TranslationWord+CoreDataClass.swift */; };
+		97AD7427285117DD006DEB15 /* TranslationWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD7426285117DD006DEB15 /* TranslationWord.swift */; };
+		97AD742A28511851006DEB15 /* TranslationWordMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD742928511851006DEB15 /* TranslationWordMapper.swift */; };
+		97AD742D28512DB7006DEB15 /* TranslationWordMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD742C28512DB7006DEB15 /* TranslationWordMapperTests.swift */; };
 		97BC477327D579FC00DC1C3D /* HistoryTranslateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477227D579FC00DC1C3D /* HistoryTranslateVC.swift */; };
 		97BC477527D57A3700DC1C3D /* HistoryTranslateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477427D57A3700DC1C3D /* HistoryTranslateCell.swift */; };
 		97BC477727D584FC00DC1C3D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477627D584FC00DC1C3D /* RootViewController.swift */; };
@@ -80,8 +84,6 @@
 		14A4B2B727BBCEEC0075CF30 /* TranslationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResponse.swift; sourceTree = "<group>"; };
 		14A4B2BD27BBDC420075CF30 /* SecureString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureString.swift; sourceTree = "<group>"; };
 		14ABECAD27A5FBCF00708D1E /* TranslationWord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TranslationWord.xcdatamodel; sourceTree = "<group>"; };
-		14ABECBB27A601B800708D1E /* TranslationWord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataClass.swift"; sourceTree = "<group>"; };
-		14ABECBC27A601B800708D1E /* TranslationWord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14ABECC027A602F500708D1E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		14E4520227A63E30008DCEAC /* SmartTrexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartTrexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E4520D27A63FB5008DCEAC /* CoreDataStackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackMock.swift; sourceTree = "<group>"; };
@@ -99,8 +101,14 @@
 		9756825227CE98E600C7E85F /* TranslateVcMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateVcMock.swift; sourceTree = "<group>"; };
 		9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractorMock.swift; sourceTree = "<group>"; };
 		9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatePresenterTests.swift; sourceTree = "<group>"; };
+		9770A71928526B6500212F39 /* TranslationWordMapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWordMapperMock.swift; sourceTree = "<group>"; };
 		97946DCB27D6F3160032A5C7 /* HistoryTranslateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateInteractor.swift; sourceTree = "<group>"; };
 		97946DD127D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateInteractorTests.swift; sourceTree = "<group>"; };
+		97AD742128510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		97AD742228510DA5006DEB15 /* TranslationWord+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		97AD7426285117DD006DEB15 /* TranslationWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWord.swift; sourceTree = "<group>"; };
+		97AD742928511851006DEB15 /* TranslationWordMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWordMapper.swift; sourceTree = "<group>"; };
+		97AD742C28512DB7006DEB15 /* TranslationWordMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWordMapperTests.swift; sourceTree = "<group>"; };
 		97BC477227D579FC00DC1C3D /* HistoryTranslateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateVC.swift; sourceTree = "<group>"; };
 		97BC477427D57A3700DC1C3D /* HistoryTranslateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateCell.swift; sourceTree = "<group>"; };
 		97BC477627D584FC00DC1C3D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -249,8 +257,8 @@
 		144DDD1227A5F73B00678575 /* NSManagedObject */ = {
 			isa = PBXGroup;
 			children = (
-				14ABECBB27A601B800708D1E /* TranslationWord+CoreDataClass.swift */,
-				14ABECBC27A601B800708D1E /* TranslationWord+CoreDataProperties.swift */,
+				97AD742228510DA5006DEB15 /* TranslationWord+CoreDataClass.swift */,
+				97AD742128510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift */,
 			);
 			path = NSManagedObject;
 			sourceTree = "<group>";
@@ -303,6 +311,7 @@
 		14A4B2B927BBDBC60075CF30 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				97AD7425285117BE006DEB15 /* Model */,
 				97C99EB627D928310048271B /* View */,
 				97C99EB527D928190048271B /* ViewControllers */,
 				9709A6E527D8237A003E7C8F /* Presenters */,
@@ -384,6 +393,7 @@
 		14F7030C27C0041500EF0838 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				97AD74282851182C006DEB15 /* Mapper */,
 				97946DCB27D6F3160032A5C7 /* HistoryTranslateInteractor.swift */,
 				972C020E27D14FB60080AA92 /* TranslateInteractor.swift */,
 			);
@@ -424,6 +434,30 @@
 			path = PresentationTests;
 			sourceTree = "<group>";
 		};
+		97AD7425285117BE006DEB15 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				97AD7426285117DD006DEB15 /* TranslationWord.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		97AD74282851182C006DEB15 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				97AD742928511851006DEB15 /* TranslationWordMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		97AD742B28512D89006DEB15 /* MapperTests */ = {
+			isa = PBXGroup;
+			children = (
+				97AD742C28512DB7006DEB15 /* TranslationWordMapperTests.swift */,
+			);
+			path = MapperTests;
+			sourceTree = "<group>";
+		};
 		97C99EB527D928190048271B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +478,7 @@
 		97EB1C8E27CBCBC400832CC7 /* BLLTests */ = {
 			isa = PBXGroup;
 			children = (
+				97AD742B28512D89006DEB15 /* MapperTests */,
 				97EB1C8F27CBCBD800832CC7 /* InteractorTests */,
 			);
 			path = BLLTests;
@@ -467,6 +502,7 @@
 				9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */,
 				14155CFB27BC31130054B502 /* URLProtocolMock.swift */,
 				14E4520D27A63FB5008DCEAC /* CoreDataStackMock.swift */,
+				9770A71928526B6500212F39 /* TranslationWordMapperMock.swift */,
 				97C99EB727D92A820048271B /* HistoryTranslateInteractorMock.swift */,
 			);
 			path = Mocks;
@@ -662,11 +698,10 @@
 			files = (
 				14F7031027C0052F00EF0838 /* NetworkingErrorMessage.swift in Sources */,
 				14A4B2B827BBCEEC0075CF30 /* TranslationResponse.swift in Sources */,
+				97AD742328510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift in Sources */,
 				148F005A27BC50EE00C9A198 /* DetectResponse.swift in Sources */,
 				14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */,
 				97BC477527D57A3700DC1C3D /* HistoryTranslateCell.swift in Sources */,
-				14ABECBD27A601B800708D1E /* TranslationWord+CoreDataClass.swift in Sources */,
-				14ABECBE27A601B800708D1E /* TranslationWord+CoreDataProperties.swift in Sources */,
 				972C020F27D14FB60080AA92 /* TranslateInteractor.swift in Sources */,
 				97F00A4D27CC290600D35188 /* TranslatePresenter.swift in Sources */,
 				141B1D2527C2E67000FA8A59 /* URLMock.swift in Sources */,
@@ -674,6 +709,8 @@
 				9709A6E727D82393003E7C8F /* HistoryTranslatePresenter.swift in Sources */,
 				97BC477727D584FC00DC1C3D /* RootViewController.swift in Sources */,
 				97BC477327D579FC00DC1C3D /* HistoryTranslateVC.swift in Sources */,
+				97AD742428510DA5006DEB15 /* TranslationWord+CoreDataClass.swift in Sources */,
+				97AD742A28511851006DEB15 /* TranslationWordMapper.swift in Sources */,
 				14225B3D27A06D1E004B63BE /* AppDelegate.swift in Sources */,
 				97946DCC27D6F3160032A5C7 /* HistoryTranslateInteractor.swift in Sources */,
 				972C020B27D14EAE0080AA92 /* Collector.swift in Sources */,
@@ -682,6 +719,7 @@
 				14E4521027A64298008DCEAC /* WordStoreService.swift in Sources */,
 				14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */,
 				14ABECAE27A5FBCF00708D1E /* TranslationWord.xcdatamodeld in Sources */,
+				97AD7427285117DD006DEB15 /* TranslationWord.swift in Sources */,
 				148F005C27BC513800C9A198 /* DetectRequest.swift in Sources */,
 				14A4B2BE27BBDC420075CF30 /* SecureString.swift in Sources */,
 			);
@@ -691,7 +729,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97AD742D28512DB7006DEB15 /* TranslationWordMapperTests.swift in Sources */,
 				97C99EB827D92A820048271B /* HistoryTranslateInteractorMock.swift in Sources */,
+				9770A71A28526B6500212F39 /* TranslationWordMapperMock.swift in Sources */,
 				14155CF927BC30E30054B502 /* GoogleTranslationServiceTests.swift in Sources */,
 				9756825927CEAF6E00C7E85F /* TranslatePresenterTests.swift in Sources */,
 				14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */,

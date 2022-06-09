@@ -38,7 +38,7 @@ class HistoryTranslatePresenterTests: XCTestCase {
     
     func test_delete_from_database() {
         // when
-        sut.removeElement(translation: TranslationWord())
+        sut.removeElement(uuid: UUID())
         
         // then
         XCTAssertEqual(interactorMock.removeElementWasCalled, true)

@@ -19,12 +19,12 @@ class StoreMock: TranslateStoragable {
         return nil
     }
     
-    func getDataFromStorage(completion: @escaping ([TranslationWord]) -> ()) {
+    func getDataFromStorage(completion: @escaping ([TranslationWordPresentation]) -> ()) {
         getDataFromStorageWasCalled = true
         completion([])
     }
     
-    func removeFromStorage(translation: TranslationWord) {
+    func removeFromStorage(by uuid: UUID) {
         removeFromStorageWasCalled = true
     }
     

@@ -1,8 +1,8 @@
 //
 //  TranslationWord+CoreDataProperties.swift
-//  Smart Trex
+//  
 //
-//  Created by Yegor Gorskikh on 30.01.2022.
+//  Created by Yegor Gorskikh on 08.06.2022.
 //
 //
 
@@ -12,13 +12,12 @@ import CoreData
 
 extension TranslationWord {
 
-    @NSManaged public var original: String?
-    @NSManaged public var translation: String?
-    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<TranslationWord> {
         return NSFetchRequest<TranslationWord>(entityName: "TranslationWord")
     }
 
-}
+    @NSManaged public var original: String?
+    @NSManaged public var translation: String?
+    @NSManaged public var uuid: UUID?
 
-extension TranslationWord : Identifiable { }
+}

@@ -31,8 +31,10 @@ class TranslateCollectorFactory: CollectorModuleFactory {
         
         //        let service = GoogleTranslationService()
         let coreDataStack = CoreDataStack()
+        let mapper = TranslationWordMapper()
         let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
-                                       coreDataStack: coreDataStack)
+                                       coreDataStack: coreDataStack,
+                                       mapper: mapper)
         
         let interactor = TranslateInteractor()
         interactor.serviceStorage = storage
@@ -56,8 +58,11 @@ class HistoryTranslateCollectorFactory: CollectorModuleFactory {
     
     func getModule() -> UIViewController {
         let coreDataStack = CoreDataStack()
+        let mapper = TranslationWordMapper()
+        
         let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
-                                       coreDataStack: coreDataStack)
+                                       coreDataStack: coreDataStack,
+                                       mapper: mapper)
         
         let interactor = HistoryTranslateInteractor()
         interactor.storage = storage

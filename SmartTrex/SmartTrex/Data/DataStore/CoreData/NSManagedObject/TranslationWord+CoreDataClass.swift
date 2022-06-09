@@ -1,8 +1,8 @@
 //
 //  TranslationWord+CoreDataClass.swift
-//  Smart Trex
+//  
 //
-//  Created by Yegor Gorskikh on 30.01.2022.
+//  Created by Yegor Gorskikh on 08.06.2022.
 //
 //
 

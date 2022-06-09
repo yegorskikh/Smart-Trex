@@ -9,17 +9,17 @@ import Foundation
 @testable import SmartTrex
 
 class HistoryTranslateInteractorMock: HistoryTranslateInteractorable {
-    
+
     var storage: TranslateStoragable!
     var getDataWasCalled = false
     var removeElementWasCalled = false
     
-    func getData(completion: @escaping ([TranslationWord]) -> ()) {
+    func getData(completion: @escaping ([TranslationWordPresentation]) -> ()) {
         getDataWasCalled = true
-        completion([TranslationWord()])
+        completion([TranslationWordPresentation(uuid: UUID(), original: "Foo", translation: "Bar")])
     }
     
-    func removeElement(translation: TranslationWord) {
+    func removeElement(uuid: UUID) {
         removeElementWasCalled = true
     }
     

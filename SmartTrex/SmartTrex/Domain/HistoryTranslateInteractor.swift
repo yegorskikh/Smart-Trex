@@ -10,22 +10,22 @@ import Foundation
 protocol HistoryTranslateInteractorable {
     var storage: TranslateStoragable! { get set }
     
-    func getData(completion: @escaping ([TranslationWord]) -> ())
-    func removeElement(translation: TranslationWord)
+    func getData(completion: @escaping ([TranslationWordPresentation]) -> ())
+    func removeElement(uuid: UUID)
 }
 
 class HistoryTranslateInteractor: HistoryTranslateInteractorable {
     
     var storage: TranslateStoragable!
-    
-    func getData(completion: @escaping ([TranslationWord]) -> ()) {
+
+    func getData(completion: @escaping ([TranslationWordPresentation]) -> ()) {
         storage.getDataFromStorage { dataArray in
             completion(dataArray)
         }
     }
     
-    func removeElement(translation: TranslationWord) {
-        storage.removeFromStorage(translation: translation)
+    func removeElement(uuid: UUID) {
+        storage.removeFromStorage(by: uuid)
     }
     
 }
