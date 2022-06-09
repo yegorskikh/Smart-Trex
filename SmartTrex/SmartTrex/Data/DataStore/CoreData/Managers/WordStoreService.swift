@@ -47,7 +47,7 @@ class WordStoreService: TranslateStoragable {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
-    
+    // DEL
     func removeFromStorage(translation: TranslationWord) {
         coreDataStack.mainContext.delete(translation)
         coreDataStack.saveContext(managedObjectContext)
@@ -55,11 +55,28 @@ class WordStoreService: TranslateStoragable {
     
     func removeFromStorage(by uuid: UUID) {
         getDataFromStorage { [weak self] objects  in
-            guard let self = self else { return }
-            if let objectForRemove = objects.first(where: { $0.uuid == uuid }) {
-            self.coreDataStack.mainContext.delete(objectForRemove)
-            self.coreDataStack.saveContext(self.managedObjectContext)
+            guard
+                let self = self,
+                let object = self.findBy(uuid: uuid)
+            else {
+                return
             }
+            
+            self.coreDataStack.mainContext.delete(object)
+            self.coreDataStack.saveContext(self.managedObjectContext)
         }
     }
+    
+    // MARK: - Private
+    
+    private func findBy(uuid: UUID) -> TranslationWord? {
+        var object: TranslationWord? = nil
+        
+        getDataFromStorage { objects in
+            object = objects.first(where: { $0.uuid == uuid })
+        }
+        
+        return object
+    }
+    
 }
