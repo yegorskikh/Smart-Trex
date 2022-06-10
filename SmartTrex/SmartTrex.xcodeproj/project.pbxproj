@@ -19,7 +19,6 @@
 		14225B4927A06D21004B63BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4727A06D21004B63BE /* LaunchScreen.storyboard */; };
 		148F005A27BC50EE00C9A198 /* DetectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F005927BC50EE00C9A198 /* DetectResponse.swift */; };
 		148F005C27BC513800C9A198 /* DetectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F005B27BC513800C9A198 /* DetectRequest.swift */; };
-		1495033927B1BECB0043F47B /* GoogleTranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495033827B1BECB0043F47B /* GoogleTranslationService.swift */; };
 		14A4B2B627BBCE890075CF30 /* TranslationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4B2B527BBCE890075CF30 /* TranslationRequest.swift */; };
 		14A4B2B827BBCEEC0075CF30 /* TranslationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4B2B727BBCEEC0075CF30 /* TranslationResponse.swift */; };
 		14A4B2BE27BBDC420075CF30 /* SecureString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4B2BD27BBDC420075CF30 /* SecureString.swift */; };
@@ -43,6 +42,7 @@
 		97AD7427285117DD006DEB15 /* TranslationWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD7426285117DD006DEB15 /* TranslationWord.swift */; };
 		97AD742A28511851006DEB15 /* TranslationWordMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD742928511851006DEB15 /* TranslationWordMapper.swift */; };
 		97AD742D28512DB7006DEB15 /* TranslationWordMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD742C28512DB7006DEB15 /* TranslationWordMapperTests.swift */; };
+		97AF1DDC2853E719002D99A6 /* GoogleTranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AF1DDB2853E719002D99A6 /* GoogleTranslationService.swift */; };
 		97BC477327D579FC00DC1C3D /* HistoryTranslateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477227D579FC00DC1C3D /* HistoryTranslateVC.swift */; };
 		97BC477527D57A3700DC1C3D /* HistoryTranslateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477427D57A3700DC1C3D /* HistoryTranslateCell.swift */; };
 		97BC477727D584FC00DC1C3D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477627D584FC00DC1C3D /* RootViewController.swift */; };
@@ -79,7 +79,6 @@
 		14225B4A27A06D22004B63BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		148F005927BC50EE00C9A198 /* DetectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectResponse.swift; sourceTree = "<group>"; };
 		148F005B27BC513800C9A198 /* DetectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectRequest.swift; sourceTree = "<group>"; };
-		1495033827B1BECB0043F47B /* GoogleTranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslationService.swift; sourceTree = "<group>"; };
 		14A4B2B527BBCE890075CF30 /* TranslationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationRequest.swift; sourceTree = "<group>"; };
 		14A4B2B727BBCEEC0075CF30 /* TranslationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResponse.swift; sourceTree = "<group>"; };
 		14A4B2BD27BBDC420075CF30 /* SecureString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureString.swift; sourceTree = "<group>"; };
@@ -109,6 +108,7 @@
 		97AD7426285117DD006DEB15 /* TranslationWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWord.swift; sourceTree = "<group>"; };
 		97AD742928511851006DEB15 /* TranslationWordMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWordMapper.swift; sourceTree = "<group>"; };
 		97AD742C28512DB7006DEB15 /* TranslationWordMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWordMapperTests.swift; sourceTree = "<group>"; };
+		97AF1DDB2853E719002D99A6 /* GoogleTranslationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleTranslationService.swift; path = SmartTrex/Data/TranslateData/Networking/GoogleTranslationService.swift; sourceTree = SOURCE_ROOT; };
 		97BC477227D579FC00DC1C3D /* HistoryTranslateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateVC.swift; sourceTree = "<group>"; };
 		97BC477427D57A3700DC1C3D /* HistoryTranslateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateCell.swift; sourceTree = "<group>"; };
 		97BC477627D584FC00DC1C3D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				14A4B2B227BBCE5D0075CF30 /* Model */,
-				1495033827B1BECB0043F47B /* GoogleTranslationService.swift */,
+				97AF1DDB2853E719002D99A6 /* GoogleTranslationService.swift */,
 			);
 			path = GoogleTranslateAPI;
 			sourceTree = "<group>";
@@ -712,6 +712,7 @@
 				97BC477527D57A3700DC1C3D /* HistoryTranslateCell.swift in Sources */,
 				972C020F27D14FB60080AA92 /* TranslateInteractor.swift in Sources */,
 				97F00A4D27CC290600D35188 /* TranslatePresenter.swift in Sources */,
+				97AF1DDC2853E719002D99A6 /* GoogleTranslationService.swift in Sources */,
 				141B1D2527C2E67000FA8A59 /* URLMock.swift in Sources */,
 				14225B4127A06D1E004B63BE /* TranslateVC.swift in Sources */,
 				9709A6E727D82393003E7C8F /* HistoryTranslatePresenter.swift in Sources */,
@@ -723,7 +724,6 @@
 				97946DCC27D6F3160032A5C7 /* HistoryTranslateInteractor.swift in Sources */,
 				972C020B27D14EAE0080AA92 /* Collector.swift in Sources */,
 				14A4B2B627BBCE890075CF30 /* TranslationRequest.swift in Sources */,
-				1495033927B1BECB0043F47B /* GoogleTranslationService.swift in Sources */,
 				14E4521027A64298008DCEAC /* WordStoreService.swift in Sources */,
 				14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */,
 				14ABECAE27A5FBCF00708D1E /* TranslationWord.xcdatamodeld in Sources */,
