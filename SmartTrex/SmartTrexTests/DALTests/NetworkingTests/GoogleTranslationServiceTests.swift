@@ -16,7 +16,6 @@ class GoogleTranslationServiceTests: XCTestCase {
     var sut: GoogleTranslationService!
     var mock: URLProtocolMock!
     var translationRequestModel: TranslationRequestModel!
-    var detectRequestModel: DetectRequest!
     var disposeBag: DisposeBag!
     
     override func setUp() {
@@ -28,13 +27,11 @@ class GoogleTranslationServiceTests: XCTestCase {
         mock = URLProtocolMock()
         
         translationRequestModel = TranslationRequestModel(q: "Bar", target: "en")
-        detectRequestModel = DetectRequest(q: "Foo")
         disposeBag = DisposeBag()
     }
     
     override func tearDown() {
         translationRequestModel = nil
-        detectRequestModel = nil
         sut = nil
         mock = nil
         disposeBag = nil
@@ -84,6 +81,7 @@ class GoogleTranslationServiceTests: XCTestCase {
                     XCTFail()
                 },
                 onFailure: { error in
+                    // then
                     XCTAssertEqual(
                         error.localizedDescription,
                         NetworkingErrorMessage.corruptedData.localizedDescription
