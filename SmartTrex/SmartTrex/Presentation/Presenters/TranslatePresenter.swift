@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol TranslatePresentable {
     var interactor: TranslateInteractorable! { get set  }
@@ -18,25 +19,21 @@ class TranslatePresenter: TranslatePresentable {
     
     weak var view: TranslateVCAble!
     var interactor: TranslateInteractorable!
+    let disposeBag = DisposeBag()
     
     func translate() {
-
         let text = self.view.getTextForTranslation()
-        let target = self.view.getSelectedLanguageForTranslation()        
+        let target = self.view.getSelectedLanguageForTranslation()
         
-        interactor.translateAndSaveToStore(text: text, target: target) { [weak self] translation, error in
-            
-            guard
-                let translation = translation
-            else {
-                self?.view.showErrorAlert(text: error!)
-                return
+        interactor
+            .translateAndSaveToStore(text: text, target: target)
+            .subscribe {
+                self.view.setTheResultingTextTranslation(text: $0)
+            } onError: {
+                self.view.showErrorAlert(text: $0.localizedDescription)
             }
-            
-            self?.view.setTheResultingTextTranslation(text: translation)
-        }
-        
+            .disposed(by: disposeBag)
+
     }
-    
     
 }
