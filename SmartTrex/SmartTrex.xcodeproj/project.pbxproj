@@ -298,7 +298,7 @@
 				97AD7425285117BE006DEB15 /* Model */,
 				97C99EB627D928310048271B /* View */,
 				97C99EB527D928190048271B /* ViewControllers */,
-				9709A6E527D8237A003E7C8F /* Presenters */,
+				9709A6E527D8237A003E7C8F /* ViewModel */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -392,13 +392,13 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		9709A6E527D8237A003E7C8F /* Presenters */ = {
+		9709A6E527D8237A003E7C8F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				9709A6E627D82393003E7C8F /* HistoryTranslatePresenter.swift */,
 				97F00A4C27CC290600D35188 /* TranslatePresenter.swift */,
 			);
-			path = Presenters;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		972C020C27D14F5B0080AA92 /* TranslateData */ = {
