@@ -8,7 +8,6 @@
 import Foundation
 import Alamofire
 import RxSwift
-import RxCocoa
 
 protocol Translationable {
     func toTranslate(word: TranslationRequestModel) -> Single<String>
