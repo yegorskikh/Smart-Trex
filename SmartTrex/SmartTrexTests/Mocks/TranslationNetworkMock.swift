@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 @testable import SmartTrex
 
 class TranslationNetworkMock: Translationable {
@@ -21,12 +23,20 @@ class TranslationNetworkMock: Translationable {
         self.responseType = responseType
     }
     
-    func toTranslate(_ words: TranslationRequestModel, completion: @escaping ((TranslationResponsePayload?) -> Void)) {
-        switch responseType {
-        case .success: completion(.init(responseData: .init(data: .init(translations: [.init(translatedText: "Baz")])),
-                                        stringError: nil))
-        case .failed: completion(.init(responseData: nil, stringError: "Foo"))
+    func toTranslate(word: TranslationRequestModel) -> Single<String> {
+        return Single<String>.create { [unowned self] single in
+            
+            switch self.responseType {
+            case .success:
+                let response = "Baz"
+                single(.success(response))
+                
+            case .failed:
+                single(.failure(NetworkingErrorMessage.responseData))
+            }
+            return Disposables.create()
         }
+        
     }
     
 }

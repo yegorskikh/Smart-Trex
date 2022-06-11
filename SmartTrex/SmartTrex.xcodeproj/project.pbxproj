@@ -17,8 +17,6 @@
 		14225B4427A06D1E004B63BE /* Translate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4227A06D1E004B63BE /* Translate.storyboard */; };
 		14225B4627A06D21004B63BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4527A06D21004B63BE /* Assets.xcassets */; };
 		14225B4927A06D21004B63BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4727A06D21004B63BE /* LaunchScreen.storyboard */; };
-		148F005A27BC50EE00C9A198 /* DetectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F005927BC50EE00C9A198 /* DetectResponse.swift */; };
-		148F005C27BC513800C9A198 /* DetectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F005B27BC513800C9A198 /* DetectRequest.swift */; };
 		14A4B2B627BBCE890075CF30 /* TranslationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4B2B527BBCE890075CF30 /* TranslationRequest.swift */; };
 		14A4B2B827BBCEEC0075CF30 /* TranslationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4B2B727BBCEEC0075CF30 /* TranslationResponse.swift */; };
 		14A4B2BE27BBDC420075CF30 /* SecureString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4B2BD27BBDC420075CF30 /* SecureString.swift */; };
@@ -77,8 +75,6 @@
 		14225B4527A06D21004B63BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14225B4827A06D21004B63BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14225B4A27A06D22004B63BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		148F005927BC50EE00C9A198 /* DetectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectResponse.swift; sourceTree = "<group>"; };
-		148F005B27BC513800C9A198 /* DetectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectRequest.swift; sourceTree = "<group>"; };
 		14A4B2B527BBCE890075CF30 /* TranslationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationRequest.swift; sourceTree = "<group>"; };
 		14A4B2B727BBCEEC0075CF30 /* TranslationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResponse.swift; sourceTree = "<group>"; };
 		14A4B2BD27BBDC420075CF30 /* SecureString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureString.swift; sourceTree = "<group>"; };
@@ -283,18 +279,8 @@
 			isa = PBXGroup;
 			children = (
 				14A4B2B427BBCE6E0075CF30 /* TranslationModel */,
-				14A4B2B327BBCE650075CF30 /* DetectModel */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		14A4B2B327BBCE650075CF30 /* DetectModel */ = {
-			isa = PBXGroup;
-			children = (
-				148F005B27BC513800C9A198 /* DetectRequest.swift */,
-				148F005927BC50EE00C9A198 /* DetectResponse.swift */,
-			);
-			path = DetectModel;
 			sourceTree = "<group>";
 		};
 		14A4B2B427BBCE6E0075CF30 /* TranslationModel */ = {
@@ -707,7 +693,6 @@
 				14F7031027C0052F00EF0838 /* NetworkingErrorMessage.swift in Sources */,
 				14A4B2B827BBCEEC0075CF30 /* TranslationResponse.swift in Sources */,
 				97AD742328510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift in Sources */,
-				148F005A27BC50EE00C9A198 /* DetectResponse.swift in Sources */,
 				14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */,
 				97BC477527D57A3700DC1C3D /* HistoryTranslateCell.swift in Sources */,
 				972C020F27D14FB60080AA92 /* TranslateInteractor.swift in Sources */,
@@ -728,7 +713,6 @@
 				14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */,
 				14ABECAE27A5FBCF00708D1E /* TranslationWord.xcdatamodeld in Sources */,
 				97AD7427285117DD006DEB15 /* TranslationWord.swift in Sources */,
-				148F005C27BC513800C9A198 /* DetectRequest.swift in Sources */,
 				14A4B2BE27BBDC420075CF30 /* SecureString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
