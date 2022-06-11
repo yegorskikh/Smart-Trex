@@ -52,16 +52,15 @@ class TranslatorInteractorTests: XCTestCase {
         // given
         let expectation = XCTestExpectation(description: "failed")
         translationNetworkMock.responseType = .failed
-        
+
         // when
         sut.translateAndSaveToStore(text: "Bar", target: "Foo") { [weak self] translation, error in
-            
+
             // than
-            XCTAssertEqual(error, "Foo")
             XCTAssertEqual(false, self?.storeMock.saveToStorageWasCalled)
             expectation.fulfill()
         }
-        
+
         wait(for: [expectation], timeout: 1)
     }
     

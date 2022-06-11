@@ -8,9 +8,11 @@
 import Foundation
 
 enum NetworkingErrorMessage: LocalizedError {
+    
     case responseData
     case statusCode
     case decodeData
+    case corruptedData
     
     var errorDescription: String {
         switch self {
@@ -20,8 +22,9 @@ enum NetworkingErrorMessage: LocalizedError {
             return "Failed status code"
         case .decodeData:
             return "Failed decode data"
+        case .corruptedData:
+            return "Corrupted data"
         }
     }
-    
 
 }

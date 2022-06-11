@@ -16,7 +16,6 @@ class TranslateCollectorFactory: CollectorModuleFactory {
     func getModule() -> UIViewController {
         
         // mock
-        
         let responseModel = TranslateResponseData(data: .init(translations: [.init(translatedText: "Yep")]))
         let responseJsonData = try! JSONEncoder().encode(responseModel)
         
@@ -25,11 +24,10 @@ class TranslateCollectorFactory: CollectorModuleFactory {
         
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [URLMock.self]
-        let service = GoogleTranslationService(urlConfiguration: configuration)
         
         // assembly
-        
-        //let service = GoogleTranslationService()
+        let service = GoogleTranslationService(urlConfiguration: configuration)
+      //  let service = GoogleTranslationService()
         let coreDataStack = CoreDataStack()
         let mapper = TranslationWordMapper()
         let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
