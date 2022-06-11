@@ -27,7 +27,7 @@ class TranslateCollectorFactory: CollectorModuleFactory {
         
         // assembly
         let service = GoogleTranslationService(urlConfiguration: configuration)
-      //  let service = GoogleTranslationService()
+        //let service = GoogleTranslationService()
         let coreDataStack = CoreDataStack()
         let mapper = TranslationWordMapper()
         let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,

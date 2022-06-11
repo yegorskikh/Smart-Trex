@@ -12,11 +12,7 @@ protocol TranslateInteractorable {
     var serviceStorage: TranslateStoragable! { get set }
     var serviceTranslate: Translationable! { get set }
     
-    // TODO: - change to Rx
-    func translateAndSaveToStore(text: String,
-                                 target: String,
-                                 completion: @escaping (_ translate: String?,
-                                                        _ error: String?) -> () )
+    func translateAndSaveToStore(text: String, target: String) -> Observable<String>
 }
 
 class TranslateInteractor: TranslateInteractorable {
@@ -25,25 +21,31 @@ class TranslateInteractor: TranslateInteractorable {
     var serviceTranslate: Translationable!
     private let disposeBag = DisposeBag()
     
-    func translateAndSaveToStore(text: String,
-                                 target: String,
-                                 completion: @escaping (_ translate: String?,
-                                                        _ error: String?) -> () ) {
-        
-        let model = TranslationRequestModel(q: text, target: target)
-        
-        serviceTranslate
-            .toTranslate(word: model)
-            .subscribe {
-                self.saveToStorage(text, $0)
-                completion($0, nil)
-            } onFailure: {
-                let errorAsString = $0.localizedDescription
-                completion(nil, errorAsString)
+    func translateAndSaveToStore(text: String, target: String) -> Observable<String> {
+        Observable.create { [weak self] observable in
+            
+            guard let self = self else {
+                return Disposables.create()
             }
-            .disposed(by: disposeBag)
-
+            
+            let requestModel = TranslationRequestModel(q: text, target: target)
+            
+            self.serviceTranslate
+                .toTranslate(word: requestModel)
+                .subscribe {
+                    observable.onNext($0)
+                    observable.onCompleted()
+                    self.saveToStorage(text, $0)
+                } onFailure: {
+                    observable.onError($0)
+                    observable.onCompleted()
+                }
+                .disposed(by: self.disposeBag)
+            
+            return Disposables.create()
+        }
     }
+    
     
     private func saveToStorage(_ original: String, _ translation: String) {
         serviceStorage.saveToStorage(original: original, translation: translation)
