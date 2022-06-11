@@ -12,7 +12,7 @@ class RootViewController: UIViewController {
     // MARK: - Property
     
     var collector: CollectorModuleFactory!
-    var goToVc: UIViewController!
+    weak var goToVc: UIViewController!
     
     enum GoTo {
         case translate

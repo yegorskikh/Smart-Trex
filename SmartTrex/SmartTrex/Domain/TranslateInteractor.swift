@@ -9,41 +9,48 @@ import Foundation
 import RxSwift
 
 protocol TranslateInteractorable {
-    var serviceStorage: TranslateStoragable! { get set }
-    var serviceTranslate: Translationable! { get set }
-    
-    // TODO: - change to Rx
-    func translateAndSaveToStore(text: String,
-                                 target: String,
-                                 completion: @escaping (_ translate: String?,
-                                                        _ error: String?) -> () )
+    func translateAndSaveToStore(text: String, target: String) -> Observable<String>
 }
 
 class TranslateInteractor: TranslateInteractorable {
     
-    var serviceStorage: TranslateStoragable!
-    var serviceTranslate: Translationable!
+    // MARK: - Property
+    
+    private let serviceStorage: TranslateStoragable!
+    private let serviceTranslate: Translationable!
     private let disposeBag = DisposeBag()
     
-    func translateAndSaveToStore(text: String,
-                                 target: String,
-                                 completion: @escaping (_ translate: String?,
-                                                        _ error: String?) -> () ) {
-        
-        let model = TranslationRequestModel(q: text, target: target)
-        
-        serviceTranslate
-            .toTranslate(word: model)
-            .subscribe {
-                self.saveToStorage(text, $0)
-                completion($0, nil)
-            } onFailure: {
-                let errorAsString = $0.localizedDescription
-                completion(nil, errorAsString)
-            }
-            .disposed(by: disposeBag)
 
+    // MARK: - Lifecycle
+    
+    init(storage: TranslateStoragable, serviceTranslate: Translationable) {
+        self.serviceStorage = storage
+        self.serviceTranslate = serviceTranslate
     }
+    
+    // MARK: - Internal
+    
+    func translateAndSaveToStore(text: String, target: String) -> Observable<String> {
+        Observable.create { [unowned self] observable in
+                let requestModel = TranslationRequestModel(q: text, target: target)
+                
+                self.serviceTranslate
+                    .toTranslate(word: requestModel)
+                    .subscribe {
+                        observable.onNext($0)
+                        observable.onCompleted()
+                        self.saveToStorage(text, $0)
+                    } onFailure: {
+                        observable.onError($0)
+                        observable.onCompleted()
+                    }
+                    .disposed(by: self.disposeBag)
+            
+            return Disposables.create()
+        }
+    }
+    
+    // MARK: - Private
     
     private func saveToStorage(_ original: String, _ translation: String) {
         serviceStorage.saveToStorage(original: original, translation: translation)

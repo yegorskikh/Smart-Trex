@@ -30,7 +30,6 @@ class TranslationNetworkMock: Translationable {
             case .success:
                 let response = "Baz"
                 single(.success(response))
-                
             case .failed:
                 single(.failure(NetworkingErrorMessage.responseData))
             }

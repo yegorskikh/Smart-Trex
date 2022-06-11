@@ -18,7 +18,6 @@ protocol HistoryTranslatePresentable {
 class HistoryTranslatePresenter: HistoryTranslatePresentable {
     
     var interactor: HistoryTranslateInteractorable!
-    
     var translatedWordsArray: [TranslationWordPresentation] = []
     
     func getArrayOfTranslatedWords() {
