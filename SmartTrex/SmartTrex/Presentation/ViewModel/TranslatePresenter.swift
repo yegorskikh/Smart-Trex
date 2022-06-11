@@ -33,7 +33,33 @@ class TranslatePresenter: TranslatePresentable {
                 self.view.showErrorAlert(text: $0.localizedDescription)
             }
             .disposed(by: disposeBag)
+        
+    }
+    
+}
 
+class TranslateViewModel {
+    
+    let input: Input
+    let output: Output
+    
+    struct Input {
+        
+    }
+    
+    struct Output {
+        
+    }
+    
+    init() {
+        input = Input()
+        output = Output()
+        
+        initBindings()
+    }
+    
+    private func initBindings() {
+        
     }
     
 }
