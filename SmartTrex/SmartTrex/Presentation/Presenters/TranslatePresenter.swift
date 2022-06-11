@@ -9,6 +9,9 @@ import Foundation
 import RxSwift
 
 protocol TranslatePresentable {
+    var interactor: TranslateInteractorable! { get set  }
+    var view: TranslateVCAble! { get set }
+    
     func translate()
 }
 
@@ -20,7 +23,7 @@ class TranslatePresenter: TranslatePresentable {
     
     func translate() {
         let text = self.view.getTextForTranslation()
-        let target = self.view.getSelectedLanguageForTranslation()        
+        let target = self.view.getSelectedLanguageForTranslation()
         
         interactor
             .translateAndSaveToStore(text: text, target: target)
@@ -32,6 +35,5 @@ class TranslatePresenter: TranslatePresentable {
             .disposed(by: disposeBag)
 
     }
-    
     
 }

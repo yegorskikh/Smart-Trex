@@ -33,27 +33,27 @@ class TranslatePresenterTests: XCTestCase {
     }
     
     func test_success_translate() {
-        // given
-        interactorMock.typeResponse = .succes
-        
-        // when
-        sut.translate()
-        
-        // then
-        XCTAssertEqual(interactorMock.wasCalled, true)
-        XCTAssertEqual(viewMock.setTranslationTextWasCalled, true)
+        //        // given
+        //        interactorMock.typeResponse = .succes
+        //
+        //        // when
+        //        sut.translate()
+        //
+        //        // then
+        //        XCTAssertEqual(interactorMock.wasCalled, true)
+        //        XCTAssertEqual(viewMock.setTranslationTextWasCalled, true)
     }
     
     func test_faild_translate() {
-        // given
-        interactorMock.typeResponse = .error
-        
-        // when
-        sut.translate()
-        
-        // then
-        XCTAssertEqual(interactorMock.wasCalled, true)
-        XCTAssertEqual(viewMock.showAlertWasCalled, true)
+        //        // given
+        //        interactorMock.typeResponse = .error
+        //
+        //        // when
+        //        sut.translate()
+        //
+        //        // then
+        //        XCTAssertEqual(interactorMock.wasCalled, true)
+        //        XCTAssertEqual(viewMock.showAlertWasCalled, true)
     }
     
 }
