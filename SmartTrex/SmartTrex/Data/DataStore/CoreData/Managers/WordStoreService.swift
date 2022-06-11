@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 protocol TranslateStoragable {
-    func saveToStorage(original: String, translation: String) -> TranslationWord?
+    @discardableResult func saveToStorage(original: String, translation: String) -> TranslationWord?
     func getDataFromStorage(completion: @escaping ([TranslationWordPresentation]) -> ())
     func removeFromStorage(by uuid: UUID)
 }
@@ -30,6 +30,7 @@ class WordStoreService: TranslateStoragable {
     
     // MARK: - Internal
     
+    @discardableResult
     func saveToStorage(original: String, translation: String) -> TranslationWord? {
         let translationWord = TranslationWord(context: managedObjectContext)
         translationWord.original = original

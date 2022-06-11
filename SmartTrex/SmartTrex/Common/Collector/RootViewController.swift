@@ -33,6 +33,17 @@ class RootViewController: UIViewController {
         pushVc(.historyTranslate)
     }
     
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        print("Yep")
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    //    fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Private
     
     private func pushVc(_ to: GoTo) {
