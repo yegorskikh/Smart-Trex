@@ -39,7 +39,6 @@ class HistoryTranslateInteractorTests: XCTestCase {
     }
     
     func test_successful_deletion_of_a_word_from_storage() {
-     //   let model = TranslationWord()
         sut.removeElement(uuid: UUID())
         XCTAssertEqual(self.storeMock.removeFromStorageWasCalled, true)
     }
