@@ -42,7 +42,6 @@ class TranslateInteractor: TranslateInteractorable {
                         self.saveToStorage(text, $0)
                     } onFailure: {
                         observable.onError($0)
-                        observable.onCompleted()
                     }
                     .disposed(by: self.disposeBag)
             
