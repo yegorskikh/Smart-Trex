@@ -5,22 +5,17 @@
 //  Created by Yegor Gorskikh on 28.02.2022.
 //
 
-import Foundation
 import RxSwift
 import RxCocoa
 
-protocol ViewModelProtocol {
-    associatedtype Input
-    associatedtype Output
-    
-    var input: Input { get }
-    var output: Output { get }
-}
-
 class TranslateViewModel: ViewModelProtocol {
     
-    var interactor: TranslateInteractorable!
-    let disposeBag = DisposeBag()
+    // MARK: - Private property
+    
+    private let interactor: TranslateInteractorable
+    private let disposeBag = DisposeBag()
+    
+    // MARK: - Input / Output
     
     let input: Input
     let output: Output
@@ -45,7 +40,11 @@ class TranslateViewModel: ViewModelProtocol {
     let translate = PublishSubject<String>()
     let error = PublishSubject<String>()
     
-    init() {
+    // MARK: - Init
+    
+    init(interactor: TranslateInteractorable) {
+        self.interactor = interactor
+        
         input = Input(
             onToTranslate: textToTranslate.asObserver(),
             onTarget: targetToTranslate.asObserver(),
@@ -61,6 +60,8 @@ class TranslateViewModel: ViewModelProtocol {
     }
     
     // TODO: - Write tests for it! Past irrelevant!
+    // MARK: - Bindings
+    
     private func initBindings() {
         sendAction
             .withLatestFrom(

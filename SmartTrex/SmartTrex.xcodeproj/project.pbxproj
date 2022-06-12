@@ -28,6 +28,7 @@
 		14F7031027C0052F00EF0838 /* NetworkingErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7030F27C0052F00EF0838 /* NetworkingErrorMessage.swift */; };
 		97003B92285583AD009FE515 /* UIViewController+Reactive .swift in Sources */ = {isa = PBXBuildFile; fileRef = 97003B91285583AD009FE515 /* UIViewController+Reactive .swift */; };
 		97003B942855ED91009FE515 /* UISegmentedControl+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97003B932855ED91009FE515 /* UISegmentedControl+Reactive.swift */; };
+		97003B96285612BA009FE515 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97003B95285612BA009FE515 /* ViewModelProtocol.swift */; };
 		9709A6E727D82393003E7C8F /* HistoryTranslatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9709A6E627D82393003E7C8F /* HistoryTranslatePresenter.swift */; };
 		972C020B27D14EAE0080AA92 /* Collector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972C020A27D14EAE0080AA92 /* Collector.swift */; };
 		972C020F27D14FB60080AA92 /* TranslateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972C020E27D14FB60080AA92 /* TranslateInteractor.swift */; };
@@ -94,6 +95,7 @@
 		943C5BA60EFD9DE0AEBBFA1A /* Pods-SmartTrexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrexTests.debug.xcconfig"; path = "Target Support Files/Pods-SmartTrexTests/Pods-SmartTrexTests.debug.xcconfig"; sourceTree = "<group>"; };
 		97003B91285583AD009FE515 /* UIViewController+Reactive .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Reactive .swift"; sourceTree = "<group>"; };
 		97003B932855ED91009FE515 /* UISegmentedControl+Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Reactive.swift"; sourceTree = "<group>"; };
+		97003B95285612BA009FE515 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		9709A6E627D82393003E7C8F /* HistoryTranslatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslatePresenter.swift; sourceTree = "<group>"; };
 		972C020A27D14EAE0080AA92 /* Collector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collector.swift; sourceTree = "<group>"; };
 		972C020E27D14FB60080AA92 /* TranslateInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateInteractor.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 		9709A6E527D8237A003E7C8F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				97003B95285612BA009FE515 /* ViewModelProtocol.swift */,
 				9709A6E627D82393003E7C8F /* HistoryTranslatePresenter.swift */,
 				97F00A4C27CC290600D35188 /* TranslateViewModel.swift */,
 			);
@@ -705,6 +708,7 @@
 				97AD742428510DA5006DEB15 /* TranslationWord+CoreDataClass.swift in Sources */,
 				97AD742A28511851006DEB15 /* TranslationWordMapper.swift in Sources */,
 				14225B3D27A06D1E004B63BE /* AppDelegate.swift in Sources */,
+				97003B96285612BA009FE515 /* ViewModelProtocol.swift in Sources */,
 				97946DCC27D6F3160032A5C7 /* HistoryTranslateInteractor.swift in Sources */,
 				972C020B27D14EAE0080AA92 /* Collector.swift in Sources */,
 				14A4B2B627BBCE890075CF30 /* TranslationRequest.swift in Sources */,

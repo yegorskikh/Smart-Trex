@@ -47,8 +47,9 @@ class TranslateCollectorFactory: CollectorModuleFactory {
         let storyboard = UIStoryboard(name: "Translate", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "TranslateVC") as! TranslateVC
         
-        let viewModel = TranslateViewModel()
-        viewModel.interactor = interactor
+        let viewModel = TranslateViewModel(
+            interactor: interactor
+        )
         
         view.viewModel = viewModel
         
