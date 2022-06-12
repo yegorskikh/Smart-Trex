@@ -16,7 +16,9 @@ class TranslateCollectorFactory: CollectorModuleFactory {
     func getModule() -> UIViewController {
         
         // mock
-        let responseModel = TranslateResponseData(data: .init(translations: [.init(translatedText: "Foo Bar Baz Qux")]))
+        let responseModel = TranslateResponseData(
+            data: .init(translations: [.init(translatedText: "Foo Bar Baz Qux")])
+        )
         let responseJsonData = try! JSONEncoder().encode(responseModel)
         
         let mock: URLMock = URLMock()

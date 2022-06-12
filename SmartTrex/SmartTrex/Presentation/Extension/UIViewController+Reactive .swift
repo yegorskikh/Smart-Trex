@@ -7,12 +7,10 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
-import RxRelay
 
 extension Reactive where Base: UIViewController {
     
-    var showError: Binder<String> {
+    var showAlert: Binder<String> {
         return Binder(self.base) { viewController, textError in
             let alert = UIAlertController(title: "Something went wrong",
                                           message: textError,

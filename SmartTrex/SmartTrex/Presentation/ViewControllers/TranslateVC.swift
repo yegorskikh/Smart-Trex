@@ -13,14 +13,14 @@ import RxRelay
 class TranslateVC: UIViewController {
 
     // MARK: - Property
+    private let disposeBag = DisposeBag()
+    // TODO: - after getting rid of the storyboard, put it in init and make it private
+    var viewModel: TranslateViewModel!
     
     @IBOutlet weak var targetTextView: UITextView!
     @IBOutlet weak var targetSegmentControl: UISegmentedControl!
     @IBOutlet weak var translationTextView: UITextView!
     @IBOutlet weak var toTranslateButton: UIButton!
-    
-    let disposeBag = DisposeBag()
-    var viewModel: TranslateViewModel!
     
     // MARK: - Lifecycle
     
@@ -38,8 +38,7 @@ class TranslateVC: UIViewController {
     }
     
     private func initBindings() {
-        
-        // Input to VM
+        // MARK: - Input to VM
         targetTextView
             .rx
             .text
@@ -53,13 +52,19 @@ class TranslateVC: UIViewController {
             .bind(to: viewModel.input.onSendAction)
             .disposed(by: disposeBag)
         
+        targetSegmentControl
+            .rx
+            .selectedTitle
+            .bind(to: viewModel.targetToTranslate)
+            .disposed(by: disposeBag)
+        
+        // MARK: - Output VM
         viewModel
             .output
             .onError
-            .drive(self.rx.showError)
+            .drive(self.rx.showAlert)
             .disposed(by: disposeBag)
         
-        // Output VM
         viewModel
             .output
             .onTranslate

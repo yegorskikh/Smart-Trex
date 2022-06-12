@@ -8,7 +8,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import RxRelay
 
 protocol ViewModelProtocol {
     associatedtype Input
@@ -61,6 +60,7 @@ class TranslateViewModel: ViewModelProtocol {
         initBindings()
     }
     
+    // TODO: - Write tests for it! Past irrelevant!
     private func initBindings() {
         sendAction
             .withLatestFrom(
@@ -70,8 +70,7 @@ class TranslateViewModel: ViewModelProtocol {
                 guard let self = self else { return }
                 
                 self.interactor
-                    // FIXME: - Как передавать таргет? Нужен дизайн?
-                    .translateAndSaveToStore(text: text, target: "en")//target)
+                    .translateAndSaveToStore(text: text, target: target)
                     .asDriver(onErrorRecover: { err in
                         self.error.onNext(err.localizedDescription)
                         return .empty()
