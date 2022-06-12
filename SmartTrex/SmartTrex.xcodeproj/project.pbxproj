@@ -26,12 +26,13 @@
 		14E4521027A64298008DCEAC /* WordStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520F27A64298008DCEAC /* WordStoreService.swift */; };
 		14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */; };
 		14F7031027C0052F00EF0838 /* NetworkingErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7030F27C0052F00EF0838 /* NetworkingErrorMessage.swift */; };
+		97003B92285583AD009FE515 /* UIViewController+Reactive .swift in Sources */ = {isa = PBXBuildFile; fileRef = 97003B91285583AD009FE515 /* UIViewController+Reactive .swift */; };
 		9709A6E727D82393003E7C8F /* HistoryTranslatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9709A6E627D82393003E7C8F /* HistoryTranslatePresenter.swift */; };
 		972C020B27D14EAE0080AA92 /* Collector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972C020A27D14EAE0080AA92 /* Collector.swift */; };
 		972C020F27D14FB60080AA92 /* TranslateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972C020E27D14FB60080AA92 /* TranslateInteractor.swift */; };
 		9756825327CE98E600C7E85F /* TranslateVcMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825227CE98E600C7E85F /* TranslateVcMock.swift */; };
 		9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */; };
-		9756825927CEAF6E00C7E85F /* TranslatePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */; };
+		9756825927CEAF6E00C7E85F /* TranslateViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825827CEAF6E00C7E85F /* TranslateViewModelTests.swift */; };
 		9770A71A28526B6500212F39 /* TranslationWordMapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770A71928526B6500212F39 /* TranslationWordMapperMock.swift */; };
 		97946DCC27D6F3160032A5C7 /* HistoryTranslateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97946DCB27D6F3160032A5C7 /* HistoryTranslateInteractor.swift */; };
 		97946DD227D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97946DD127D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift */; };
@@ -49,7 +50,7 @@
 		97EB1C9127CBCBFE00832CC7 /* TranslatorInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9027CBCBFE00832CC7 /* TranslatorInteractorTests.swift */; };
 		97EB1C9527CBD8F400832CC7 /* StoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9427CBD8F400832CC7 /* StoreMock.swift */; };
 		97EB1C9827CBD94600832CC7 /* TranslationNetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */; };
-		97F00A4D27CC290600D35188 /* TranslatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F00A4C27CC290600D35188 /* TranslatePresenter.swift */; };
+		97F00A4D27CC290600D35188 /* TranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F00A4C27CC290600D35188 /* TranslateViewModel.swift */; };
 		A791E927001F89431BA6B2CE /* Pods_SmartTrex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2107E4CEA172B3C463AA219 /* Pods_SmartTrex.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,12 +91,13 @@
 		6DD48A919EDFE1F70472A4D4 /* Pods-SmartTrexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrexTests.release.xcconfig"; path = "Target Support Files/Pods-SmartTrexTests/Pods-SmartTrexTests.release.xcconfig"; sourceTree = "<group>"; };
 		76193E63218A6980CA108C11 /* Pods-SmartTrex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrex.release.xcconfig"; path = "Target Support Files/Pods-SmartTrex/Pods-SmartTrex.release.xcconfig"; sourceTree = "<group>"; };
 		943C5BA60EFD9DE0AEBBFA1A /* Pods-SmartTrexTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrexTests.debug.xcconfig"; path = "Target Support Files/Pods-SmartTrexTests/Pods-SmartTrexTests.debug.xcconfig"; sourceTree = "<group>"; };
+		97003B91285583AD009FE515 /* UIViewController+Reactive .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Reactive .swift"; sourceTree = "<group>"; };
 		9709A6E627D82393003E7C8F /* HistoryTranslatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslatePresenter.swift; sourceTree = "<group>"; };
 		972C020A27D14EAE0080AA92 /* Collector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collector.swift; sourceTree = "<group>"; };
 		972C020E27D14FB60080AA92 /* TranslateInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateInteractor.swift; sourceTree = "<group>"; };
 		9756825227CE98E600C7E85F /* TranslateVcMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateVcMock.swift; sourceTree = "<group>"; };
 		9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractorMock.swift; sourceTree = "<group>"; };
-		9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatePresenterTests.swift; sourceTree = "<group>"; };
+		9756825827CEAF6E00C7E85F /* TranslateViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModelTests.swift; sourceTree = "<group>"; };
 		9770A71928526B6500212F39 /* TranslationWordMapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWordMapperMock.swift; sourceTree = "<group>"; };
 		97946DCB27D6F3160032A5C7 /* HistoryTranslateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateInteractor.swift; sourceTree = "<group>"; };
 		97946DD127D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateInteractorTests.swift; sourceTree = "<group>"; };
@@ -113,7 +115,7 @@
 		97EB1C9027CBCBFE00832CC7 /* TranslatorInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorInteractorTests.swift; sourceTree = "<group>"; };
 		97EB1C9427CBD8F400832CC7 /* StoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMock.swift; sourceTree = "<group>"; };
 		97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationNetworkMock.swift; sourceTree = "<group>"; };
-		97F00A4C27CC290600D35188 /* TranslatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatePresenter.swift; sourceTree = "<group>"; };
+		97F00A4C27CC290600D35188 /* TranslateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModel.swift; sourceTree = "<group>"; };
 		B2107E4CEA172B3C463AA219 /* Pods_SmartTrex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartTrex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -245,34 +247,19 @@
 			isa = PBXGroup;
 			children = (
 				14ABECAC27A5FBCF00708D1E /* TranslationWord.xcdatamodeld */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		144DDD1227A5F73B00678575 /* NSManagedObject */ = {
-			isa = PBXGroup;
-			children = (
 				97AD742228510DA5006DEB15 /* TranslationWord+CoreDataClass.swift */,
 				97AD742128510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift */,
 			);
-			path = NSManagedObject;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1495033727B1BE9F0043F47B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				14A4B2B127BBCE300075CF30 /* GoogleTranslateAPI */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
-		14A4B2B127BBCE300075CF30 /* GoogleTranslateAPI */ = {
-			isa = PBXGroup;
-			children = (
 				14A4B2B227BBCE5D0075CF30 /* Model */,
 				97AF1DDB2853E719002D99A6 /* GoogleTranslationService.swift */,
 			);
-			path = GoogleTranslateAPI;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		14A4B2B227BBCE5D0075CF30 /* Model */ = {
@@ -295,6 +282,7 @@
 		14A4B2B927BBDBC60075CF30 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				97003B9028558390009FE515 /* Extension */,
 				97AD7425285117BE006DEB15 /* Model */,
 				97C99EB627D928310048271B /* View */,
 				97C99EB527D928190048271B /* ViewControllers */,
@@ -350,6 +338,7 @@
 		14E4521127A64536008DCEAC /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				14ABECBF27A602D200708D1E /* CoreDataStack */,
 				14E4520F27A64298008DCEAC /* WordStoreService.swift */,
 			);
 			path = Managers;
@@ -359,9 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				144DDD0D27A5F6AE00678575 /* Model */,
-				14ABECBF27A602D200708D1E /* CoreDataStack */,
 				14E4521127A64536008DCEAC /* Managers */,
-				144DDD1227A5F73B00678575 /* NSManagedObject */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -392,11 +379,19 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		97003B9028558390009FE515 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				97003B91285583AD009FE515 /* UIViewController+Reactive .swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		9709A6E527D8237A003E7C8F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				9709A6E627D82393003E7C8F /* HistoryTranslatePresenter.swift */,
-				97F00A4C27CC290600D35188 /* TranslatePresenter.swift */,
+				97F00A4C27CC290600D35188 /* TranslateViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -422,7 +417,7 @@
 		9756824F27CE974600C7E85F /* PresentationTests */ = {
 			isa = PBXGroup;
 			children = (
-				9756825827CEAF6E00C7E85F /* TranslatePresenterTests.swift */,
+				9756825827CEAF6E00C7E85F /* TranslateViewModelTests.swift */,
 				97C99EB927D92B790048271B /* HistoryTranslatePresenterTests.swift */,
 			);
 			path = PresentationTests;
@@ -696,7 +691,7 @@
 				14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */,
 				97BC477527D57A3700DC1C3D /* HistoryTranslateCell.swift in Sources */,
 				972C020F27D14FB60080AA92 /* TranslateInteractor.swift in Sources */,
-				97F00A4D27CC290600D35188 /* TranslatePresenter.swift in Sources */,
+				97F00A4D27CC290600D35188 /* TranslateViewModel.swift in Sources */,
 				97AF1DDC2853E719002D99A6 /* GoogleTranslationService.swift in Sources */,
 				141B1D2527C2E67000FA8A59 /* URLMock.swift in Sources */,
 				14225B4127A06D1E004B63BE /* TranslateVC.swift in Sources */,
@@ -714,6 +709,7 @@
 				14ABECAE27A5FBCF00708D1E /* TranslationWord.xcdatamodeld in Sources */,
 				97AD7427285117DD006DEB15 /* TranslationWord.swift in Sources */,
 				14A4B2BE27BBDC420075CF30 /* SecureString.swift in Sources */,
+				97003B92285583AD009FE515 /* UIViewController+Reactive .swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,7 +721,7 @@
 				97C99EB827D92A820048271B /* HistoryTranslateInteractorMock.swift in Sources */,
 				9770A71A28526B6500212F39 /* TranslationWordMapperMock.swift in Sources */,
 				14155CF927BC30E30054B502 /* GoogleTranslationServiceTests.swift in Sources */,
-				9756825927CEAF6E00C7E85F /* TranslatePresenterTests.swift in Sources */,
+				9756825927CEAF6E00C7E85F /* TranslateViewModelTests.swift in Sources */,
 				14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */,
 				9756825327CE98E600C7E85F /* TranslateVcMock.swift in Sources */,
 				14155CFC27BC31130054B502 /* URLProtocolMock.swift in Sources */,

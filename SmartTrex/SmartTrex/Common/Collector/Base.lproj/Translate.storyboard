@@ -50,9 +50,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Translate">
                                     <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="translateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gGg-tw-KEH"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -78,6 +75,7 @@
                     <connections>
                         <outlet property="targetSegmentControl" destination="IcM-YD-FS3" id="tLb-Bi-BfR"/>
                         <outlet property="targetTextView" destination="bNz-z8-LUo" id="0ma-Wb-YbA"/>
+                        <outlet property="toTranslateButton" destination="NMc-0F-0rz" id="6AP-5k-9KB"/>
                         <outlet property="translationTextView" destination="EA5-hU-fez" id="SqB-5Y-e6U"/>
                     </connections>
                 </viewController>

@@ -9,26 +9,23 @@ import Foundation
 import XCTest
 @testable import SmartTrex
 
-class TranslatePresenterTests: XCTestCase {
+class TranslateViewModelTests: XCTestCase {
     
-    var sut: TranslatePresentable!
+    var sut: TranslateViewModel!
     var interactorMock: TranslateInteractorMock!
     var viewMock: TranslateVcMock!
     
     override func setUp() {
         super.setUp()
         interactorMock = TranslateInteractorMock()
-        viewMock = TranslateVcMock()
-        sut = TranslatePresenter()
-        
+
+        sut = TranslateViewModel()
         sut.interactor = interactorMock
-        sut.view = viewMock
     }
     
     override func tearDown() {
         sut = nil
         interactorMock = nil
-        viewMock = nil
         super.tearDown()
     }
     
