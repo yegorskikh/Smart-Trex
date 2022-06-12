@@ -127,7 +127,7 @@ class TranslateViewModelTests: XCTestCase {
         
         XCTAssertEqual(targetToTranslate.events, [
             .next(0, ""),
-            .completed(11) //
+            .completed(11)
         ])
         
         XCTAssertEqual(interactorMock.wasCalled, true)

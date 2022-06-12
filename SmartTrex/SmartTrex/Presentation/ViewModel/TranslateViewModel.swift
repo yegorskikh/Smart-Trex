@@ -59,7 +59,6 @@ class TranslateViewModel: ViewModelProtocol {
         initBindings()
     }
     
-    // TODO: - Write tests for it! Past irrelevant!
     // MARK: - Bindings
     
     private func initBindings() {
