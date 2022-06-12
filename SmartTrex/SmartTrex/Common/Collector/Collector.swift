@@ -16,7 +16,9 @@ class TranslateCollectorFactory: CollectorModuleFactory {
     func getModule() -> UIViewController {
         
         // mock
-        let responseModel = TranslateResponseData(data: .init(translations: [.init(translatedText: "Foo Bar Baz Qux")]))
+        let responseModel = TranslateResponseData(
+            data: .init(translations: [.init(translatedText: "Foo Bar Baz Qux")])
+        )
         let responseJsonData = try! JSONEncoder().encode(responseModel)
         
         let mock: URLMock = URLMock()
@@ -27,7 +29,7 @@ class TranslateCollectorFactory: CollectorModuleFactory {
         
         // assembly
         let service = GoogleTranslationService(urlConfiguration: configuration)
-        //    let service = GoogleTranslationService()
+        //let service = GoogleTranslationService()
         let coreDataStack = CoreDataStack()
         let mapper = TranslationWordMapper()
         
@@ -45,11 +47,10 @@ class TranslateCollectorFactory: CollectorModuleFactory {
         let storyboard = UIStoryboard(name: "Translate", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "TranslateVC") as! TranslateVC
         
-        let presenter = TranslatePresenter()
-        presenter.interactor = interactor
-        presenter.view = view
+        let viewModel = TranslateViewModel()
+        viewModel.interactor = interactor
         
-        view.presenter = presenter
+        view.viewModel = viewModel
         
         return view
     }

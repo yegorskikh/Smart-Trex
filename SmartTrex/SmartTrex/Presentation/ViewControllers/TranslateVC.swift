@@ -6,58 +6,26 @@
 //
 
 import UIKit
+import RxSwift
 
-protocol TranslateVCAble: AnyObject {
-    var presenter: TranslatePresentable! { get set }
-    
-    func showErrorAlert(text: String)
-    func getTextForTranslation() -> String
-    func getSelectedLanguageForTranslation() -> String
-    func setTheResultingTextTranslation(text: String)
-}
-
-class TranslateVC: UIViewController, TranslateVCAble {
+class TranslateVC: UIViewController {
 
     // MARK: - Property
+    private let disposeBag = DisposeBag()
+    // TODO: - after getting rid of the storyboard, put it in init and make it private
+    var viewModel: TranslateViewModel!
     
     @IBOutlet weak var targetTextView: UITextView!
     @IBOutlet weak var targetSegmentControl: UISegmentedControl!
     @IBOutlet weak var translationTextView: UITextView!
-    @IBOutlet weak var selectTargetPickerView: UIPickerView!
-    
-    var presenter: TranslatePresentable!
+    @IBOutlet weak var toTranslateButton: UIButton!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initBindings()
         setupTextViews()
-    }
-    
-    @IBAction func translateButtonTapped(_ sender: Any) {
-        presenter.translate()
-    }
-    
-    // MARK: - Internal
-    
-    func showErrorAlert(text: String) {
-        let alert = UIAlertController(title: "Something went wrong",
-                                      message: text,
-                                      preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func getTextForTranslation() -> String {
-        return targetTextView.text ?? ""
-    }
-    
-    func setTheResultingTextTranslation(text: String) {
-        translationTextView.text = text
-    }
-    
-    func getSelectedLanguageForTranslation() -> String {
-        return targetSegmentControl.titleForSegment(at: targetSegmentControl.selectedSegmentIndex) ?? "en"
     }
     
     // MARK: - Private
@@ -65,6 +33,41 @@ class TranslateVC: UIViewController, TranslateVCAble {
     private func setupTextViews() {
         targetTextView.delegate = self
         translationTextView.isEditable = false
+    }
+    
+    private func initBindings() {
+        // MARK: - Input to VM
+        targetTextView
+            .rx
+            .text
+            .orEmpty
+            .bind(to: viewModel.input.onToTranslate)
+            .disposed(by: disposeBag)
+                
+        toTranslateButton
+            .rx
+            .tap
+            .bind(to: viewModel.input.onSendAction)
+            .disposed(by: disposeBag)
+        
+        targetSegmentControl
+            .rx
+            .selectedTitle
+            .bind(to: viewModel.targetToTranslate)
+            .disposed(by: disposeBag)
+        
+        // MARK: - Output VM
+        viewModel
+            .output
+            .onError
+            .drive(self.rx.showAlert)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .output
+            .onTranslate
+            .drive(translationTextView.rx.text)
+            .disposed(by: disposeBag)
     }
     
 }
