@@ -9,44 +9,50 @@
 import XCTest
 import CoreData
 @testable import SmartTrex
+import RxCocoa
+import RxSwift
 
 
 class TestWordStoreManager: XCTestCase {
     
     var wordService: WordStoreService!
-    var coreDataStack: CoreDataStack!
-    var mapper: TranslationWordMapperMock!
+    var coreDataStack: CoreDataStackMock!
+    var disposeBag: DisposeBag!
     
     override func setUp() {
         super.setUp()
         coreDataStack = CoreDataStackMock()
-        mapper = TranslationWordMapperMock()
         wordService = WordStoreService(managedObjectContext: coreDataStack.mainContext,
-                                       coreDataStack: coreDataStack,
-                                       mapper: mapper)
+                                       coreDataStack: coreDataStack)
+        disposeBag = DisposeBag()
     }
     
     override func tearDown() {
-        mapper = nil
         coreDataStack = nil
         wordService = nil
+        disposeBag = nil
         super.tearDown()
     }
     
     func test_fetch_from_storage() {
         // given
         let countDataArray = 1
-        let expectation = expectation(description: "Fetch")
+        
+        let _ = wordService.saveToStorage(original: "Foo", translation: "Baz")
         
         // when
-        let _ = wordService.saveToStorage(original: "Foo", translation: "Baz")
-        wordService.getDataFromStorage { data in
-            XCTAssertEqual(data.count, countDataArray)
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 2)
+        wordService.getDataFromStorage()
+            .subscribe(
+                onSuccess: {
+                    // then
+                    XCTAssertEqual($0.count, countDataArray)
+                },
+                onFailure: {_ in
+                    XCTFail()
+                })
+            .disposed(by: disposeBag)
     }
-        
+    
     func test_save_to_storage() {
         // when
         let word = wordService.saveToStorage(original: "Foo", translation: "Baz")
@@ -61,8 +67,7 @@ class TestWordStoreManager: XCTestCase {
         // when
         let derivedContext = coreDataStack.newDerivedContext()
         wordService = WordStoreService(managedObjectContext: derivedContext,
-                                       coreDataStack: coreDataStack,
-                                       mapper: mapper)
+                                       coreDataStack: coreDataStack)
         
         expectation(forNotification: .NSManagedObjectContextDidSave,
                     object: coreDataStack.mainContext) { _ in
@@ -82,41 +87,46 @@ class TestWordStoreManager: XCTestCase {
     
     func test_removed_by_uuid_successful() {
         // given
-        let expectation = expectation(description: "Removed")
         let countDataArray = 1
         
         // when
         let _ = wordService.saveToStorage(original: "Bar", translation: "Foo")
         let secondWord = wordService.saveToStorage(original: "Foo", translation: "Baz")
-        
         wordService.removeFromStorage(by: secondWord!.uuid!)
         
-        wordService.getDataFromStorage { data in
-            // then
-            XCTAssertEqual(data.count, countDataArray)
-            expectation.fulfill()
-        }
-        
-        waitForExpectations(timeout: 2)
+        wordService.getDataFromStorage()
+            .subscribe(
+                onSuccess: {
+                    // then
+                    XCTAssertEqual($0.count, countDataArray)
+                },
+                onFailure: {_ in
+                    XCTFail()
+                })
+            .disposed(by: disposeBag)
     }
     
     func test_removed_by_uuid_failure() {
         // given
-        let expectation = expectation(description: "Removed")
-        let countDataArray = 0
-        mapper.response = []
+        let countDataArray = 1
         
         // when
+        wordService.saveToStorage(original: "Qux", translation: "Bar")
         let uuid = UUID()
         wordService.removeFromStorage(by: uuid)
         
-        wordService.getDataFromStorage { data in
-            // then
-            XCTAssertEqual(data.count, countDataArray)
-            expectation.fulfill()
-        }
+        // when
+        wordService.getDataFromStorage()
+            .subscribe(
+                onSuccess: {
+                    // then
+                    XCTAssertEqual($0.count, countDataArray)
+                },
+                onFailure: {_ in
+                    XCTFail()
+                })
+            .disposed(by: disposeBag)
         
-        waitForExpectations(timeout: 2)
     }
     
 }
