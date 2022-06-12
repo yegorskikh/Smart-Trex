@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 class TranslateInteractorMock: TranslateInteractorable {
-
+    
     var serviceStorage: TranslateStoragable!
     var serviceTranslate: Translationable!
     var wasCalled = false
@@ -23,20 +23,18 @@ class TranslateInteractorMock: TranslateInteractorable {
     
     var typeResponse = TypeResponse.succes
     
+    /// return: ```Observable.just("Foo")```
     func translateAndSaveToStore(text: String, target: String) -> Observable<String> {
-        let observable = Observable.just("Foo")
-        return observable
-    }
-    
-    // TODO: - УДАЛИТЬ ВО ВРЕМЯ ЗАДАЧИ 16
-    func translateAndSaveToStore(text: String, target: String, completion: @escaping (String?, String?) -> ()) {
-        wasCalled = true
-        
         switch typeResponse {
-        case .succes: completion("Foo", nil)
-        case .error: completion(nil, "Bar")
+        case .succes:
+            wasCalled = true
+            let observable = Observable.just("Foo")
+            return observable
+        case .error:
+            wasCalled = true
+            let observable = Observable<String>.error(NetworkingErrorMessage.responseData)
+            return observable
         }
     }
-    
     
 }
