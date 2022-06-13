@@ -20,7 +20,7 @@ class TranslateInteractor: TranslateInteractorable {
     private let serviceTranslate: Translationable!
     private let disposeBag = DisposeBag()
     
-
+    
     // MARK: - Lifecycle
     
     init(storage: TranslateStoragable, serviceTranslate: Translationable) {
@@ -28,22 +28,25 @@ class TranslateInteractor: TranslateInteractorable {
         self.serviceTranslate = serviceTranslate
     }
     
-    // MARK: - Internal
+    // MARK: - Internal method
     
     func translateAndSaveToStore(text: String, target: String) -> Observable<String> {
-        Observable.create { [unowned self] observable in
-                let requestModel = TranslationRequestModel(q: text, target: target)
-                
-                self.serviceTranslate
-                    .toTranslate(word: requestModel)
-                    .subscribe {
-                        observable.onNext($0)
-                        observable.onCompleted()
-                        self.saveToStorage(text, $0)
-                    } onFailure: {
-                        observable.onError($0)
-                    }
-                    .disposed(by: self.disposeBag)
+        Observable.create { [weak self] observable in
+            
+            guard let self = self else { return Disposables.create() }
+            
+            let requestModel = TranslationRequestModel(q: text, target: target)
+            
+            self.serviceTranslate
+                .toTranslate(word: requestModel)
+                .subscribe {
+                    observable.onNext($0)
+                    observable.onCompleted()
+                    self.saveToStorage(text, $0)
+                } onFailure: {
+                    observable.onError($0)
+                }
+                .disposed(by: self.disposeBag)
             
             return Disposables.create()
         }

@@ -61,13 +61,15 @@ class HistoryTranslateCollectorFactory: CollectorModuleFactory {
     
     func getModule() -> UIViewController {
         let coreDataStack = CoreDataStack()
-        //let mapper = TranslationWordMapper()
         
+        let mapper = TranslationWordMapper()
         let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
                                        coreDataStack: coreDataStack)
         
-        let interactor = HistoryTranslateInteractor()
-        interactor.storage = storage
+        let interactor = HistoryTranslateInteractor(
+            storage: storage,
+            mapper: mapper
+        )
         
         let presenter = HistoryTranslatePresenter()
         presenter.interactor = interactor

@@ -7,16 +7,16 @@
 
 import Foundation
 @testable import SmartTrex
+import RxSwift
 
 class HistoryTranslateInteractorMock: HistoryTranslateInteractorable {
-
     var storage: TranslateStoragable!
     var getDataWasCalled = false
     var removeElementWasCalled = false
 
-    func getData(completion: @escaping ([TranslationWordPresentation]) -> ()) {
+    func getData() -> Observable<[TranslationWordPresentation]> {
         getDataWasCalled = true
-        completion([TranslationWordPresentation(uuid: UUID(), original: "Foo", translation: "Bar")])
+        return Observable<[TranslationWordPresentation]>.just([])
     }
     
     func removeElement(uuid: UUID) {

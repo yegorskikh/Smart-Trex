@@ -48,8 +48,8 @@ class WordStoreService: TranslateStoragable {
                 let words = try self.coreDataStack.storeContainer.viewContext
                     .fetch(NSFetchRequest<TranslationWord>(entityName: CoreDataStack.modelName))
                 single(.success(words))
-            } catch let error as NSError {
-                single(.failure(error))
+            } catch {
+                single(.failure(StorageDataError.failedData))
             }
             
             return Disposables.create()
