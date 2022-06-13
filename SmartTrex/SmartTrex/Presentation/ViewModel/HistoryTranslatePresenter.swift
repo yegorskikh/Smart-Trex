@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol HistoryTranslatePresentable {
     var translatedWordsArray: [TranslationWordPresentation] { get set }
@@ -19,11 +20,25 @@ class HistoryTranslatePresenter: HistoryTranslatePresentable {
     
     var interactor: HistoryTranslateInteractorable!
     var translatedWordsArray: [TranslationWordPresentation] = []
+    let disposeBag = DisposeBag()
     
     func getArrayOfTranslatedWords() {
-        interactor.getData { [weak self] data in
-            self?.translatedWordsArray = data
-        }
+        interactor
+            .getData()
+            .subscribe(
+                onNext: { [weak self] data in
+                    self?.translatedWordsArray = data
+                },
+                onError: {
+                    print($0.localizedDescription)
+                },
+                onCompleted: {
+                    print("onCompleted")
+                },
+                onDisposed: {
+                    print("onDisposed")
+                })
+            .disposed(by: disposeBag)
     }
     
     func numberOfRowsInSection() -> Int {

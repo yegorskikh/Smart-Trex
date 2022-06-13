@@ -8,34 +8,62 @@
 import Foundation
 import XCTest
 @testable import SmartTrex
+import RxSwift
 
 class HistoryTranslateInteractorTests: XCTestCase {
     
     var sut: HistoryTranslateInteractorable!
     var storeMock: StoreMock!
+    var mapperMock: TranslationWordMapperMock!
+    let disposBag = DisposeBag()
     
     override func setUp() {
         super.setUp()
         storeMock = StoreMock()
-        sut = HistoryTranslateInteractor()
-        sut.storage = storeMock
+        mapperMock = TranslationWordMapperMock()
+        sut = HistoryTranslateInteractor(
+            storage: storeMock, mapper: mapperMock
+        )
     }
     
     override func tearDown() {
         sut = nil
         storeMock = nil
+        mapperMock = nil
         super.tearDown()
     }
     
     func test_successful_retrieval_of_saved_translations() {
-        let expectation = XCTestExpectation(description: "Get data from storage")
+        // when
+        sut.getData()
+            .subscribe(
+                onNext: { [unowned self] data in
+                    // then
+                    XCTAssertEqual(self.storeMock.getDataFromStorageWasCalled, true)
+                },
+                onError: {_ in
+                    XCTFail()
+                }
+            )
+            .disposed(by: disposBag)
+    }
+    
+    func test_failed_retrieval_of_saved_translations() {
+        // given
+        storeMock.responseType = .failed
         
-        sut.getData(completion: { array in
-            XCTAssertEqual(self.storeMock.getDataFromStorageWasCalled, true)
-            expectation.fulfill()
-        })
-        
-        wait(for: [expectation], timeout: 1)
+        // when
+        sut.getData()
+            .subscribe(
+                onNext: { data in
+                    XCTFail()
+                },
+                onError: {
+                    // then
+                   XCTAssertNotNil($0)
+                }
+            )
+            .disposed(by: disposBag)
     }
     
     func test_successful_deletion_of_a_word_from_storage() {

@@ -9,32 +9,43 @@ import Foundation
 import RxSwift
 
 protocol HistoryTranslateInteractorable {
-    var storage: TranslateStoragable! { get set }
-    
-    func getData(completion: @escaping ([TranslationWordPresentation]) -> ())
+    func getData() -> Observable<[TranslationWordPresentation]>
     func removeElement(uuid: UUID)
 }
 
 class HistoryTranslateInteractor: HistoryTranslateInteractorable {
-    
+    // MARK: - Property
     private let disposeBag = DisposeBag()
-    private let mapper: TranslationWordMapperable = TranslationWordMapper()
-    var storage: TranslateStoragable!
+    private let mapper: TranslationWordMapperable
+    private let storage: TranslateStoragable
     
+    // MARK: - Int
+    init(storage: TranslateStoragable, mapper: TranslationWordMapperable){
+        self.storage = storage
+        self.mapper = mapper
+    }
     
-    func getData(completion: @escaping ([TranslationWordPresentation]) -> ()) {
-        storage.getDataFromStorage()
-            .subscribe(
-                onSuccess: { [unowned self] data in
-                    let models = self.mapper.toPresentationLayer(from: data)
-                    completion(models)
-                },
-                onFailure: {
-                    print($0)
-                    completion([])
-                }
-            )
-            .disposed(by: disposeBag)
+    // MARK: - Internal method
+    
+    func getData() -> Observable<[TranslationWordPresentation]> {
+        Observable<[TranslationWordPresentation]>.create { [unowned self] observable in
+
+            self.storage.getDataFromStorage()
+                .subscribe(
+                    onSuccess: { [unowned self] data in
+                        let models = self.mapper.toPresentationLayer(from: data)
+                        observable.onNext(models)
+                        observable.onCompleted()
+                    },
+                    onFailure: {
+                        observable.onError($0)
+                    }
+                )
+                .disposed(by: self.disposeBag)
+            
+            return Disposables.create()
+        }
+
     }
     
     func removeElement(uuid: UUID) {
@@ -42,3 +53,4 @@ class HistoryTranslateInteractor: HistoryTranslateInteractorable {
     }
     
 }
+

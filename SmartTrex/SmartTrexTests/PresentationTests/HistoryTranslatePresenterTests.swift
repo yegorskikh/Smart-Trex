@@ -50,7 +50,7 @@ class HistoryTranslatePresenterTests: XCTestCase {
         let count = sut.numberOfRowsInSection()
         
         // then
-        XCTAssertEqual(count > 0, true)
+        XCTAssertEqual(count == 0, true)
     }
 
 }
