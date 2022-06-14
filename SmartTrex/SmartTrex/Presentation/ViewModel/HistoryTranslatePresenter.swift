@@ -66,7 +66,8 @@ class HistoryTranslateViewModel: ViewModelProtocol {
     let output: Output
     
     struct Input {
-        let onUuidToDel: AnyObserver<String>
+        let viewControllerDidLoadView: AnyObserver<Void>
+        let indexPathToDel: AnyObserver<IndexPath>
     }
     
     struct Output {
@@ -74,37 +75,53 @@ class HistoryTranslateViewModel: ViewModelProtocol {
     }
     
     // Input
-    let uuidAsStringToDel = BehaviorSubject(value: "")
+    let indexPathToDel = PublishSubject<IndexPath>()
+    let sendAction = PublishSubject<Void>()
     
     // Output
     let translationWords = PublishSubject<[TranslationWordPresentation]>()
-   
+    
     // MARK: - Init
     
     init(interactor: HistoryTranslateInteractorable) {
         input = Input(
-            onUuidToDel: uuidAsStringToDel.asObserver()
+            viewControllerDidLoadView: sendAction.asObserver(),
+            indexPathToDel: indexPathToDel.asObserver()
         )
         output = Output(
             onTranslationWords: translationWords.asDriver(onErrorJustReturn: [])
         )
         
         self.interactor = interactor
+        
+        initBindings()
     }
     
     // MARK: - Bindings
     
     private func initBindings() {
-        uuidAsStringToDel
-            .bind { [weak self] uuidAsString in
-                guard
-                    let uuid = UUID(uuidString: uuidAsString)
-                else {
-                    // TODO: - верни ошибку
-                    return
-                }
-                self?.interactor.removeElement(uuid: uuid)
-                // TODO: - сообщи что удалено
+        indexPathToDel
+            .bind { [unowned self] indexPath in
+                self.interactor.getData()
+                    .subscribe(onNext: { data in
+                        let uuid = data[indexPath.row].uuid
+                        self.interactor.removeElement(uuid: uuid)
+                    }, onError: {_ in
+                        print("Упс")
+                    })
+                    .disposed(by: self.disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        sendAction
+            .bind { [unowned self] in
+                self.interactor.getData()
+                    .subscribe(
+                        onNext: { [unowned self] data in
+                            self.translationWords.onNext(data)
+                        }
+                    )
+                    .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
     }

@@ -82,9 +82,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class HistoryTranslateVC: UIViewController {
+//extension TranslationWordPresentation: RxTableViewDataSourceType {
+//    typealias Element = String
+//
+//}
+
+class HistoryTranslateVC: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var historyTableView: UITableView!
+    
     // MARK: - Property
     
     private let disposeBag = DisposeBag()
@@ -94,6 +100,7 @@ class HistoryTranslateVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initBindings()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,21 +108,29 @@ class HistoryTranslateVC: UIViewController {
     }
 
     func initBindings() {
+        // Input to ViewModel
+        self.rx
+            .sentMessage(#selector(self.viewWillAppear(_:)))
+            .map { _ in }
+            .bind(to: viewModel.input.viewControllerDidLoadView)
+            .disposed(by: disposeBag)
+        
+        historyTableView
+            .rx
+            .itemDeleted
+            .bind(to: viewModel.input.indexPathToDel)
+            .disposed(by: disposeBag)
+        
+        // Output ViewModel
         viewModel
             .output
             .onTranslationWords
             .asObservable()
-            .bind(to: historyTableView.rx.items) { (
-                tableView: UITableView,
-                index: Int,
-                element: String
-            ) in
-                let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-                cell.textLabel?.text = element
-                return cell
+            .bind(to: historyTableView.rx.items(cellIdentifier: HistoryTranslateCell.reuseIdentifier,
+                                                cellType: HistoryTranslateCell.self) ) { index, model, cell in
+                cell.setupCell(original: model.original, translation: model.translation)
             }
             .disposed(by: disposeBag)
-        
     }
     
 }

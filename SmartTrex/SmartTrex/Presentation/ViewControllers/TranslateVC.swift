@@ -54,7 +54,7 @@ class TranslateVC: UIViewController {
         targetSegmentControl
             .rx
             .selectedTitle
-            .bind(to: viewModel.targetToTranslate)
+            .bind(to: viewModel.input.onTarget)
             .disposed(by: disposeBag)
         
         // MARK: - Output VM
