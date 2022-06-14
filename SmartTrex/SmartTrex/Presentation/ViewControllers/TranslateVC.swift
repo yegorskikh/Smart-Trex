@@ -47,6 +47,7 @@ class TranslateVC: UIViewController {
         toTranslateButton
             .rx
             .tap
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .bind(to: viewModel.input.onSendAction)
             .disposed(by: disposeBag)
         
