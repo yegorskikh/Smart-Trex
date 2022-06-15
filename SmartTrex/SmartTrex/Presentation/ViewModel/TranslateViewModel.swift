@@ -71,8 +71,8 @@ class TranslateViewModel: ViewModelProtocol {
                 
                 self.interactor
                     .translateAndSaveToStore(text: text, target: target)
-                    .asDriver(onErrorRecover: { err in
-                        self.error.onNext(err.localizedDescription)
+                    .asDriver(onErrorRecover: { [weak self] err in
+                        self?.error.onNext(err.localizedDescription)
                         return .empty()
                     })
                     .drive(
