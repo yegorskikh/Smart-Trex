@@ -35,6 +35,8 @@ class TranslateVC: UIViewController {
         translationTextView.isEditable = false
     }
     
+    // MARK: - Init Bindings
+    
     private func initBindings() {
         // MARK: - Input to VM
         targetTextView

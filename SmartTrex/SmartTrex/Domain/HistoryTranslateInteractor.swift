@@ -32,7 +32,8 @@ class HistoryTranslateInteractor: HistoryTranslateInteractorable {
 
             self.storage.getDataFromStorage()
                 .subscribe(
-                    onSuccess: { [unowned self] data in
+                    onSuccess: { [weak self] data in
+                        guard let self = self else { return }
                         let models = self.mapper.toPresentationLayer(from: data)
                         observable.onNext(models)
                         observable.onCompleted()

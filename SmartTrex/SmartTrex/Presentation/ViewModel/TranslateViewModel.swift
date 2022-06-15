@@ -70,14 +70,17 @@ class TranslateViewModel: ViewModelProtocol {
                 guard let self = self else { return }
                 
                 self.interactor
-                    .translateAndSaveToStore(text: text, target: target)
+                    .translateAndSaveToStore(
+                        text: text,
+                        target: target
+                    )
                     .asDriver(onErrorRecover: { [weak self] err in
                         self?.error.onNext(err.localizedDescription)
                         return .empty()
                     })
                     .drive(
-                        onNext: { translate in
-                            self.translate.onNext(translate)
+                        onNext: {  [weak self] translate in
+                            self?.translate.onNext(translate)
                         }
                     )
                     .disposed(by: self.disposeBag)

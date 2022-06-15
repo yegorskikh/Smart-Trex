@@ -39,13 +39,14 @@ class TranslateInteractor: TranslateInteractorable {
             
             self.serviceTranslate
                 .toTranslate(word: requestModel)
-                .subscribe {
-                    observable.onNext($0)
-                    observable.onCompleted()
-                    self.saveToStorage(text, $0)
-                } onFailure: {
-                    observable.onError($0)
-                }
+                .subscribe(
+                    onSuccess: {
+                        observable.onNext($0)
+                        self.saveToStorage(text, $0)
+                    },
+                    onFailure: {
+                        observable.onError($0)
+                    })
                 .disposed(by: self.disposeBag)
             
             return Disposables.create()

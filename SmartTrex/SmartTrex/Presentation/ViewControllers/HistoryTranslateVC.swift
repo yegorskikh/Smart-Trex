@@ -26,6 +26,8 @@ class HistoryTranslateVC: UIViewController {
         initBindings()
     }
     
+    // MARK: - Init Bindings
+    
     func initBindings() {
         // MARK: - Input to ViewModel
         self.rx
