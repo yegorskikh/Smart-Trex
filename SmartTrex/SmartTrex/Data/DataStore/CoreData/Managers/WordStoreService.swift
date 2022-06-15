@@ -57,7 +57,6 @@ class WordStoreService: TranslateStoragable {
     }
     
     func removeFromStorage(by uuid: UUID) {
-        // TODO: - Давай сделаем сингл?
         getDataFromStorage()
             .subscribe(
                 onSuccess: { [weak self] data in
@@ -65,12 +64,10 @@ class WordStoreService: TranslateStoragable {
                         let self = self,
                         let object = self.findBy(uuid: uuid)
                     else {
-                        // failure
                         return
                     }
                     self.coreDataStack.mainContext.delete(object)
                     self.coreDataStack.saveContext(self.managedObjectContext)
-                    // success
                 })
             .disposed(by: disposeBag)
     }

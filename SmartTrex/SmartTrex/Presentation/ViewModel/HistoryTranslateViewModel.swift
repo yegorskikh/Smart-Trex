@@ -1,5 +1,5 @@
 //
-//  HistoryTranslatePresenter.swift
+//  HistoryTranslateViewModel.swift
 //  SmartTrex
 //
 //  Created by Yegor Gorskikh on 09.03.2022.
@@ -9,50 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol HistoryTranslatePresentable {
-    var translatedWordsArray: [TranslationWordPresentation] { get set }
-    
-    func getArrayOfTranslatedWords()
-    func numberOfRowsInSection() -> Int
-    func removeElement(uuid: UUID)
-}
-
-class HistoryTranslatePresenter: HistoryTranslatePresentable {
-    
-    var interactor: HistoryTranslateInteractorable!
-    var translatedWordsArray: [TranslationWordPresentation] = []
-    let disposeBag = DisposeBag()
-    
-    func getArrayOfTranslatedWords() {
-        interactor
-            .getData()
-            .subscribe(
-                onNext: { [weak self] data in
-                    self?.translatedWordsArray = data
-                },
-                onError: {
-                    print($0.localizedDescription)
-                },
-                onCompleted: {
-                    print("onCompleted")
-                },
-                onDisposed: {
-                    print("onDisposed")
-                })
-            .disposed(by: disposeBag)
-    }
-    
-    func numberOfRowsInSection() -> Int {
-        return translatedWordsArray.count
-    }
-    
-    func removeElement(uuid: UUID) {
-        interactor.removeElement(uuid: uuid)
-        getArrayOfTranslatedWords()
-    }
-    
-}
-
+// TODO: - !!! This must be tested
 class HistoryTranslateViewModel: ViewModelProtocol {
     
     // MARK: - Private property
@@ -72,6 +29,7 @@ class HistoryTranslateViewModel: ViewModelProtocol {
     
     struct Output {
         let onTranslationWords: Driver<[TranslationWordPresentation]>
+        let onError: Driver<String>
     }
     
     // Input
@@ -80,19 +38,21 @@ class HistoryTranslateViewModel: ViewModelProtocol {
     
     // Output
     let translationWords = PublishSubject<[TranslationWordPresentation]>()
+    let error = PublishSubject<String>()
     
     // MARK: - Init
     
     init(interactor: HistoryTranslateInteractorable) {
+        self.interactor = interactor
+        
         input = Input(
             viewControllerDidLoadView: sendAction.asObserver(),
             indexPathToDel: indexPathToDel.asObserver()
         )
         output = Output(
-            onTranslationWords: translationWords.asDriver(onErrorJustReturn: [])
+            onTranslationWords: translationWords.asDriver(onErrorJustReturn: []),
+            onError: error.asDriver(onErrorJustReturn: "")
         )
-        
-        self.interactor = interactor
         
         initBindings()
     }
@@ -103,11 +63,16 @@ class HistoryTranslateViewModel: ViewModelProtocol {
         indexPathToDel
             .bind { [unowned self] indexPath in
                 self.interactor.getData()
-                    .subscribe(onNext: { data in
+                    .subscribe(onNext: { [unowned self] data in
                         let uuid = data[indexPath.row].uuid
                         self.interactor.removeElement(uuid: uuid)
-                    }, onError: {_ in
-                        print("Упс")
+                        
+                        // TODO: - !!! Deleted too quickly?
+                        // Update data after deletion
+                        self.sendAction.onNext(Void())
+                        
+                    }, onError: { [unowned self] error in
+                        self.error.onNext(error.localizedDescription)
                     })
                     .disposed(by: self.disposeBag)
             }
