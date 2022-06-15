@@ -26,12 +26,8 @@ class HistoryTranslateVC: UIViewController {
         initBindings()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     func initBindings() {
-        // Input to ViewModel
+        // MARK: - Input to ViewModel
         self.rx
             .sentMessage(#selector(self.viewWillAppear(_:)))
             .map { _ in }
@@ -44,7 +40,7 @@ class HistoryTranslateVC: UIViewController {
             .bind(to: viewModel.input.indexPathToDel)
             .disposed(by: disposeBag)
         
-        // Output ViewModel
+        // MARK: - Output ViewModel
         viewModel
             .output
             .onTranslationWords
