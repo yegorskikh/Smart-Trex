@@ -12,7 +12,7 @@ class TranslateVC: UIViewController {
 
     // MARK: - Property
     private let disposeBag = DisposeBag()
-    // TODO: - after getting rid of the storyboard, put it in init and make it private
+    // TODO: - ! after getting rid of the storyboard, put it in init and make it private
     var viewModel: TranslateViewModel!
     
     @IBOutlet weak var targetTextView: UITextView!
@@ -75,6 +75,7 @@ class TranslateVC: UIViewController {
 
 // MARK: - UITextViewDelegate
 
+// TODO: - !! Implement via rx
 extension TranslateVC: UITextViewDelegate {
     
     func textView(_ textView: UITextView,

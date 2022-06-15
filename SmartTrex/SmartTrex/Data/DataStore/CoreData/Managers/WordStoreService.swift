@@ -66,7 +66,6 @@ class WordStoreService: TranslateStoragable {
                     else {
                         return
                     }
-                    
                     self.coreDataStack.mainContext.delete(object)
                     self.coreDataStack.saveContext(self.managedObjectContext)
                 })

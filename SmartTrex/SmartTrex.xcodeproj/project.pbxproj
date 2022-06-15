@@ -29,7 +29,7 @@
 		97003B92285583AD009FE515 /* UIViewController+Reactive .swift in Sources */ = {isa = PBXBuildFile; fileRef = 97003B91285583AD009FE515 /* UIViewController+Reactive .swift */; };
 		97003B942855ED91009FE515 /* UISegmentedControl+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97003B932855ED91009FE515 /* UISegmentedControl+Reactive.swift */; };
 		97003B96285612BA009FE515 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97003B95285612BA009FE515 /* ViewModelProtocol.swift */; };
-		9709A6E727D82393003E7C8F /* HistoryTranslatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9709A6E627D82393003E7C8F /* HistoryTranslatePresenter.swift */; };
+		9709A6E727D82393003E7C8F /* HistoryTranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9709A6E627D82393003E7C8F /* HistoryTranslateViewModel.swift */; };
 		972C020B27D14EAE0080AA92 /* Collector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972C020A27D14EAE0080AA92 /* Collector.swift */; };
 		972C020F27D14FB60080AA92 /* TranslateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972C020E27D14FB60080AA92 /* TranslateInteractor.swift */; };
 		9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */; };
@@ -96,7 +96,7 @@
 		97003B91285583AD009FE515 /* UIViewController+Reactive .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Reactive .swift"; sourceTree = "<group>"; };
 		97003B932855ED91009FE515 /* UISegmentedControl+Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Reactive.swift"; sourceTree = "<group>"; };
 		97003B95285612BA009FE515 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
-		9709A6E627D82393003E7C8F /* HistoryTranslatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslatePresenter.swift; sourceTree = "<group>"; };
+		9709A6E627D82393003E7C8F /* HistoryTranslateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateViewModel.swift; sourceTree = "<group>"; };
 		972C020A27D14EAE0080AA92 /* Collector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collector.swift; sourceTree = "<group>"; };
 		972C020E27D14FB60080AA92 /* TranslateInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateInteractor.swift; sourceTree = "<group>"; };
 		9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractorMock.swift; sourceTree = "<group>"; };
@@ -397,7 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				97003B95285612BA009FE515 /* ViewModelProtocol.swift */,
-				9709A6E627D82393003E7C8F /* HistoryTranslatePresenter.swift */,
+				9709A6E627D82393003E7C8F /* HistoryTranslateViewModel.swift */,
 				97F00A4C27CC290600D35188 /* TranslateViewModel.swift */,
 			);
 			path = ViewModel;
@@ -535,6 +535,7 @@
 				14225B3627A06D1E004B63BE /* Frameworks */,
 				14225B3727A06D1E004B63BE /* Resources */,
 				EC2CF0AA2FFA22B55A23641F /* [CP] Embed Pods Frameworks */,
+				972F7AD1285A617C00AD643A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -646,6 +647,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		972F7AD1285A617C00AD643A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO: -|FIXME: -\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"\n";
+		};
 		AB84B470DC36C5ED104B89ED /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -720,7 +738,7 @@
 				97AF1DDC2853E719002D99A6 /* GoogleTranslationService.swift in Sources */,
 				141B1D2527C2E67000FA8A59 /* URLMock.swift in Sources */,
 				14225B4127A06D1E004B63BE /* TranslateVC.swift in Sources */,
-				9709A6E727D82393003E7C8F /* HistoryTranslatePresenter.swift in Sources */,
+				9709A6E727D82393003E7C8F /* HistoryTranslateViewModel.swift in Sources */,
 				97BC477727D584FC00DC1C3D /* RootViewController.swift in Sources */,
 				97BC477327D579FC00DC1C3D /* HistoryTranslateVC.swift in Sources */,
 				97AD742428510DA5006DEB15 /* TranslationWord+CoreDataClass.swift in Sources */,

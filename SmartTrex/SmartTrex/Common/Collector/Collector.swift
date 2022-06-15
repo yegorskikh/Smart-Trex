@@ -63,20 +63,23 @@ class HistoryTranslateCollectorFactory: CollectorModuleFactory {
         let coreDataStack = CoreDataStack()
         
         let mapper = TranslationWordMapper()
-        let storage = WordStoreService(managedObjectContext: coreDataStack.mainContext,
-                                       coreDataStack: coreDataStack)
+        let storage = WordStoreService(
+            managedObjectContext: coreDataStack.mainContext,
+            coreDataStack: coreDataStack
+        )
         
         let interactor = HistoryTranslateInteractor(
             storage: storage,
             mapper: mapper
         )
         
-        let presenter = HistoryTranslatePresenter()
-        presenter.interactor = interactor
+        let presenter = HistoryTranslateViewModel(
+            interactor: interactor
+        )
         
         let storyboard = UIStoryboard(name: "Translate", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "HistoryTranslateVC") as! HistoryTranslateVC
-        vc.presenter = presenter
+        vc.viewModel = presenter
         
         return vc
     }
