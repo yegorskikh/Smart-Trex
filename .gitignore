@@ -60,7 +60,6 @@ playground.xcworkspace
 # Add this line if you want to avoid checking in source code from the Xcode workspace
 
 Pods/
-Podfile
 Podfile.lock
 *.xcworkspace
 *.xcodeproj
