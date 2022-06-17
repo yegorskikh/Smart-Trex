@@ -48,7 +48,7 @@
 		97BC477727D584FC00DC1C3D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BC477627D584FC00DC1C3D /* RootViewController.swift */; };
 		97C93FF82857A97F00E8903B /* StorageDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C93FF72857A97F00E8903B /* StorageDataError.swift */; };
 		97C99EB827D92A820048271B /* HistoryTranslateInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C99EB727D92A820048271B /* HistoryTranslateInteractorMock.swift */; };
-		97C99EBA27D92B790048271B /* HistoryTranslatePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C99EB927D92B790048271B /* HistoryTranslatePresenterTests.swift */; };
+		97C99EBA27D92B790048271B /* HistoryTranslateViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C99EB927D92B790048271B /* HistoryTranslateViewModelTests.swift */; };
 		97EB1C9127CBCBFE00832CC7 /* TranslatorInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9027CBCBFE00832CC7 /* TranslatorInteractorTests.swift */; };
 		97EB1C9527CBD8F400832CC7 /* StoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9427CBD8F400832CC7 /* StoreMock.swift */; };
 		97EB1C9827CBD94600832CC7 /* TranslationNetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */; };
@@ -115,7 +115,7 @@
 		97BC477627D584FC00DC1C3D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		97C93FF72857A97F00E8903B /* StorageDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDataError.swift; sourceTree = "<group>"; };
 		97C99EB727D92A820048271B /* HistoryTranslateInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateInteractorMock.swift; sourceTree = "<group>"; };
-		97C99EB927D92B790048271B /* HistoryTranslatePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslatePresenterTests.swift; sourceTree = "<group>"; };
+		97C99EB927D92B790048271B /* HistoryTranslateViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateViewModelTests.swift; sourceTree = "<group>"; };
 		97EB1C9027CBCBFE00832CC7 /* TranslatorInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorInteractorTests.swift; sourceTree = "<group>"; };
 		97EB1C9427CBD8F400832CC7 /* StoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMock.swift; sourceTree = "<group>"; };
 		97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationNetworkMock.swift; sourceTree = "<group>"; };
@@ -425,7 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				9756825827CEAF6E00C7E85F /* TranslateViewModelTests.swift */,
-				97C99EB927D92B790048271B /* HistoryTranslatePresenterTests.swift */,
+				97C99EB927D92B790048271B /* HistoryTranslateViewModelTests.swift */,
 			);
 			path = PresentationTests;
 			sourceTree = "<group>";
@@ -775,7 +775,7 @@
 				97946DD227D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift in Sources */,
 				97EB1C9527CBD8F400832CC7 /* StoreMock.swift in Sources */,
 				9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */,
-				97C99EBA27D92B790048271B /* HistoryTranslatePresenterTests.swift in Sources */,
+				97C99EBA27D92B790048271B /* HistoryTranslateViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
