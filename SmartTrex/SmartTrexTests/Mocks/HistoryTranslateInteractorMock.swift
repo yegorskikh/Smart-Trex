@@ -14,9 +14,24 @@ class HistoryTranslateInteractorMock: HistoryTranslateInteractorable {
     var getDataWasCalled = false
     var removeElementWasCalled = false
 
+    enum ReturnType {
+        case failed
+        case success
+    }
+    
+    var responseType: ReturnType = .success
+    
     func getData() -> Observable<[TranslationWordPresentation]> {
         getDataWasCalled = true
-        return Observable<[TranslationWordPresentation]>.just([])
+        switch responseType {
+        case .success:
+            return Observable<[TranslationWordPresentation]>
+                .just([.init(uuid: UUID(), original: "Foo", translation: "Qux")])
+        case .failed:
+            return Observable<[TranslationWordPresentation]>
+                .error(StorageDataError.failedData)
+        }
+        
     }
     
     func removeElement(uuid: UUID) {
