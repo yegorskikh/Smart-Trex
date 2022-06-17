@@ -38,37 +38,63 @@ class HistoryTranslateViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_success_getting_data_from_the_interactor() {
+    func test_success_send_message_to_receive_data() {
+        // given
+        interactorMock.responseType = .success
+        let loadViewControllerObserver = scheduler.createObserver(Void.self)
         
+        sut.startDownload
+            .subscribe(loadViewControllerObserver)
+            .disposed(by: disposeBag)
+        
+        // when
+        scheduler.createColdObservable([.next(10, ())])
+            .bind(to: sut.input.viewControllerDidLoadView)
+            .disposed(by: disposeBag)
+        
+        scheduler.start()
+        
+        //then
+        XCTAssertEqual(loadViewControllerObserver.events.count, 1)
     }
     
-    func test_failed_getting_data_from_the_interactor() {
+    func test_successfully_received_the_path_to_delete() {
+        // given
+        let indexPathToDelete = scheduler.createObserver(IndexPath.self)
         
+        sut.indexPathToDelete
+            .subscribe(indexPathToDelete)
+            .disposed(by: disposeBag)
+        
+        // when
+        scheduler.createColdObservable([.next(10, IndexPath(row: 0, section: 0))])
+            .bind(to: sut.input.indexPathToDel)
+            .disposed(by: disposeBag)
+        
+        scheduler.start()
+        
+        // then
+        XCTAssertEqual(indexPathToDelete.events.count, 1)
     }
     
-    //    func test_getting_data_from_the_interactor() {
-    //        // when
-    //        sut.getArrayOfTranslatedWords()
-    //
-    //        // then
-    //        XCTAssertEqual(interactorMock.getDataWasCalled, true)
-    //    }
-    //
-    //    func test_delete_from_database() {
-    //        // when
-    //        sut.removeElement(uuid: UUID())
-    //
-    //        // then
-    //        XCTAssertEqual(interactorMock.removeElementWasCalled, true)
-    //    }
-    //
-    //    func test_counting_array_of_stored_words() {
-    //        // when
-    //        sut.getArrayOfTranslatedWords()
-    //        let count = sut.numberOfRowsInSection()
-    //
-    //        // then
-    //        XCTAssertEqual(count == 0, true)
-    //    }
-    
+    func test_failed_received_the_path_to_delete() {
+        // given
+        interactorMock.responseType = .failed
+        let errorLoadViewControllerObserver = scheduler.createObserver(Void.self)
+        
+        sut.startDownload
+            .subscribe(errorLoadViewControllerObserver)
+            .disposed(by: disposeBag)
+        
+        // when
+        scheduler.createColdObservable([.next(10, ())])
+            .bind(to: sut.input.viewControllerDidLoadView)
+            .disposed(by: disposeBag)
+        
+        scheduler.start()
+        
+        //then
+        XCTAssertEqual(errorLoadViewControllerObserver.events.count, 1)
+    }
+
 }

@@ -33,8 +33,8 @@ class HistoryTranslateViewModel: ViewModelProtocol {
     }
     
     // Input
-    let indexPathToDel = PublishSubject<IndexPath>()
-    let sendAction = PublishSubject<Void>()
+    let indexPathToDelete = PublishSubject<IndexPath>()
+    let startDownload = PublishSubject<Void>()
     
     // Output
     let translationWords = PublishSubject<[TranslationWordPresentation]>()
@@ -46,9 +46,10 @@ class HistoryTranslateViewModel: ViewModelProtocol {
         self.interactor = interactor
         
         input = Input(
-            viewControllerDidLoadView: sendAction.asObserver(),
-            indexPathToDel: indexPathToDel.asObserver()
+            viewControllerDidLoadView: startDownload.asObserver(),
+            indexPathToDel: indexPathToDelete.asObserver()
         )
+        
         output = Output(
             onTranslationWords: translationWords.asDriver(onErrorJustReturn: []),
             onError: error.asDriver(onErrorJustReturn: "")
@@ -60,32 +61,31 @@ class HistoryTranslateViewModel: ViewModelProtocol {
     // MARK: - Bindings
     
     private func initBindings() {
-        indexPathToDel
+        indexPathToDelete
             .bind { [weak self] indexPath in
                 guard let self = self else { return }
                 self.interactor.getData()
                     .subscribe(onNext: { [weak self] data in
                         let uuid = data[indexPath.row].uuid
                         self?.interactor.removeElement(uuid: uuid)
-                        
-                        // TODO: - !!! Deleted too quickly?
                         // Update data after deletion
-                        self?.sendAction.onNext(Void())
+                        self?.startDownload.onNext(Void())
                         
-                    }, onError: { [weak self] error in
-                        self?.error.onNext(error.localizedDescription)
                     })
                     .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         
-        sendAction
+        startDownload
             .bind { [weak self] in
                 guard let self = self else { return }
                 self.interactor.getData()
                     .subscribe(
                         onNext: { [weak self] data in
                             self?.translationWords.onNext(data)
+                        },
+                        onError: { [weak self] error in
+                            self?.error.onNext(error.localizedDescription)
                         }
                     )
                     .disposed(by: self.disposeBag)
