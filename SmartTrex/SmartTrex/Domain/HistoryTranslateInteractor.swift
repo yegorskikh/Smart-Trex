@@ -28,12 +28,13 @@ class HistoryTranslateInteractor: HistoryTranslateInteractorable {
     // MARK: - Internal method
     
     func getData() -> Observable<[TranslationWordPresentation]> {
-        Observable<[TranslationWordPresentation]>.create { [unowned self] observable in
+        Observable<[TranslationWordPresentation]>.create { [weak self] observable in
 
+            guard let self = self else { return Disposables.create() }
+            
             self.storage.getDataFromStorage()
                 .subscribe(
-                    onSuccess: { [weak self] data in
-                        guard let self = self else { return }
+                    onSuccess: { [unowned self] data in
                         let models = self.mapper.toPresentationLayer(from: data)
                         observable.onNext(models)
                         observable.onCompleted()

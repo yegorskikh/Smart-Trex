@@ -69,8 +69,7 @@ class TranslateViewModel: ViewModelProtocol {
             .bind { [weak self] text, target in
                 guard let self = self else { return }
                 
-                self.interactor
-                    .translateAndSaveToStore(
+                self.interactor.translateAndSaveToStore(
                         text: text,
                         target: target
                     )
@@ -79,11 +78,12 @@ class TranslateViewModel: ViewModelProtocol {
                         return .empty()
                     })
                     .drive(
-                        onNext: {  [weak self] translate in
+                        onNext: { [weak self] translate in
                             self?.translate.onNext(translate)
                         }
                     )
                     .disposed(by: self.disposeBag)
+                
             }
             .disposed(by: disposeBag)
     }
