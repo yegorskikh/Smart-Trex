@@ -30,6 +30,7 @@
 		97003B942855ED91009FE515 /* UISegmentedControl+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97003B932855ED91009FE515 /* UISegmentedControl+Reactive.swift */; };
 		97003B96285612BA009FE515 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97003B95285612BA009FE515 /* ViewModelProtocol.swift */; };
 		9709A6E727D82393003E7C8F /* HistoryTranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9709A6E627D82393003E7C8F /* HistoryTranslateViewModel.swift */; };
+		970A1F31285DFDD70063B112 /* IntegrationTestingOfWordTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970A1F30285DFDD70063B112 /* IntegrationTestingOfWordTranslation.swift */; };
 		972C020B27D14EAE0080AA92 /* Collector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972C020A27D14EAE0080AA92 /* Collector.swift */; };
 		972C020F27D14FB60080AA92 /* TranslateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972C020E27D14FB60080AA92 /* TranslateInteractor.swift */; };
 		9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */; };
@@ -97,6 +98,7 @@
 		97003B932855ED91009FE515 /* UISegmentedControl+Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Reactive.swift"; sourceTree = "<group>"; };
 		97003B95285612BA009FE515 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		9709A6E627D82393003E7C8F /* HistoryTranslateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateViewModel.swift; sourceTree = "<group>"; };
+		970A1F30285DFDD70063B112 /* IntegrationTestingOfWordTranslation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTestingOfWordTranslation.swift; sourceTree = "<group>"; };
 		972C020A27D14EAE0080AA92 /* Collector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collector.swift; sourceTree = "<group>"; };
 		972C020E27D14FB60080AA92 /* TranslateInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateInteractor.swift; sourceTree = "<group>"; };
 		9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractorMock.swift; sourceTree = "<group>"; };
@@ -314,10 +316,9 @@
 		14E4520327A63E30008DCEAC /* SmartTrexTests */ = {
 			isa = PBXGroup;
 			children = (
+				970A1F33285E01540063B112 /* IntegrationTests */,
 				97EB1C9227CBD8E000832CC7 /* Mocks */,
-				9756824F27CE974600C7E85F /* PresentationTests */,
-				97EB1C8E27CBCBC400832CC7 /* BLLTests */,
-				14E4520B27A63EE5008DCEAC /* DALTests */,
+				970A1F32285E01370063B112 /* UnitTests */,
 			);
 			path = SmartTrexTests;
 			sourceTree = "<group>";
@@ -401,6 +402,24 @@
 				97F00A4C27CC290600D35188 /* TranslateViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		970A1F32285E01370063B112 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				9756824F27CE974600C7E85F /* PresentationTests */,
+				97EB1C8E27CBCBC400832CC7 /* BLLTests */,
+				14E4520B27A63EE5008DCEAC /* DALTests */,
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		970A1F33285E01540063B112 /* IntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				970A1F30285DFDD70063B112 /* IntegrationTestingOfWordTranslation.swift */,
+			);
+			path = IntegrationTests;
 			sourceTree = "<group>";
 		};
 		972C020C27D14F5B0080AA92 /* TranslateData */ = {
@@ -767,6 +786,7 @@
 				9770A71A28526B6500212F39 /* TranslationWordMapperMock.swift in Sources */,
 				14155CF927BC30E30054B502 /* GoogleTranslationServiceTests.swift in Sources */,
 				9756825927CEAF6E00C7E85F /* TranslateViewModelTests.swift in Sources */,
+				970A1F31285DFDD70063B112 /* IntegrationTestingOfWordTranslation.swift in Sources */,
 				14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */,
 				14155CFC27BC31130054B502 /* URLProtocolMock.swift in Sources */,
 				97EB1C9827CBD94600832CC7 /* TranslationNetworkMock.swift in Sources */,

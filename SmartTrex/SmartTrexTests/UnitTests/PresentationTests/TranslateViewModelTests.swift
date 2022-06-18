@@ -58,28 +58,30 @@ class TranslateViewModelTests: XCTestCase {
             .disposed(by: disposeBag)
         
         // when
+        scheduler.createColdObservable([.next(9, "Foo")])
+            .bind(to: sut.input.onToTranslate)
+            .disposed(by: disposeBag)
+        
+        scheduler.createColdObservable([.next(9, "Bar")])
+            .bind(to: sut.input.onTarget)
+            .disposed(by: disposeBag)
+        
         scheduler.createColdObservable([.next(10, ())])
             .bind(to: sut.input.onSendAction)
             .disposed(by: disposeBag)
         
-        scheduler.createColdObservable([.next(12, "Foo")])
-            .bind(to: sut.input.onToTranslate)
-            .disposed(by: disposeBag)
-        
-        scheduler.createColdObservable([.next(12, "Bar")])
-            .bind(to: sut.input.onTarget)
-            .disposed(by: disposeBag)
+
         
         scheduler.start()
         
         // then
         XCTAssertEqual(textToTranslate.events, [
             .next(0, ""),
-            .next(12, "Foo")
+            .next(9, "Foo")
         ])
         XCTAssertEqual(targetToTranslate.events, [
             .next(0, ""),
-            .next(12, "Bar")
+            .next(9, "Bar")
         ])
         XCTAssertEqual(interactorMock.wasCalled, true)
     }
