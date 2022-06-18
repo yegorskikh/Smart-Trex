@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-// TODO: - !!! This must be tested
 class HistoryTranslateViewModel: ViewModelProtocol {
     
     // MARK: - Private property
