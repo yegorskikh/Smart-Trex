@@ -103,7 +103,7 @@ class IntegrationTestingOfWordTranslation: XCTestCase {
             .bind(to: viewModel.input.onToTranslate)
             .disposed(by: disposeBag)
         
-        scheduler.createColdObservable([.next(9, "en")])
+        scheduler.createColdObservable([.next(9, "Bar")])
             .bind(to: viewModel.input.onTarget)
             .disposed(by: disposeBag)
         
@@ -113,7 +113,7 @@ class IntegrationTestingOfWordTranslation: XCTestCase {
         
         scheduler.start()
         
-        let ex = expectation(description: "G")
+        let expectation = expectation(description: "Success")
         
         viewModel
             .output
@@ -122,12 +122,12 @@ class IntegrationTestingOfWordTranslation: XCTestCase {
                 onNext: { event in
                     // then
                     XCTAssertEqual(event, "Qux")
-                    ex.fulfill()
+                    expectation.fulfill()
                 }
             )
             .disposed(by: disposeBag)
         
-        wait(for: [ex], timeout: 5)
+        wait(for: [expectation], timeout: 5)
     }
     
     func test_failed_to_translate() {
@@ -169,7 +169,7 @@ class IntegrationTestingOfWordTranslation: XCTestCase {
         
         scheduler.start()
         
-        let ex = expectation(description: "G")
+        let expectation = expectation(description: "Failed")
         
         viewModel
             .output
@@ -177,12 +177,12 @@ class IntegrationTestingOfWordTranslation: XCTestCase {
             .drive(
                 onNext: { error in
                     XCTAssertNotNil(error)
-                    ex.fulfill()
+                    expectation.fulfill()
                 }
             )
             .disposed(by: disposeBag)
         
-        wait(for: [ex], timeout: 5)
+        wait(for: [expectation], timeout: 5)
     }
     
 }
