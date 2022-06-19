@@ -65,8 +65,8 @@ class HistoryTranslateViewModel: ViewModelProtocol {
                 guard let self = self else { return }
                 self.interactor.getData()
                     .subscribe(onNext: { [weak self] data in
-                        let uuid = data[indexPath.row].uuid
-                        self?.interactor.removeElement(uuid: uuid)
+                        let element = data[indexPath.row]
+                        self?.interactor.remove(element)
                         // Update data after deletion
                         self?.startDownload.onNext(Void())
                         

@@ -34,7 +34,7 @@ class HistoryTranslateInteractorMock: HistoryTranslateInteractorable {
         
     }
     
-    func removeElement(uuid: UUID) {
+    func remove(_ element: TranslationWordPresentation) {
         removeElementWasCalled = true
     }
     

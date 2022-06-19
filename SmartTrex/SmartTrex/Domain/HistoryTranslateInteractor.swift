@@ -10,7 +10,7 @@ import RxSwift
 
 protocol HistoryTranslateInteractorable {
     func getData() -> Observable<[TranslationWordPresentation]>
-    func removeElement(uuid: UUID)
+    func remove(_ element: TranslationWordPresentation)
 }
 
 class HistoryTranslateInteractor: HistoryTranslateInteractorable {
@@ -50,7 +50,8 @@ class HistoryTranslateInteractor: HistoryTranslateInteractorable {
 
     }
     
-    func removeElement(uuid: UUID) {
+    func remove(_ element: TranslationWordPresentation) {
+        let uuid = element.uuid
         storage.removeFromStorage(by: uuid)
     }
     
