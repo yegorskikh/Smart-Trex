@@ -66,13 +66,16 @@ class TranslateViewModel: ViewModelProtocol {
             .withLatestFrom(
                 Observable.combineLatest(textToTranslate, targetToTranslate)
             )
-            .bind { text, target in
+            .bind { [weak self] text, target in
+                guard let self = self else { return }
+                
                 self.interactor.translateAndSaveToStore(
                         text: text,
                         target: target
                     )
-                    .asDriver(onErrorRecover: { err in
-                        self.error.onNext(err.localizedDescription)
+                    .asDriver(onErrorRecover: { error in
+                        let err = error as! NetworkingErrorMessage
+                        self.error.onNext(err.errorDescription)
                         return .empty()
                     })
                     .drive(

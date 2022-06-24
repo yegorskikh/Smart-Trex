@@ -62,7 +62,8 @@ class HistoryTranslateViewModel: ViewModelProtocol {
     private func initBindings() {
         // input
         indexPathToDelete
-            .bind { indexPath in
+            .bind { [weak self] indexPath in
+                guard let self = self else { return }
                 self.interactor.getData()
                     .subscribe(onNext: { data in
                         let element = data[indexPath.row]
@@ -76,13 +77,14 @@ class HistoryTranslateViewModel: ViewModelProtocol {
         
         // output
         startDownload
-            .bind { _ in
+            .bind { [weak self] _ in
+                guard let self = self else { return }
                 self.interactor.getData()
                     .subscribe(
                         onNext: { data in
                             self.translationWords.onNext(data)
                         },
-                        onError: { error in 
+                        onError: { error in
                             self.error.onNext(error.localizedDescription)
                         }
                     )
