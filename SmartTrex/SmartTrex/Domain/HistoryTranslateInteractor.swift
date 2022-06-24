@@ -28,26 +28,10 @@ class HistoryTranslateInteractor: HistoryTranslateInteractorable {
     // MARK: - Internal method
     
     func getData() -> Observable<[TranslationWordPresentation]> {
-        Observable<[TranslationWordPresentation]>.create { [weak self] observable in
-
-            guard let self = self else { return Disposables.create() }
-            
-            self.storage.getDataFromStorage()
-                .subscribe(
-                    onSuccess: { [unowned self] data in
-                        let models = self.mapper.toPresentationLayer(from: data)
-                        observable.onNext(models)
-                        observable.onCompleted()
-                    },
-                    onFailure: {
-                        observable.onError($0)
-                    }
-                )
-                .disposed(by: self.disposeBag)
-            
-            return Disposables.create()
-        }
-
+        return storage
+            .getDataFromStorage()
+            .asObservable()
+            .map { self.mapper.toPresentationLayer(from: $0) }
     }
     
     func remove(_ element: TranslationWordPresentation) {
