@@ -64,12 +64,12 @@ class HistoryTranslateViewModel: ViewModelProtocol {
         indexPathToDelete
             .bind { [weak self] indexPath in
                 guard let self = self else { return }
+                
                 self.interactor.getData()
                     .subscribe(onNext: { data in
                         let element = data[indexPath.row]
                         self.interactor.remove(element)
                         self.startDownload.onNext(Void())
-                        
                     })
                     .disposed(by: self.disposeBag)
             }
@@ -79,13 +79,15 @@ class HistoryTranslateViewModel: ViewModelProtocol {
         startDownload
             .bind { [weak self] _ in
                 guard let self = self else { return }
+                
                 self.interactor.getData()
                     .subscribe(
                         onNext: { data in
                             self.translationWords.onNext(data)
                         },
                         onError: { error in
-                            self.error.onNext(error.localizedDescription)
+                            let err = error as! StorageDataError
+                            self.error.onNext(err.errorDescription)
                         }
                     )
                     .disposed(by: self.disposeBag)
