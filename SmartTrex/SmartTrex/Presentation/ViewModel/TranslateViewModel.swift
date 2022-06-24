@@ -74,7 +74,7 @@ class TranslateViewModel: ViewModelProtocol {
                         target: target
                     )
                     .asDriver(onErrorRecover: { [weak self] err in
-                        self?.error.onNext(err.localizedDescription)
+                        self?.error.onNext(err.localizedDescription.debugDescription)
                         return .empty()
                     })
                     .drive(

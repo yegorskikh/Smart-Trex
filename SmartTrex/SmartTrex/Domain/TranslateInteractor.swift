@@ -30,26 +30,12 @@ class TranslateInteractor: TranslateInteractorable {
     // MARK: - Internal method
     
     func translateAndSaveToStore(text: String, target: String) -> Observable<String> {
-        Observable<String>.create { [weak self] observable in
-            
-            guard let self = self else { return Disposables.create() }
-            
-            let requestModel = TranslationRequestModel(q: text, target: target)
-            
-            self.serviceTranslate.toTranslate(word: requestModel)
-                .subscribe(
-                    onSuccess: { [unowned self] translation in
-                        observable.onNext(translation)
-                        observable.onCompleted()
-                        self.saveToStorage(text, translation)
-                    },
-                    onFailure: {
-                        observable.onError($0)
-                    })
-                .disposed(by: self.disposeBag)
-            
-            return Disposables.create()
-        }
+        let requestModel = TranslationRequestModel(q: text, target: target)
+        
+        return serviceTranslate
+            .toTranslate(word: requestModel)
+            .asObservable()
+            .do(onNext: { self.saveToStorage(text, $0)} )
     }
     
     // MARK: - Private
