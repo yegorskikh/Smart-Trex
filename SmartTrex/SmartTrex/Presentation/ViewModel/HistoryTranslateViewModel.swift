@@ -60,31 +60,30 @@ class HistoryTranslateViewModel: ViewModelProtocol {
     // MARK: - Bindings
     
     private func initBindings() {
+        // input
         indexPathToDelete
-            .bind { [weak self] indexPath in
-                guard let self = self else { return }
+            .bind { indexPath in
                 self.interactor.getData()
-                    .subscribe(onNext: { [weak self] data in
+                    .subscribe(onNext: { data in
                         let element = data[indexPath.row]
-                        self?.interactor.remove(element)
-                        // Update data after deletion
-                        self?.startDownload.onNext(Void())
+                        self.interactor.remove(element)
+                        self.startDownload.onNext(Void())
                         
                     })
                     .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
         
+        // output
         startDownload
-            .bind { [weak self] in
-                guard let self = self else { return }
+            .bind { _ in
                 self.interactor.getData()
                     .subscribe(
-                        onNext: { [weak self] data in
-                            self?.translationWords.onNext(data)
+                        onNext: { data in
+                            self.translationWords.onNext(data)
                         },
-                        onError: { [weak self] error in
-                            self?.error.onNext(error.localizedDescription)
+                        onError: { error in 
+                            self.error.onNext(error.localizedDescription)
                         }
                     )
                     .disposed(by: self.disposeBag)
