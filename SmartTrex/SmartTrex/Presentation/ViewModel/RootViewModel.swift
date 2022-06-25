@@ -12,10 +12,8 @@ import RxCocoa
 class RootViewModel: ViewModelProtocol {
     
     private let disposeBag = DisposeBag()
-    private weak var goToVc: UIViewController!
-    
-    // TODO: - move to init
-    var collector: CollectorModuleFactory!
+    private var goToVc: UIViewController!
+    private var collector: CollectorModuleFactory!
     
     enum GoTo {
         case translate
