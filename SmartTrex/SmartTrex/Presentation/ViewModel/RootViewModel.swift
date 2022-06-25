@@ -15,7 +15,7 @@ class RootViewModel: ViewModelProtocol {
     private var goToVc: UIViewController!
     private var collector: CollectorModuleFactory!
     
-    enum GoTo {
+    private enum GoTo {
         case translate
         case historyTranslate
     }
