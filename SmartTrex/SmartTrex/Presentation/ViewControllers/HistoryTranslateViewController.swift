@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class HistoryTranslateVC: UIViewController {
+class HistoryTranslateViewController: UIViewController {
 
     @IBOutlet weak var historyTableView: UITableView!
     

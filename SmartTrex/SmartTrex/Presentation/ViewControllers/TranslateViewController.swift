@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class TranslateVC: UIViewController {
+class TranslateViewController: UIViewController {
 
     // MARK: - Property
     private let disposeBag = DisposeBag()
@@ -78,7 +78,7 @@ class TranslateVC: UIViewController {
 // MARK: - UITextViewDelegate
 
 // TODO: - !! Implement via rx
-extension TranslateVC: UITextViewDelegate {
+extension TranslateViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView,
                   shouldChangeTextIn range: NSRange,

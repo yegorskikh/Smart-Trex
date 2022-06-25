@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TranslateVC-->
+        <!--Translate View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="TranslateVC" id="BYZ-38-t0r" customClass="TranslateVC" customModule="SmartTrex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TranslateVC" id="BYZ-38-t0r" customClass="TranslateViewController" customModule="SmartTrex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,25 +98,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="83.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Books"/>
-                                        <connections>
-                                            <action selector="booksButtonTapped:" destination="ybb-qm-h90" eventType="touchUpInside" id="Njo-sw-iwZ"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVa-C2-TAU">
                                         <rect key="frame" x="0.0" y="41" width="83.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Translate"/>
-                                        <connections>
-                                            <action selector="translateButtonTapped:" destination="ybb-qm-h90" eventType="touchUpInside" id="ir7-we-JlG"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uh-vM-CHy">
                                         <rect key="frame" x="0.0" y="82" width="83.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="History"/>
-                                        <connections>
-                                            <action selector="historyButtonTapped:" destination="ybb-qm-h90" eventType="touchUpInside" id="kQU-Na-Okv"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -129,15 +120,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rvM-KT-SLk"/>
+                    <connections>
+                        <outlet property="booksButton" destination="L5x-hd-lmn" id="Y7Z-Xg-1Uw"/>
+                        <outlet property="historyButton" destination="6uh-vM-CHy" id="gFe-D6-Xhi"/>
+                        <outlet property="translateButton" destination="eVa-C2-TAU" id="Pe0-O4-bbz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6l-UU-txL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-226.08695652173915" y="456.69642857142856"/>
         </scene>
-        <!--History TranslateVC-->
+        <!--History Translate View Controller-->
         <scene sceneID="cWa-Xh-agO">
             <objects>
-                <viewController storyboardIdentifier="HistoryTranslateVC" id="MRv-qq-T2v" customClass="HistoryTranslateVC" customModule="SmartTrex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryTranslateVC" id="MRv-qq-T2v" customClass="HistoryTranslateViewController" customModule="SmartTrex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h7j-Sc-pUh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

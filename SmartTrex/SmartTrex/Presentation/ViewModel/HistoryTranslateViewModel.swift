@@ -62,9 +62,8 @@ class HistoryTranslateViewModel: ViewModelProtocol {
     private func initBindings() {
         // input
         indexPathToDelete
-            .bind { [weak self] indexPath in
-                guard let self = self else { return }
-                
+            .bind { indexPath in
+
                 self.interactor.getData()
                     .subscribe(onNext: { data in
                         let element = data[indexPath.row]
@@ -77,8 +76,7 @@ class HistoryTranslateViewModel: ViewModelProtocol {
         
         // output
         startDownload
-            .bind { [weak self] _ in
-                guard let self = self else { return }
+            .bind { _ in
                 
                 self.interactor.getData()
                     .subscribe(

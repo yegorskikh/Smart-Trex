@@ -66,8 +66,7 @@ class TranslateViewModel: ViewModelProtocol {
             .withLatestFrom(
                 Observable.combineLatest(textToTranslate, targetToTranslate)
             )
-            .bind { [weak self] text, target in
-                guard let self = self else { return }
+            .bind { text, target in
                 
                 self.interactor.translateAndSaveToStore(
                         text: text,

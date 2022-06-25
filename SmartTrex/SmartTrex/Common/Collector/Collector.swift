@@ -43,7 +43,7 @@ class TranslateCollectorFactory: CollectorModuleFactory {
         )
         
         let storyboard = UIStoryboard(name: "Translate", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "TranslateVC") as! TranslateVC
+        let view = storyboard.instantiateViewController(withIdentifier: "TranslateVC") as! TranslateViewController
         
         let viewModel = TranslateViewModel(
             interactor: interactor
@@ -77,7 +77,7 @@ class HistoryTranslateCollectorFactory: CollectorModuleFactory {
         )
         
         let storyboard = UIStoryboard(name: "Translate", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "HistoryTranslateVC") as! HistoryTranslateVC
+        let vc = storyboard.instantiateViewController(withIdentifier: "HistoryTranslateVC") as! HistoryTranslateViewController
         vc.viewModel = presenter
         
         return vc
