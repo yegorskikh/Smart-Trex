@@ -5,6 +5,7 @@
 //  Created by Yegor Gorskikh on 28.02.2022.
 //
 
+import Foundation
 import RxSwift
 import RxCocoa
 
@@ -66,8 +67,10 @@ class TranslateViewModel: ViewModelProtocol {
             .withLatestFrom(
                 Observable.combineLatest(textToTranslate, targetToTranslate)
             )
+            .filter { text, _ in
+                self.isEmpty(text)
+            }
             .bind { text, target in
-                
                 self.interactor.translateAndSaveToStore(
                         text: text,
                         target: target
@@ -86,6 +89,20 @@ class TranslateViewModel: ViewModelProtocol {
                 
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func isEmpty(_ string: String) -> Bool {
+        var set = Set(string)
+        
+        guard
+            let spaceIndex = set.firstIndex(of: " ")
+        else {
+            return !set.isEmpty
+        }
+        
+        set.remove(at: spaceIndex)
+        
+        return !set.isEmpty
     }
     
 }

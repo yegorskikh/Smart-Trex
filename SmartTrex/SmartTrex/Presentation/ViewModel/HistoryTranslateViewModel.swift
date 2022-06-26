@@ -63,7 +63,6 @@ class HistoryTranslateViewModel: ViewModelProtocol {
         // input
         indexPathToDelete
             .bind { indexPath in
-
                 self.interactor.getData()
                     .subscribe(onNext: { data in
                         let element = data[indexPath.row]
@@ -77,7 +76,6 @@ class HistoryTranslateViewModel: ViewModelProtocol {
         // output
         startDownload
             .bind { _ in
-                
                 self.interactor.getData()
                     .subscribe(
                         onNext: { data in

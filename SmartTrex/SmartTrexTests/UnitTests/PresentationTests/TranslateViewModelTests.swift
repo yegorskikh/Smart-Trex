@@ -85,8 +85,8 @@ class TranslateViewModelTests: XCTestCase {
         ])
         XCTAssertEqual(interactorMock.wasCalled, true)
     }
-    
-    func test_failed_translate() {
+
+    func test_send_empty_text() {
         // given
         interactorMock.typeResponse = .error
         
@@ -111,7 +111,10 @@ class TranslateViewModelTests: XCTestCase {
             .bind(to: sut.input.onSendAction)
             .disposed(by: disposeBag)
         
-        scheduler.createColdObservable([.completed(11)])
+        scheduler.createColdObservable([.next(9, "  "),
+                                        .next(10, ""),
+                                        .next(11, " "),
+        ])
             .bind(to: sut.input.onToTranslate)
             .disposed(by: disposeBag)
         
@@ -124,7 +127,10 @@ class TranslateViewModelTests: XCTestCase {
         // then
         XCTAssertEqual(textToTranslate.events, [
             .next(0, ""),
-            .completed(11)
+            .next(9, "  "),
+            .next(10, ""),
+            .next(11, " "),
+        //    .completed(11)
         ])
         
         XCTAssertEqual(targetToTranslate.events, [
@@ -132,7 +138,7 @@ class TranslateViewModelTests: XCTestCase {
             .completed(11)
         ])
         
-        XCTAssertEqual(interactorMock.wasCalled, true)
+        XCTAssertEqual(interactorMock.wasCalled, false)
     }
     
 }
