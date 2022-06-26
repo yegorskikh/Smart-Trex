@@ -55,6 +55,7 @@
 		97EB1C9527CBD8F400832CC7 /* StoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9427CBD8F400832CC7 /* StoreMock.swift */; };
 		97EB1C9827CBD94600832CC7 /* TranslationNetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */; };
 		97F00A4D27CC290600D35188 /* TranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F00A4C27CC290600D35188 /* TranslateViewModel.swift */; };
+		97F0C8DA286891B70007B8BB /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F0C8D9286891B70007B8BB /* String+Validation.swift */; };
 		A791E927001F89431BA6B2CE /* Pods_SmartTrex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2107E4CEA172B3C463AA219 /* Pods_SmartTrex.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,7 @@
 		97EB1C9427CBD8F400832CC7 /* StoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMock.swift; sourceTree = "<group>"; };
 		97EB1C9727CBD94600832CC7 /* TranslationNetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationNetworkMock.swift; sourceTree = "<group>"; };
 		97F00A4C27CC290600D35188 /* TranslateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModel.swift; sourceTree = "<group>"; };
+		97F0C8D9286891B70007B8BB /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
 		B2107E4CEA172B3C463AA219 /* Pods_SmartTrex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartTrex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -392,6 +394,7 @@
 			children = (
 				97003B91285583AD009FE515 /* UIViewController+Reactive .swift */,
 				97003B932855ED91009FE515 /* UISegmentedControl+Reactive.swift */,
+				97F0C8D9286891B70007B8BB /* String+Validation.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -770,6 +773,7 @@
 				97C93FF82857A97F00E8903B /* StorageDataError.swift in Sources */,
 				97946DCC27D6F3160032A5C7 /* HistoryTranslateInteractor.swift in Sources */,
 				972C020B27D14EAE0080AA92 /* Collector.swift in Sources */,
+				97F0C8DA286891B70007B8BB /* String+Validation.swift in Sources */,
 				973DDCC728665BB70081A076 /* RootViewModel.swift in Sources */,
 				14A4B2B627BBCE890075CF30 /* TranslationRequest.swift in Sources */,
 				14E4521027A64298008DCEAC /* WordStoreService.swift in Sources */,

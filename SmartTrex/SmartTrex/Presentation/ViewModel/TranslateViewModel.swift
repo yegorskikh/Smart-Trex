@@ -68,7 +68,7 @@ class TranslateViewModel: ViewModelProtocol {
                 Observable.combineLatest(textToTranslate, targetToTranslate)
             )
             .filter { text, _ in
-                self.isEmpty(text)
+                text.isLetter()
             }
             .bind { text, target in
                 self.interactor.translateAndSaveToStore(
@@ -91,18 +91,6 @@ class TranslateViewModel: ViewModelProtocol {
             .disposed(by: disposeBag)
     }
     
-    private func isEmpty(_ string: String) -> Bool {
-        var set = Set(string)
-        
-        guard
-            let spaceIndex = set.firstIndex(of: " ")
-        else {
-            return !set.isEmpty
-        }
-        
-        set.remove(at: spaceIndex)
-        
-        return !set.isEmpty
-    }
-    
 }
+
+
