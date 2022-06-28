@@ -15,15 +15,26 @@ class HistoryTranslateViewController: UIViewController {
     
     // MARK: - Property
     
+    private let htView = HistoryTranslateView()
     private let disposeBag = DisposeBag()
-    // TODO: - ! after getting rid of the storyboard, put it in init and make it private
-    var viewModel: HistoryTranslateViewModel!
+    private var viewModel: HistoryTranslateViewModel //!
     
-    // MARK: - Lifecycle
+    // MARK: - Lifecycle object
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        initBindings()
+    init(viewModel: HistoryTranslateViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.initBindings()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Lifecycle ViewController
+    
+    override func loadView() {
+        view = htView
     }
     
     // MARK: - Init Bindings
@@ -36,7 +47,7 @@ class HistoryTranslateViewController: UIViewController {
             .bind(to: viewModel.input.viewControllerDidLoadView)
             .disposed(by: disposeBag)
         
-        historyTableView
+        htView.tableView
             .rx
             .itemDeleted
             .bind(to: viewModel.input.indexPathToDel)
@@ -47,7 +58,7 @@ class HistoryTranslateViewController: UIViewController {
             .output
             .onTranslationWords
             .asObservable()
-            .bind(to: historyTableView.rx.items(cellIdentifier: HistoryTranslateCell.reuseIdentifier,
+            .bind(to: htView.tableView.rx.items(cellIdentifier: HistoryTranslateCell.reuseIdentifier,
                                                 cellType: HistoryTranslateCell.self) ) { index, model, cell in
                 cell.setupCell(original: model.original, translation: model.translation)
             }

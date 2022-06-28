@@ -72,13 +72,13 @@ class HistoryTranslateCollectorFactory: CollectorModuleFactory {
             mapper: mapper
         )
         
-        let presenter = HistoryTranslateViewModel(
+        let viewModel = HistoryTranslateViewModel(
             interactor: interactor
         )
-        
-        let storyboard = UIStoryboard(name: "Translate", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "HistoryTranslateVC") as! HistoryTranslateViewController
-        vc.viewModel = presenter
+
+        let vc = HistoryTranslateViewController(
+            viewModel: viewModel
+        )
         
         return vc
     }
