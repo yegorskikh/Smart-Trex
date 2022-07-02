@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HistoryTranslateView: UIView {
+final class HistoryTranslateView: UIView {
     
     // MARK: - UI
     

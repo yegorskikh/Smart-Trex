@@ -34,6 +34,7 @@
 		972C020B27D14EAE0080AA92 /* Collector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972C020A27D14EAE0080AA92 /* Collector.swift */; };
 		972C020F27D14FB60080AA92 /* TranslateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972C020E27D14FB60080AA92 /* TranslateInteractor.swift */; };
 		973DDCC728665BB70081A076 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973DDCC628665BB70081A076 /* RootViewModel.swift */; };
+		974DD93B2870A92A004086FD /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974DD93A2870A92A004086FD /* TranslateView.swift */; };
 		9756825727CEA82000C7E85F /* TranslateInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */; };
 		9756825927CEAF6E00C7E85F /* TranslateViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756825827CEAF6E00C7E85F /* TranslateViewModelTests.swift */; };
 		9770A71A28526B6500212F39 /* TranslationWordMapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770A71928526B6500212F39 /* TranslationWordMapperMock.swift */; };
@@ -105,6 +106,7 @@
 		972C020A27D14EAE0080AA92 /* Collector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collector.swift; sourceTree = "<group>"; };
 		972C020E27D14FB60080AA92 /* TranslateInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateInteractor.swift; sourceTree = "<group>"; };
 		973DDCC628665BB70081A076 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		974DD93A2870A92A004086FD /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
 		9756825627CEA82000C7E85F /* TranslateInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractorMock.swift; sourceTree = "<group>"; };
 		9756825827CEAF6E00C7E85F /* TranslateViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModelTests.swift; sourceTree = "<group>"; };
 		9770A71928526B6500212F39 /* TranslationWordMapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWordMapperMock.swift; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 				14225B4227A06D1E004B63BE /* Translate.storyboard */,
 				97BC477427D57A3700DC1C3D /* HistoryTranslateCell.swift */,
 				97A39617286B71280002BEE4 /* HistoryTranslateView.swift */,
+				974DD93A2870A92A004086FD /* TranslateView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -778,6 +781,7 @@
 				972C020B27D14EAE0080AA92 /* Collector.swift in Sources */,
 				97F0C8DA286891B70007B8BB /* String+Validation.swift in Sources */,
 				973DDCC728665BB70081A076 /* RootViewModel.swift in Sources */,
+				974DD93B2870A92A004086FD /* TranslateView.swift in Sources */,
 				14A4B2B627BBCE890075CF30 /* TranslationRequest.swift in Sources */,
 				14E4521027A64298008DCEAC /* WordStoreService.swift in Sources */,
 				14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */,

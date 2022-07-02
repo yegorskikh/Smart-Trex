@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HistoryTranslateCell: UITableViewCell {
+final class HistoryTranslateCell: UITableViewCell {
     
     // MARK: - Property
     

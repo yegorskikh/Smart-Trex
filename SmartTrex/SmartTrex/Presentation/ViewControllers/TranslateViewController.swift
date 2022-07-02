@@ -11,42 +11,49 @@ import RxSwift
 class TranslateViewController: UIViewController {
     
     // MARK: - Property
+    
+    private let translateView = TranslateView()
     private let disposeBag = DisposeBag()
-    // TODO: - ! after getting rid of the storyboard, put it in init and make it private
-    var viewModel: TranslateViewModel!
+    private let viewModel: TranslateViewModel
     
-    @IBOutlet weak var targetTextView: UITextView!
-    @IBOutlet weak var targetSegmentControl: UISegmentedControl!
-    @IBOutlet weak var translationTextView: UITextView!
-    @IBOutlet weak var toTranslateButton: UIButton!
+    // MARK: - Object lifecycle
     
-    // MARK: - Lifecycle
+    init(viewModel: TranslateViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.inputToViewModelBindings()
+        self.outputViewModelBindings()
+        self.internalSettingUI()
+    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        inputToViewModelBindings()
-        outputViewModelBindings()
-        internalSettingUI()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - ViewController lifecycle
+    
+    override func loadView() {
+        view = translateView
     }
     
     // MARK: - Input to VM
     
     private func inputToViewModelBindings() {
-        targetTextView
+        translateView.targetTextView
             .rx
             .text
             .orEmpty
             .bind(to: viewModel.input.onToTranslate)
             .disposed(by: disposeBag)
-        
-        toTranslateButton
+
+        translateView.toTranslateButton
             .rx
             .tap
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .bind(to: viewModel.input.onSendAction)
             .disposed(by: disposeBag)
-        
-        targetSegmentControl
+
+        translateView.targetSegmentControl
             .rx
             .selectedTitle
             .bind(to: viewModel.input.onTarget)
@@ -65,23 +72,21 @@ class TranslateViewController: UIViewController {
     viewModel
         .output
         .onTranslate
-        .drive(translationTextView.rx.text)
+        .drive(translateView.translationTextView.rx.text)
         .disposed(by: disposeBag)
      }
     
     // MARK: - Internal setting
     
-    private func internalSettingUI() {
-        translationTextView.isEditable = false
-        
-        targetTextView
+    private func internalSettingUI() {        
+        translateView.targetTextView
             .rx
             .text
             .subscribe(onNext: { text in
                 guard let text = text else { return }
                 if text.contains("\n") {
-                    self.targetTextView.text.removeLast()
-                    self.targetTextView.resignFirstResponder()
+                    self.translateView.targetTextView.text.removeLast()
+                    self.translateView.targetTextView.resignFirstResponder()
                 }
             })
             .disposed(by: disposeBag)
