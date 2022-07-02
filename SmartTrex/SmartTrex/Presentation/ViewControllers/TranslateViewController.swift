@@ -24,20 +24,14 @@ class TranslateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initBindings()
-        setupTextViews()
+        inputToViewModelBindings()
+        outputViewModelBindings()
+        internalSettingUI()
     }
     
-    // MARK: - Private
+    // MARK: - Input to VM
     
-    private func setupTextViews() {
-        translationTextView.isEditable = false
-    }
-    
-    // MARK: - Init Bindings
-    
-    private func initBindings() {
-        // MARK: - Input to VM
+    private func inputToViewModelBindings() {
         targetTextView
             .rx
             .text
@@ -57,27 +51,36 @@ class TranslateViewController: UIViewController {
             .selectedTitle
             .bind(to: viewModel.input.onTarget)
             .disposed(by: disposeBag)
-        
-        // MARK: - Output VM
+    }
+    
+    // MARK: - Output VM
+    
+    private func outputViewModelBindings() {
         viewModel
-            .output
-            .onError
-            .drive(self.rx.showAlert)
-            .disposed(by: disposeBag)
+        .output
+        .onError
+        .drive(self.rx.showAlert)
+        .disposed(by: disposeBag)
+    
+    viewModel
+        .output
+        .onTranslate
+        .drive(translationTextView.rx.text)
+        .disposed(by: disposeBag)
+     }
+    
+    // MARK: - Internal setting
+    
+    private func internalSettingUI() {
+        translationTextView.isEditable = false
         
-        viewModel
-            .output
-            .onTranslate
-            .drive(translationTextView.rx.text)
-            .disposed(by: disposeBag)
-        
-        // MARK: - Internal setting
         targetTextView
             .rx
             .text
             .subscribe(onNext: { text in
                 guard let text = text else { return }
                 if text.contains("\n") {
+                    self.targetTextView.text.removeLast()
                     self.targetTextView.resignFirstResponder()
                 }
             })

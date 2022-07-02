@@ -22,7 +22,8 @@ class HistoryTranslateViewController: UIViewController {
     init(viewModel: HistoryTranslateViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        self.initBindings()
+        self.inputToViewModelBindings()
+        self.outputViewModelBindings()
     }
     
     required init?(coder: NSCoder) {
@@ -35,10 +36,9 @@ class HistoryTranslateViewController: UIViewController {
         view = htView
     }
     
-    // MARK: - Init Bindings
+    // MARK: - Input to ViewModel
     
-    func initBindings() {
-        // MARK: - Input to ViewModel
+    private func inputToViewModelBindings() {
         self.rx
             .sentMessage(#selector(self.viewWillAppear(_:)))
             .map { _ in }
@@ -50,8 +50,11 @@ class HistoryTranslateViewController: UIViewController {
             .itemDeleted
             .bind(to: viewModel.input.indexPathToDel)
             .disposed(by: disposeBag)
-        
-        // MARK: - Output ViewModel
+    }
+    
+    // MARK: - Output ViewModel
+    
+    private func outputViewModelBindings() {
         viewModel
             .output
             .onTranslationWords
