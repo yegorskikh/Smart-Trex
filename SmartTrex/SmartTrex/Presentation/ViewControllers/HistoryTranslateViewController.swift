@@ -7,7 +7,6 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 
 class HistoryTranslateViewController: UIViewController {
     
@@ -24,6 +23,7 @@ class HistoryTranslateViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.inputToViewModelBindings()
         self.outputViewModelBindings()
+        self.internalSettingUI()
     }
     
     required init?(coder: NSCoder) {
@@ -75,6 +75,18 @@ class HistoryTranslateViewController: UIViewController {
             .output
             .onError
             .drive(self.rx.showAlert)
+            .disposed(by: disposeBag)
+    }
+    
+    private func internalSettingUI() {
+        htView.tableView
+            .rx
+            .itemSelected
+            .subscribe(
+                onNext: { indexPath in
+                    self.htView.tableView.deselectRow(at: indexPath, animated: true)
+                }
+            )
             .disposed(by: disposeBag)
     }
     
