@@ -10,14 +10,12 @@ import RxSwift
 import RxCocoa
 
 class HistoryTranslateViewController: UIViewController {
-
-    @IBOutlet weak var historyTableView: UITableView!
     
     // MARK: - Property
     
     private let htView = HistoryTranslateView()
     private let disposeBag = DisposeBag()
-    private var viewModel: HistoryTranslateViewModel //!
+    private var viewModel: HistoryTranslateViewModel
     
     // MARK: - Lifecycle object
     
@@ -58,9 +56,15 @@ class HistoryTranslateViewController: UIViewController {
             .output
             .onTranslationWords
             .asObservable()
-            .bind(to: htView.tableView.rx.items(cellIdentifier: HistoryTranslateCell.reuseIdentifier,
-                                                cellType: HistoryTranslateCell.self) ) { index, model, cell in
-                cell.setupCell(original: model.original, translation: model.translation)
+            .bind(
+                to: htView.tableView.rx.items(
+                    cellIdentifier: HistoryTranslateCell.reuseIdentifier,
+                    cellType: HistoryTranslateCell.self)
+            ) { index, model, cell in
+                cell.setupCell(
+                    original: model.original,
+                    translation: model.translation
+                )
             }
             .disposed(by: disposeBag)
         

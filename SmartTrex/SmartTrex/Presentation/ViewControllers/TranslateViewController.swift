@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 
 class TranslateViewController: UIViewController {
-
+    
     // MARK: - Property
     private let disposeBag = DisposeBag()
     // TODO: - ! after getting rid of the storyboard, put it in init and make it private
@@ -31,7 +31,6 @@ class TranslateViewController: UIViewController {
     // MARK: - Private
     
     private func setupTextViews() {
-        targetTextView.delegate = self
         translationTextView.isEditable = false
     }
     
@@ -45,11 +44,11 @@ class TranslateViewController: UIViewController {
             .orEmpty
             .bind(to: viewModel.input.onToTranslate)
             .disposed(by: disposeBag)
-                
+        
         toTranslateButton
             .rx
             .tap
-            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .bind(to: viewModel.input.onSendAction)
             .disposed(by: disposeBag)
         
@@ -71,25 +70,18 @@ class TranslateViewController: UIViewController {
             .onTranslate
             .drive(translationTextView.rx.text)
             .disposed(by: disposeBag)
-    }
-    
-}
-
-// MARK: - UITextViewDelegate
-
-// TODO: - !! Implement via rx
-extension TranslateViewController: UITextViewDelegate {
-    
-    func textView(_ textView: UITextView,
-                  shouldChangeTextIn range: NSRange,
-                  replacementText text: String) -> Bool {
         
-        if (text == "\n") {
-            textView.resignFirstResponder()
-            return false
-            
-        }
-        return true
+        // MARK: - Internal setting
+        targetTextView
+            .rx
+            .text
+            .subscribe(onNext: { text in
+                guard let text = text else { return }
+                if text.contains("\n") {
+                    self.targetTextView.resignFirstResponder()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
 }
