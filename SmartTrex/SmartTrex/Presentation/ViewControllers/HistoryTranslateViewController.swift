@@ -14,7 +14,7 @@ class HistoryTranslateViewController: UIViewController {
     
     private let htView = HistoryTranslateView()
     private let disposeBag = DisposeBag()
-    private var viewModel: HistoryTranslateViewModel
+    private let viewModel: HistoryTranslateViewModel
     
     // MARK: - Lifecycle object
     
@@ -62,7 +62,8 @@ class HistoryTranslateViewController: UIViewController {
             .bind(
                 to: htView.tableView.rx.items(
                     cellIdentifier: HistoryTranslateCell.reuseIdentifier,
-                    cellType: HistoryTranslateCell.self)
+                    cellType: HistoryTranslateCell.self
+                )
             ) { index, model, cell in
                 cell.setupCell(
                     original: model.original,

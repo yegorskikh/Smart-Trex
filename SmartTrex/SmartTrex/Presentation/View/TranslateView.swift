@@ -21,10 +21,12 @@ final class TranslateView: UIView {
     lazy var targetSegmentControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl()
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        // TODO: Take out of here
+        
+        // TODO: - Take out of here
         segmentedControl.insertSegment(withTitle: "en", at: 0, animated: true)
         segmentedControl.insertSegment(withTitle: "ru", at: 1, animated: true)
         segmentedControl.selectedSegmentIndex = 0
+        
         return segmentedControl
     }()
 
@@ -37,11 +39,15 @@ final class TranslateView: UIView {
     }()
 
     lazy var toTranslateButton: UIButton = {
-        let button = UIButton(type: .system)
+        var configuration = UIButton.Configuration.filled()
+        configuration.buttonSize = .large
+        configuration.cornerStyle = .capsule
+        configuration.title = "To Translate"
+        
+        let button = UIButton()
+        button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .blue
-        button.setTitle("To Translate", for: .normal)
-        button.tintColor = .white
+        
         return button
     }()
     
