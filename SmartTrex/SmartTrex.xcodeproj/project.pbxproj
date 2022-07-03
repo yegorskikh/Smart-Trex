@@ -14,7 +14,6 @@
 		14225B3D27A06D1E004B63BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14225B3C27A06D1E004B63BE /* AppDelegate.swift */; };
 		14225B3F27A06D1E004B63BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14225B3E27A06D1E004B63BE /* SceneDelegate.swift */; };
 		14225B4127A06D1E004B63BE /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14225B4027A06D1E004B63BE /* TranslateViewController.swift */; };
-		14225B4427A06D1E004B63BE /* Translate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4227A06D1E004B63BE /* Translate.storyboard */; };
 		14225B4627A06D21004B63BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4527A06D21004B63BE /* Assets.xcassets */; };
 		14225B4927A06D21004B63BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14225B4727A06D21004B63BE /* LaunchScreen.storyboard */; };
 		14A4B2B627BBCE890075CF30 /* TranslationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4B2B527BBCE890075CF30 /* TranslationRequest.swift */; };
@@ -40,6 +39,7 @@
 		9770A71A28526B6500212F39 /* TranslationWordMapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9770A71928526B6500212F39 /* TranslationWordMapperMock.swift */; };
 		97946DCC27D6F3160032A5C7 /* HistoryTranslateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97946DCB27D6F3160032A5C7 /* HistoryTranslateInteractor.swift */; };
 		97946DD227D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97946DD127D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift */; };
+		97990FC52871DB7100D9BEE3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97990FC42871DB7100D9BEE3 /* RootView.swift */; };
 		97A39618286B71280002BEE4 /* HistoryTranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A39617286B71280002BEE4 /* HistoryTranslateView.swift */; };
 		97AD742328510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD742128510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift */; };
 		97AD742428510DA5006DEB15 /* TranslationWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD742228510DA5006DEB15 /* TranslationWord+CoreDataClass.swift */; };
@@ -79,7 +79,6 @@
 		14225B3C27A06D1E004B63BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14225B3E27A06D1E004B63BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		14225B4027A06D1E004B63BE /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
-		14225B4327A06D1E004B63BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Translate.storyboard; sourceTree = "<group>"; };
 		14225B4527A06D21004B63BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14225B4827A06D21004B63BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14225B4A27A06D22004B63BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		9770A71928526B6500212F39 /* TranslationWordMapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationWordMapperMock.swift; sourceTree = "<group>"; };
 		97946DCB27D6F3160032A5C7 /* HistoryTranslateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateInteractor.swift; sourceTree = "<group>"; };
 		97946DD127D6F7340032A5C7 /* HistoryTranslateInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateInteractorTests.swift; sourceTree = "<group>"; };
+		97990FC42871DB7100D9BEE3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		97A39617286B71280002BEE4 /* HistoryTranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTranslateView.swift; sourceTree = "<group>"; };
 		97AD742128510DA5006DEB15 /* TranslationWord+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		97AD742228510DA5006DEB15 /* TranslationWord+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TranslationWord+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -494,10 +494,10 @@
 		97C99EB627D928310048271B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				14225B4227A06D1E004B63BE /* Translate.storyboard */,
 				97BC477427D57A3700DC1C3D /* HistoryTranslateCell.swift */,
 				97A39617286B71280002BEE4 /* HistoryTranslateView.swift */,
 				974DD93A2870A92A004086FD /* TranslateView.swift */,
+				97990FC42871DB7100D9BEE3 /* RootView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -642,7 +642,6 @@
 			files = (
 				14225B4927A06D21004B63BE /* LaunchScreen.storyboard in Resources */,
 				14225B4627A06D21004B63BE /* Assets.xcassets in Resources */,
-				14225B4427A06D1E004B63BE /* Translate.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +789,7 @@
 				97AD7427285117DD006DEB15 /* TranslationWord.swift in Sources */,
 				14A4B2BE27BBDC420075CF30 /* SecureString.swift in Sources */,
 				97003B92285583AD009FE515 /* UIViewController+Reactive .swift in Sources */,
+				97990FC52871DB7100D9BEE3 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,14 +826,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		14225B4227A06D1E004B63BE /* Translate.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14225B4327A06D1E004B63BE /* Base */,
-			);
-			name = Translate.storyboard;
-			sourceTree = "<group>";
-		};
 		14225B4727A06D21004B63BE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

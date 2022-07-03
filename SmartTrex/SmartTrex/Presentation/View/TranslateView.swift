@@ -15,6 +15,7 @@ final class TranslateView: UIView {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.backgroundColor = .white
+        textView.layer.cornerRadius = 5
         return textView
     }()
     
@@ -35,6 +36,7 @@ final class TranslateView: UIView {
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.backgroundColor = .white
         textView.isEditable = false
+        textView.layer.cornerRadius = 5
         return textView
     }()
 

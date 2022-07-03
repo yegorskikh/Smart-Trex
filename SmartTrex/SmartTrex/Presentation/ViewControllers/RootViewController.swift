@@ -13,33 +13,43 @@ class RootViewController: UIViewController {
     
     // MARK: - Property
     
+    private let rootView = RootView()
     private let disposeBag = DisposeBag()
-    var viewModel: RootViewModel!
+    private let viewModel: RootViewModel
     
-    @IBOutlet weak var booksButton: UIButton!
-    @IBOutlet weak var translateButton: UIButton!
-    @IBOutlet weak var historyButton: UIButton!
+    // MARK: - Lifecycle object
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        initBinding()
+    init(viewModel: RootViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.initBinding()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Lifecycle ViewController
+    
+    override func loadView() {
+        view = rootView
+    }
+        
     private func initBinding() {
         // MARK: - Input to View Model
-        booksButton
+        rootView.booksButton
             .rx
             .tap
             .bind(to: viewModel.input.onSendActionBooks)
             .disposed(by: disposeBag)
         
-        translateButton
+        rootView.translateButton
             .rx
             .tap
             .bind(to: viewModel.input.onSendActionTranslate)
             .disposed(by: disposeBag)
         
-        historyButton
+        rootView.historyButton
             .rx
             .tap
             .bind(to: viewModel.input.onSendActionHistory)

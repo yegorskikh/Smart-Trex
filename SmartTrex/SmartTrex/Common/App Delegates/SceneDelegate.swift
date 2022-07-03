@@ -20,9 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let storyboard = UIStoryboard(name: "Translate", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "MainVC") as! RootViewController
-        viewController.viewModel = RootViewModel()
+        let viewModel = RootViewModel()
+        let viewController = RootViewController(
+            viewModel: viewModel
+        )
         
         let navController = UINavigationController()
         navController.viewControllers = [viewController]

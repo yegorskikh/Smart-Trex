@@ -16,6 +16,7 @@ final class HistoryTranslateView: UIView {
         tableView.register(HistoryTranslateCell.self, forCellReuseIdentifier: HistoryTranslateCell.reuseIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.rowHeight = 90.0
+        tableView.layer.cornerRadius = 5
         return tableView
     }()
     

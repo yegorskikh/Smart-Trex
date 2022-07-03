@@ -48,6 +48,7 @@ final class HistoryTranslateCell: UITableViewCell {
     // MARK: - Private method
     
     private func setupViews() {
+        layer.cornerRadius = 45
         addSubview(originalLabel)
         addSubview(translationLabel)
     }
