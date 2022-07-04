@@ -17,10 +17,10 @@ class HistoryTranslateViewController: UIViewController {
     private let viewModel: HistoryTranslateViewModel
     
     // MARK: - Lifecycle object
-    
-    init(viewModel: HistoryTranslateViewModel) {
+
+    init(viewModel: HistoryTranslateViewModel, nibName: String? = nil, bundle: Bundle? = nil) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nibName, bundle: bundle)
         self.inputToViewModelBindings()
         self.outputViewModelBindings()
         self.internalSettingUI()

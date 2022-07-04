@@ -19,9 +19,9 @@ class RootViewController: UIViewController {
     
     // MARK: - Lifecycle object
     
-    init(viewModel: RootViewModel) {
+    init(viewModel: RootViewModel, nibName: String? = nil, bundle: Bundle? = nil) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nibName, bundle: bundle)
         self.initBinding()
     }
     
