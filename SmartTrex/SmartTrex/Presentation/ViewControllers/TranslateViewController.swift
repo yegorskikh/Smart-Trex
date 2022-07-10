@@ -17,6 +17,7 @@ class TranslateViewController: UIViewController {
     private let viewModel: TranslateViewModel
     
     // MARK: - Object lifecycle
+    
     init(viewModel: TranslateViewModel, nibName: String? = nil, bundle: Bundle? = nil) {
         self.viewModel = viewModel
         super.init(nibName: nibName, bundle: bundle)

@@ -13,7 +13,7 @@ import RxCocoa
 import RxSwift
 
 
-class TestWordStoreManager: XCTestCase {
+class WordStoreManagerTests: XCTestCase {
     
     var wordService: WordStoreService!
     var coreDataStack: CoreDataStackMock!

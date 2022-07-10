@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+// TODO: - Write Integration tests
 class HistoryTranslateViewModel: ViewModelProtocol {
     
     // MARK: - Private property
@@ -57,7 +58,7 @@ class HistoryTranslateViewModel: ViewModelProtocol {
         initBindings()
     }
     
-    // MARK: - Bindings
+    // MARK: - Private method
     
     private func initBindings() {
         // input

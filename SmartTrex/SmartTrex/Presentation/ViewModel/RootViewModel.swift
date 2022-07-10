@@ -9,7 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+// TODO: - Write tests
 class RootViewModel: ViewModelProtocol {
+    
+    // MARK: - Private property
     
     private let disposeBag = DisposeBag()
     private var goToVc: UIViewController!
@@ -19,6 +22,8 @@ class RootViewModel: ViewModelProtocol {
         case translate
         case historyTranslate
     }
+    
+    // MARK: - Internal property
     
     let input: Input
     let output: Output
@@ -55,6 +60,8 @@ class RootViewModel: ViewModelProtocol {
         )
         initBinding()
     }
+    
+    // MARK: - Private method
     
     private func initBinding() {
         actionBooks

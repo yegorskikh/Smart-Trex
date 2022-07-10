@@ -23,7 +23,7 @@
 		14ABECC127A602F500708D1E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ABECC027A602F500708D1E /* CoreDataStack.swift */; };
 		14E4520E27A63FB5008DCEAC /* CoreDataStackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520D27A63FB5008DCEAC /* CoreDataStackMock.swift */; };
 		14E4521027A64298008DCEAC /* WordStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4520F27A64298008DCEAC /* WordStoreService.swift */; };
-		14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */; };
+		14E4521427A6D4D3008DCEAC /* WordStoreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E4521327A6D4D3008DCEAC /* WordStoreManagerTests.swift */; };
 		14F7031027C0052F00EF0838 /* NetworkingErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7030F27C0052F00EF0838 /* NetworkingErrorMessage.swift */; };
 		97003B92285583AD009FE515 /* UIViewController+Reactive .swift in Sources */ = {isa = PBXBuildFile; fileRef = 97003B91285583AD009FE515 /* UIViewController+Reactive .swift */; };
 		97003B942855ED91009FE515 /* UISegmentedControl+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97003B932855ED91009FE515 /* UISegmentedControl+Reactive.swift */; };
@@ -90,7 +90,7 @@
 		14E4520227A63E30008DCEAC /* SmartTrexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartTrexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E4520D27A63FB5008DCEAC /* CoreDataStackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackMock.swift; sourceTree = "<group>"; };
 		14E4520F27A64298008DCEAC /* WordStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordStoreService.swift; sourceTree = "<group>"; };
-		14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWordStoreManager.swift; sourceTree = "<group>"; };
+		14E4521327A6D4D3008DCEAC /* WordStoreManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordStoreManagerTests.swift; sourceTree = "<group>"; };
 		14F7030F27C0052F00EF0838 /* NetworkingErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingErrorMessage.swift; sourceTree = "<group>"; };
 		55F908DE156425EDE1A2EB24 /* Pods_SmartTrexTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartTrexTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F474BE5CBEBAB52553FBBC /* Pods-SmartTrex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartTrex.debug.xcconfig"; path = "Target Support Files/Pods-SmartTrex/Pods-SmartTrex.debug.xcconfig"; sourceTree = "<group>"; };
@@ -369,7 +369,7 @@
 		14E4521627A6EB32008DCEAC /* ServiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				14E4521327A6D4D3008DCEAC /* TestWordStoreManager.swift */,
+				14E4521327A6D4D3008DCEAC /* WordStoreManagerTests.swift */,
 			);
 			path = ServiceTests;
 			sourceTree = "<group>";
@@ -803,7 +803,7 @@
 				14155CF927BC30E30054B502 /* GoogleTranslationServiceTests.swift in Sources */,
 				9756825927CEAF6E00C7E85F /* TranslateViewModelTests.swift in Sources */,
 				970A1F31285DFDD70063B112 /* IntegrationTestingOfWordTranslation.swift in Sources */,
-				14E4521427A6D4D3008DCEAC /* TestWordStoreManager.swift in Sources */,
+				14E4521427A6D4D3008DCEAC /* WordStoreManagerTests.swift in Sources */,
 				14155CFC27BC31130054B502 /* URLProtocolMock.swift in Sources */,
 				97EB1C9827CBD94600832CC7 /* TranslationNetworkMock.swift in Sources */,
 				97EB1C9127CBCBFE00832CC7 /* TranslatorInteractorTests.swift in Sources */,

@@ -12,7 +12,7 @@ import RxBlocking
 import RxSwift
 @testable import SmartTrex
 
-class IntegrationTestingOfWordTranslation: XCTestCase {
+class IntegrationWordTranslationTests: XCTestCase {
     
     var disposeBag: DisposeBag!
     var scheduler: TestScheduler!

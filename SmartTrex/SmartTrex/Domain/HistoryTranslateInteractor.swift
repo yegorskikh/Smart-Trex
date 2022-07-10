@@ -19,7 +19,7 @@ class HistoryTranslateInteractor: HistoryTranslateInteractorable {
     private let mapper: TranslationWordMapperable
     private let storage: TranslateStoragable
     
-    // MARK: - Int
+    // MARK: - Init
     init(storage: TranslateStoragable, mapper: TranslationWordMapperable){
         self.storage = storage
         self.mapper = mapper

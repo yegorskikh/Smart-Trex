@@ -16,8 +16,8 @@ class TranslateInteractor: TranslateInteractorable {
     
     // MARK: - Property
     
-    private let serviceStorage: TranslateStoragable!
-    private let serviceTranslate: Translationable!
+    private let serviceStorage: TranslateStoragable
+    private let serviceTranslate: Translationable
     private let disposeBag = DisposeBag()
     
     // MARK: - Lifecycle
