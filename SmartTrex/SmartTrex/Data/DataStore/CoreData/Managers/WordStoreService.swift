@@ -11,7 +11,8 @@ import RxSwift
 import RxCocoa
 
 protocol TranslateStoragable {
-    @discardableResult func saveToStorage(original: String, translation: String) -> TranslationWord?
+    @discardableResult
+    func saveToStorage(original: String, translation: String) -> TranslationWord?
     func getDataFromStorage() -> Single<[TranslationWord]>
     func removeFromStorage(by uuid: UUID)
 }
@@ -40,10 +41,8 @@ class WordStoreService: TranslateStoragable {
         return translationWord
     }
     func getDataFromStorage() -> Single<[TranslationWord]> {
-        return Single<[TranslationWord]>.create { [weak self] single in
-            
-            guard let self = self else { return Disposables.create() }
-            
+        return Single<[TranslationWord]>.create { single in
+                        
             do {
                 let words = try self.coreDataStack.storeContainer.viewContext
                     .fetch(NSFetchRequest<TranslationWord>(entityName: CoreDataStack.modelName))
@@ -59,9 +58,8 @@ class WordStoreService: TranslateStoragable {
     func removeFromStorage(by uuid: UUID) {
         getDataFromStorage()
             .subscribe(
-                onSuccess: { [weak self] data in
+                onSuccess: { data in
                     guard
-                        let self = self,
                         let object = self.findBy(uuid: uuid)
                     else {
                         return

@@ -26,9 +26,9 @@ class GoogleTranslationService: Translationable {
     
     // MARK: - Public
     func toTranslate(word: TranslationRequestModel) -> Single<String> {
-        return Single<String>.create { [weak self] single in
+        return Single<String>.create { single in
             
-            self?.session.request(URL(string: SecureUrlString.urlStringTranslate)!,
+            self.session.request(URL(string: SecureUrlString.urlStringTranslate)!,
                                   method: .post,
                                   parameters: word,
                                   encoder: URLEncodedFormParameterEncoder.default,
@@ -44,7 +44,7 @@ class GoogleTranslationService: Translationable {
                 }
                 
                 switch statusCode {
-                case 200:
+                case 200..<300:
                     do {
                         let data = try JSONDecoder().decode(TranslateResponseData.self, from: responseData)
                         
@@ -66,7 +66,7 @@ class GoogleTranslationService: Translationable {
                 }
             }
             
-            return Disposables.create { self?.session.cancelAllRequests() }
+            return Disposables.create { self.session.cancelAllRequests() }
         }
     }
     
