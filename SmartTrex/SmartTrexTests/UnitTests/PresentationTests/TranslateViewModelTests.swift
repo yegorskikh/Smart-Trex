@@ -130,7 +130,6 @@ class TranslateViewModelTests: XCTestCase {
             .next(9, "  "),
             .next(10, ""),
             .next(11, " "),
-        //    .completed(11)
         ])
         
         XCTAssertEqual(targetToTranslate.events, [

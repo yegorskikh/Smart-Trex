@@ -9,7 +9,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-// TODO: - Write tests
 class RootViewModel: ViewModelProtocol {
     
     // MARK: - Private property
