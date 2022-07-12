@@ -17,7 +17,7 @@ class TranslateCollectorFactory: CollectorModuleFactory {
         
         // mock
         let responseModel = TranslateResponseData(
-            data: .init(translations: [.init(translatedText: "Foo Bar Baz Qux")])
+            data: nil//.init(translations: [.init(translatedText: "Foo Bar Baz Qux")])
         )
         let responseJsonData = try! JSONEncoder().encode(responseModel)
         

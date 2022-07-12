@@ -82,9 +82,8 @@ class HistoryTranslateViewModel: ViewModelProtocol {
                         onNext: { data in
                             self.translationWords.onNext(data)
                         },
-                        onError: { error in
-                            let err = error as! StorageDataError
-                            self.error.onNext(err.errorDescription)
+                        onError: { 
+                            self.error.onNext($0.localizedDescription)
                         }
                     )
                     .disposed(by: self.disposeBag)

@@ -75,9 +75,8 @@ class TranslateViewModel: ViewModelProtocol {
                         text: text,
                         target: target
                     )
-                    .asDriver(onErrorRecover: { error in
-                        let err = error as! NetworkingErrorMessage
-                        self.error.onNext(err.errorDescription)
+                    .asDriver(onErrorRecover: {
+                        self.error.onNext($0.localizedDescription)
                         return .empty()
                     })
                     .drive(

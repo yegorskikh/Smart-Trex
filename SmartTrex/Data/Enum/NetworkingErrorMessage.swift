@@ -14,7 +14,7 @@ enum NetworkingErrorMessage: LocalizedError {
     case decodeData
     case corruptedData
     
-    var errorDescription: String {
+    var errorDescription: String? {
         switch self {
         case .responseData:
             return "Failed response data"
