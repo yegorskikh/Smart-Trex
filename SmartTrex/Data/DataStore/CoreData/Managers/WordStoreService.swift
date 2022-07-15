@@ -40,6 +40,7 @@ class WordStoreService: TranslateStoragable {
         coreDataStack.saveContext(managedObjectContext)
         return translationWord
     }
+    
     func getDataFromStorage() -> Single<[TranslationWord]> {
         return Single<[TranslationWord]>.create { single in
                         
@@ -79,7 +80,7 @@ class WordStoreService: TranslateStoragable {
         getDataFromStorage()
             .subscribe(
                 onSuccess: {
-                    object = $0.first(where: { $0.uuid == uuid })
+                    object = $0.first(where: { $0.uuid == uuid } )
                 }
             )
             .disposed(by: disposeBag)
