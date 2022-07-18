@@ -28,8 +28,8 @@ class TranslateCollectorFactory: CollectorModuleFactory {
         configuration.protocolClasses = [URLMock.self]
         
         // assembly
-        let service = GoogleTranslationService(urlConfiguration: configuration)
-        //let service = GoogleTranslationService()
+       // let service = GoogleTranslationService(urlConfiguration: configuration)
+        let service = GoogleTranslationService()
         let coreDataStack = CoreDataStack()
         
         let storage = WordStoreService(

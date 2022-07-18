@@ -11,7 +11,7 @@ import RxSwift
 @testable import SmartTrex
 
 class TranslationNetworkMock: Translationable {
-    
+
     var responseType: ResponseType = .success
     
     enum ResponseType {
@@ -24,7 +24,7 @@ class TranslationNetworkMock: Translationable {
     }
     
     func toTranslate(word: TranslationRequestModel) -> Single<String> {
-        return Single<String>.create { [unowned self] single in
+        return Single<String>.create { single in
             
             switch self.responseType {
             case .success:
@@ -36,6 +36,20 @@ class TranslationNetworkMock: Translationable {
             return Disposables.create()
         }
         
+    }
+    
+    func getLanguages() -> Single<[String]> {
+        return Single<[String]>.create { single in
+            
+            switch self.responseType {
+            case .success:
+                let response = ["Baz"]
+                single(.success(response))
+            case .failed:
+                single(.failure(NetworkingErrorMessage.responseData))
+            }
+            return Disposables.create()
+        }
     }
     
 }

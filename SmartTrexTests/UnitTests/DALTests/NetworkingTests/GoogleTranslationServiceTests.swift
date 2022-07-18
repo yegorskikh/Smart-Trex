@@ -37,7 +37,130 @@ class GoogleTranslationServiceTests: XCTestCase {
         disposeBag = nil
         super.tearDown()
     }
+    func test_get_language() {
+        // given
+        let responseData = LanguagesDataResponse(
+            data: Languages(
+                languages: [Language(language: "Foo"),
+                            Language(language: "Bar"),
+                            Language(language: "Baz"),
+                            Language(language: "Qux")]
+            )
+        )
+        let responseJsonData = try! JSONEncoder().encode(responseData)
+        mock.setupMock(statusCode: 200, responseData: responseJsonData)
+        let expectedResponseModel = ["Foo","Bar","Baz","Qux"]
+        
+        let expectation = XCTestExpectation(description: "successful request")
+        
+        // when
+        sut.getLanguages()
+            .subscribe(
+                onSuccess: {
+                    // then
+                    XCTAssertEqual($0, expectedResponseModel)
+                    expectation.fulfill()
+                },
+                onFailure: { _ in XCTFail() } )
+            .disposed(by: disposeBag)
+        
+        wait(for: [expectation], timeout: 5)
+    }
     
+    func test_get_language_successful_corrupted_data() {
+        // given
+        let expectation = XCTestExpectation(description: "corrupted data")
+        let responseData = LanguagesDataResponse(data: nil)
+        let responseJsonData = try! JSONEncoder().encode(responseData)
+        mock.setupMock(statusCode: 200, responseData: responseJsonData)
+        
+        
+        // when
+        sut.getLanguages()
+            .subscribe(
+                onSuccess: {_ in
+                    XCTFail()
+                },
+                onFailure: { error in
+                    // then
+                    XCTAssertEqual(
+                        error.localizedDescription,
+                        NetworkingErrorMessage.corruptedData.localizedDescription
+                    )
+                    expectation.fulfill()
+                })
+            .disposed(by: disposeBag)
+        
+        wait(for: [expectation], timeout: 5)
+    }
+
+    func test_get_language_response_with_failed_status_code() {
+        // given
+        let expected = LanguagesDataResponse(data: Languages(languages: []))
+        let responseJsonData = try! JSONEncoder().encode(expected)
+        mock.setupMock(statusCode: 404, responseData: responseJsonData)
+        let expectation = XCTestExpectation(description: "failed status code")
+
+        // when
+        sut.getLanguages()
+            .subscribe(
+                onFailure: {
+                    // then
+                    XCTAssertEqual(
+                        $0.localizedDescription,
+                        NetworkingErrorMessage.statusCode.localizedDescription
+                    )
+                    expectation.fulfill()
+                })
+            .disposed(by: disposeBag)
+
+        wait(for: [expectation], timeout: 5)
+    }
+
+    func test_get_language_failed_response_data() {
+        // given
+        let expectation = XCTestExpectation(description: "failed response data")
+        mock.setupMock(statusCode: 200, responseData: nil)
+
+        // when
+        sut.getLanguages()
+            .subscribe(
+                onFailure: {
+                    // then
+                    XCTAssertEqual(
+                        $0.localizedDescription,
+                        NetworkingErrorMessage.responseData.localizedDescription
+                    )
+                    expectation.fulfill()
+                })
+            .disposed(by: disposeBag)
+
+        wait(for: [expectation], timeout: 5)
+    }
+
+    func test_get_language_failed_decode_data() {
+        // given
+        let expectation = XCTestExpectation(description: "failed decode data")
+        let expected = ""
+        let responseJsonData = try! JSONEncoder().encode(expected)
+        mock.setupMock(statusCode: 200, responseData: responseJsonData)
+
+        // when
+        sut.getLanguages()
+            .subscribe(
+                onFailure: {
+                    // then
+                    XCTAssertEqual(
+                        $0.localizedDescription,
+                        NetworkingErrorMessage.decodeData.localizedDescription
+                    )
+                    expectation.fulfill()
+                })
+            .disposed(by: disposeBag)
+
+        wait(for: [expectation], timeout: 5)
+    }
+
     func test_translate_successful_request() {
         // given
         let responseData = TranslateResponseData(
@@ -72,7 +195,6 @@ class GoogleTranslationServiceTests: XCTestCase {
         let responseData = TranslateResponseData(data: nil)
         let responseJsonData = try! JSONEncoder().encode(responseData)
         mock.setupMock(statusCode: 200, responseData: responseJsonData)
-
         
         // when
         sut.toTranslate(word: translationRequestModel)
