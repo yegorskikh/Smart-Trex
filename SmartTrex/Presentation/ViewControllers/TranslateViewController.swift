@@ -76,7 +76,7 @@ class TranslateViewController: UIViewController {
         .disposed(by: disposeBag)
      }
     
-    // MARK: - Internal setting
+    // MARK: - Private method
     
     private func internalSettingUI() {        
         translateView.targetTextView

@@ -60,7 +60,7 @@ class TranslateViewModel: ViewModelProtocol {
         initBindings()
     }
     
-    // MARK: - Bindings
+    // MARK: - Private method
     
     private func initBindings() {
         sendAction
