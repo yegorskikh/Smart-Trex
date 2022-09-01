@@ -83,3 +83,11 @@ class HistoryTranslateCollectorFactory: CollectorModuleFactory {
     }
     
 }
+
+class BookPageCollectorFactory: CollectorModuleFactory {
+    
+    func getModule() -> UIViewController {
+        return BookPageViewController()
+    }
+    
+}

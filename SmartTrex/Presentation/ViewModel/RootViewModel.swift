@@ -20,6 +20,7 @@ class RootViewModel: ViewModelProtocol {
     private enum GoTo {
         case translate
         case historyTranslate
+        case book
     }
     
     // MARK: - Internal property
@@ -37,7 +38,7 @@ class RootViewModel: ViewModelProtocol {
         let onShowError: Driver<String>
         let onPushViewController: Driver<UIViewController>
     }
-     
+    
     // input
     let actionBooks = PublishSubject<Void>()
     let actionHistory = PublishSubject<Void>()
@@ -66,6 +67,8 @@ class RootViewModel: ViewModelProtocol {
         actionBooks
             .bind { _ in
                 self.showError.onNext("I'm still in development")
+                //                let vc = self.getModule(.book)
+                //                self.viewController.onNext(vc)
             }
             .disposed(by: disposeBag)
         
@@ -91,6 +94,8 @@ class RootViewModel: ViewModelProtocol {
             collector = TranslateCollectorFactory()
         case .historyTranslate:
             collector = HistoryTranslateCollectorFactory()
+        case .book:
+            collector = BookPageCollectorFactory()
         }
         let vc = collector.getModule()
         return vc
