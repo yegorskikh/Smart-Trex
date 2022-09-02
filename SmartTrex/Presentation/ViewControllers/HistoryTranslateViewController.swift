@@ -75,7 +75,7 @@ class HistoryTranslateViewController: UIViewController {
         viewModel
             .output
             .onError
-            .drive(self.rx.showAlert)
+            .emit(to: self.rx.showAlert)
             .disposed(by: disposeBag)
     }
     

@@ -59,13 +59,13 @@ class RootViewController: UIViewController {
         viewModel
             .output
             .onShowError
-            .drive(self.rx.showAlert)
+            .emit(to: self.rx.showAlert)
             .disposed(by: disposeBag)
         
         viewModel
             .output
             .onPushViewController
-            .drive(self.rx.pushViewController)
+            .emit(to: self.rx.pushViewController)
             .disposed(by: disposeBag)
     }
     

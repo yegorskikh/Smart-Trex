@@ -17,12 +17,12 @@ class TranslateCollectorFactory: CollectorModuleFactory {
         
         // mock
         let responseModel = TranslateResponseData(
-            data: nil//.init(translations: [.init(translatedText: "Foo Bar Baz Qux")])
+            data: .init(translations: [.init(translatedText: "Foo Bar Baz Qux")])
         )
         let responseJsonData = try! JSONEncoder().encode(responseModel)
         
         let mock: URLMock = URLMock()
-        mock.setupMock(statusCode: 400, responseData: responseJsonData)
+        mock.setupMock(statusCode: 200, responseData: responseJsonData)
         
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [URLMock.self]

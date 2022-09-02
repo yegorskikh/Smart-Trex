@@ -28,8 +28,8 @@ class HistoryTranslateViewModel: ViewModelProtocol {
     }
     
     struct Output {
-        let onTranslationWords: Driver<[TranslationWordPresentation]>
-        let onError: Driver<String>
+        let onTranslationWords: Signal<[TranslationWordPresentation]>
+        let onError: Signal<String>
     }
     
     // Input
@@ -51,8 +51,8 @@ class HistoryTranslateViewModel: ViewModelProtocol {
         )
         
         output = Output(
-            onTranslationWords: translationWords.asDriver(onErrorJustReturn: []),
-            onError: error.asDriver(onErrorJustReturn: "")
+            onTranslationWords: translationWords.asSignal(onErrorJustReturn: []),
+            onError: error.asSignal(onErrorJustReturn: "")
         )
         
         initBindings()

@@ -28,8 +28,8 @@ class TranslateViewModel: ViewModelProtocol {
     }
     
     struct Output {
-        let onTranslate: Driver<String>
-        let onError: Driver<String>
+        let onTranslate: Signal<String>
+        let onError: Signal<String>
     }
     
     // Input
@@ -53,8 +53,8 @@ class TranslateViewModel: ViewModelProtocol {
         )
         
         output = Output(
-            onTranslate: translate.asDriver(onErrorJustReturn: ""),
-            onError: error.asDriver(onErrorJustReturn: "")
+            onTranslate: translate.asSignal(onErrorJustReturn: ""),
+            onError: error.asSignal(onErrorJustReturn: "")
         )
         
         initBindings()

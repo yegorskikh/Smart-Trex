@@ -66,13 +66,13 @@ class TranslateViewController: UIViewController {
         viewModel
         .output
         .onError
-        .drive(self.rx.showAlert)
+        .emit(to: self.rx.showAlert)
         .disposed(by: disposeBag)
     
     viewModel
         .output
         .onTranslate
-        .drive(translateView.translationTextView.rx.text)
+        .emit(to: translateView.translationTextView.rx.text)
         .disposed(by: disposeBag)
      }
     

@@ -35,8 +35,8 @@ class RootViewModel: ViewModelProtocol {
     }
     
     struct Output {
-        let onShowError: Driver<String>
-        let onPushViewController: Driver<UIViewController>
+        let onShowError: Signal<String>
+        let onPushViewController: Signal<UIViewController>
     }
     
     // input
@@ -55,8 +55,8 @@ class RootViewModel: ViewModelProtocol {
             onSendActionTranslate: actionTranslate.asObserver()
         )
         output = Output(
-            onShowError: showError.asDriver(onErrorJustReturn: ""),
-            onPushViewController: viewController.asDriver(onErrorJustReturn: UIViewController())
+            onShowError: showError.asSignal(onErrorJustReturn: ""),
+            onPushViewController: viewController.asSignal(onErrorRecover: { _ in .empty() })
         )
         initBinding()
     }
