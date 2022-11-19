@@ -118,7 +118,7 @@ class IntegrationWordTranslationTests: XCTestCase {
         viewModel
             .output
             .onTranslate
-            .drive(
+            .emit(
                 onNext: { event in
                     // then
                     XCTAssertEqual(event, "Qux")
@@ -174,7 +174,7 @@ class IntegrationWordTranslationTests: XCTestCase {
         viewModel
             .output
             .onError
-            .drive(
+            .emit(
                 onNext: { error in
                     XCTAssertNotNil(error)
                     expectation.fulfill()
