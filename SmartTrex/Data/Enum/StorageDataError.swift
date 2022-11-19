@@ -10,7 +10,7 @@ import Foundation
 enum StorageDataError: LocalizedError {
     case failedData
     
-    var errorDescription: String {
+    var errorDescription: String? {
         switch self {
         case .failedData:
             return "Wrong data in storage"
