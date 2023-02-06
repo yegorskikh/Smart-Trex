@@ -11,6 +11,7 @@ target 'SmartTrex' do
     pod 'RxCocoa'
     pod 'RxFlow'
     pod 'RxTimelane'
+    pod 'RealmSwift'
     
   target 'SmartTrexTests' do
     inherit! :search_paths
