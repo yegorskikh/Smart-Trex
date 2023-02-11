@@ -26,7 +26,6 @@ class HistoryTranslateInteractor: HistoryTranslateInteractorable {
     }
     
     // MARK: - Internal method
-    
     func getData() -> Observable<[TranslationWordPresentation]> {
         return storage
             .getDataFromStorage()
